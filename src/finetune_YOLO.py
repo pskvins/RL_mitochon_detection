@@ -12,7 +12,7 @@ model = YOLO("yolov8n.pt")
 
 yaml_path = prepare_dataset(
     zip_path="data/datasets.zip",
-    extract_to="datasets"
+    extract_to="."
 )
 
 model.train(
