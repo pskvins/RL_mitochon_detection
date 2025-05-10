@@ -1,7 +1,11 @@
 import os
 import zipfile
+from pathlib import Path
 
 def prepare_dataset(zip_path="data/datasets.zip", extract_to="datasets"):
+    zip_path = Path(zip_path).resolve()
+    extract_to = Path(extract_to).resolve()
+
     if not os.path.exists(zip_path):
         raise FileNotFoundError(f"No such file found: {zip_path}")
 
