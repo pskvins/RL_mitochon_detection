@@ -60,8 +60,8 @@ dataloader = DataLoader(dataset, batch_size=1, shuffle=True,collate_fn=lambda x:
 # -----------------------
 # Training Loop
 # -----------------------
-epochs = 10
-steps_per_episode = 3
+epochs = 1000
+steps_per_episode = 20
 os.makedirs("checkpoints", exist_ok=True)
 for epoch in range(epochs):
     print(f"[Epoch {epoch+1}/{epochs}]")
@@ -69,6 +69,10 @@ for epoch in range(epochs):
 
     for img, gt_boxes, coarse_boxes in tqdm(dataloader):
         for box in coarse_boxes:
+            img_w, img_h = img.size
+            gt_boxes = np.array([
+                        [x * img_w, y * img_h, w * img_w, h * img_h]
+                        for x, y, w, h in gt_boxes], dtype=np.float32) #rescale
             box = np.asarray(box, dtype=np.float32).reshape(4,)
             env = BoxRefinementEnv(
                 image=img,
@@ -92,7 +96,7 @@ for epoch in range(epochs):
                 replay_buffer.add(state, action_np, reward, next_state, done)
                 state = next_state
 
-                if replay_buffer.size > 1000:
+                if replay_buffer.size > 500:
                     actor_loss, critic_loss = agent.update(replay_buffer, batch_size=64)
 
                 if done:
