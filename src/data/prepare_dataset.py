@@ -22,3 +22,9 @@ def prepare_dataset(zip_path="data/datasets.zip", extract_to="datasets"):
         raise FileNotFoundError(f"No such file found: {yaml_path}")
 
     return str(yaml_path)
+
+
+if __name__ == "__main__":
+    prepare_dataset()
+
+    
