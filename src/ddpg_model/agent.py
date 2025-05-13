@@ -63,7 +63,7 @@ class DDPGAgent:
         """
         Sample from buffer and update actor/critic
         """
-        s, a, r, s2, d = buffer.sample_tensor(batch_size, device=self.device)
+        s, a, r, s2, d = buffer.sample(batch_size, device=self.device)
 
         # --- Critic update ---
         with torch.no_grad():
