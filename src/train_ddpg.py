@@ -60,8 +60,8 @@ dataloader = DataLoader(dataset, batch_size=1, shuffle=True,collate_fn=lambda x:
 # -----------------------
 # Training Loop
 # -----------------------
-epochs = 1000
-steps_per_episode = 20
+epochs = 100
+steps_per_episode = 5
 os.makedirs("checkpoints", exist_ok=True)
 for epoch in range(epochs):
     print(f"[Epoch {epoch+1}/{epochs}]")
