@@ -14,29 +14,33 @@ def compute_iou(box1: np.ndarray, box2: np.ndarray) -> float:
     x1, y1, w1, h1 = box1
     x2, y2, w2, h2 = box2
 
-    # Convert to [x0, y0, x1, y1]
-    x1_min, y1_min = x1 - w1 / 2, y1 - h1 / 2
-    x1_max, y1_max = x1 + w1 / 2, y1 + h1 / 2
+    try:
+        x1_min, y1_min = x1 - w1 / 2, y1 - h1 / 2
+        x1_max, y1_max = x1 + w1 / 2, y1 + h1 / 2
+        x2_min, y2_min = x2 - w2 / 2, y2 - h2 / 2
+        x2_max, y2_max = x2 + w2 / 2, y2 + h2 / 2
 
-    x2_min, y2_min = x2 - w2 / 2, y2 - h2 / 2
-    x2_max, y2_max = x2 + w2 / 2, y2 + h2 / 2
+        inter_xmin = max(x1_min, x2_min)
+        inter_ymin = max(y1_min, y2_min)
+        inter_xmax = min(x1_max, x2_max)
+        inter_ymax = min(y1_max, y2_max)
 
-    #Calculate intersection
-    inter_x0 = max(x1_min, x2_min)
-    inter_y0 = max(y1_min, y2_min)
-    inter_x1 = min(x1_max, x2_max)
-    inter_y1 = min(y1_max, y2_max)
+        inter_w = max(0.0, inter_xmax - inter_xmin)
+        inter_h = max(0.0, inter_ymax - inter_ymin)
+        inter_area = inter_w * inter_h
 
-    inter_w = max(0.0, inter_x1 - inter_x0)
-    inter_h = max(0.0, inter_y1 - inter_y0)
-    inter_area = inter_w * inter_h
+        area1 = max(1e-6, w1 * h1)
+        area2 = max(1e-6, w2 * h2)
+        union_area = area1 + area2 - inter_area
 
-    #Calculate union
-    area1 = w1 * h1
-    area2 = w2 * h2
-    union_area = area1 + area2 - inter_area
-
-    return inter_area / union_area if union_area > 0 else 0.0
+        iou = inter_area / union_area
+        if not np.isfinite(iou):
+            return 0.0
+        return iou
+    
+    except Exception as e:
+        print(f"[compute_iou] Exception: {e}")
+        return 0.0
 
 
 # Feature Extractor 1 (ResNet18)

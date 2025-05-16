@@ -82,8 +82,13 @@ class DDPGAgent:
         pred_a = self.actor(s)
         actor_loss = -self.critic(s, pred_a).mean()
 
+        if not torch.isfinite(actor_loss):
+                print("Non-finite actor loss:", actor_loss.item())
+                return None, None
+        
         self.actor_optimizer.zero_grad()
         actor_loss.backward()
+        torch.nn.utils.clip_grad_norm_(self.actor.parameters(), max_norm=1.0)
         self.actor_optimizer.step()
 
         # --- Soft target update ---
