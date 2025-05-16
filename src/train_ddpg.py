@@ -57,7 +57,7 @@ device = "cuda" if torch.cuda.is_available() else "cpu"
 
 #save results
 save_cfg = cfg["save"]
-save_interval = train_cfg['save_interval']
+save_interval = save _cfg['save_interval']
 checkpoint_dir = save_cfg["checkpoint_dir"]
 save_best_only = save_cfg.get("save_best_only", False)
 
