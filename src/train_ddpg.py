@@ -41,7 +41,6 @@ actor_lr = agent_cfg["actor_lr"]
 critic_lr = agent_cfg["critic_lr"]
 gamma = agent_cfg["gamma"]
 tau = agent_cfg['tau']
-conf_threshold = agent_cfg['conf_threshold'] #thershold for filtering coarse boxes
 
 
 #training loop 
@@ -51,6 +50,8 @@ steps_per_episode = train_cfg['steps_per_episode']
 batch_size = train_cfg['batch_size']
 replay_start = train_cfg['replay_start']
 noise_std = train_cfg['noise_std']
+conf_threshold = train_cfg['conf_threshold'] #thershold for filtering coarse boxes
+
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
