@@ -75,7 +75,7 @@ class DDPGAgent:
         critic_loss = self.loss_fn(current_q, y)
 
         self.critic_optimizer.zero_grad()
-        critic_loss.backward()
+        critic_loss.backward()    
         torch.nn.utils.clip_grad_norm_(self.critic.parameters(), max_norm=1.0)
 
         self.critic_optimizer.step()

@@ -44,7 +44,7 @@ tau = agent_cfg['tau']
 
 
 #training loop 
-train_cfg = cfg['train']
+train_cfg = cfg['train']    
 epochs = train_cfg['epochs']
 steps_per_episode = train_cfg['steps_per_episode']
 batch_size = train_cfg['batch_size']

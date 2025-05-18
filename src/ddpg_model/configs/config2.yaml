@@ -32,4 +32,4 @@ save:
 log:
   use_tensorboard: true
   log_dir: ddpg_runs/ddpg_exp1/logs
-  log_interval: 5  # Save logs every N epochs
+  log_interval: 5  # Save logs every N epochs 
