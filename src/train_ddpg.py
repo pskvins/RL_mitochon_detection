@@ -171,4 +171,4 @@ for epoch in range(epochs):
     elif (epoch + 1) % save_cfg["save_interval"] == 0:
         save_path = os.path.join(checkpoint_dir, f"ddpg_epoch_{epoch+1}.pt")
         agent.save(save_path)
-        print(f"[Epoch {epoch+1}] Model checkpoint saved.")
+        print(f"[Epoch {epoch+1}] Model checkpoint saved.")  
