@@ -50,6 +50,7 @@ steps_per_episode = train_cfg['steps_per_episode']
 batch_size = train_cfg['batch_size']
 replay_start = train_cfg['replay_start']
 noise_std = train_cfg['noise_std']
+noise_decay = train_cfg['noise_decay']
 conf_threshold = train_cfg['conf_threshold'] #thershold for filtering coarse boxes
 
 
@@ -110,7 +111,8 @@ os.makedirs("checkpoints", exist_ok=True)
 for epoch in range(epochs):
     print(f"[Epoch {epoch+1}/{epochs}]")
     episode_rewards = []
-
+    noise_std = max(0.01, noise_decay*noise_std) #noise decay
+    
     for img, gt_boxes, coarse_boxes in tqdm(dataloader):
         for box in coarse_boxes:
             img_w, img_h = img.size
@@ -131,7 +133,7 @@ for epoch in range(epochs):
 
             for _ in range(steps_per_episode):
                 state_tensor = torch.FloatTensor(state).unsqueeze(0).to(device)
-                action = agent.select_action(state_tensor, noise_std=0.1)
+                action = agent.select_action(state_tensor, noise_std)
                 action_np = action.squeeze(0).detach().cpu().numpy()
 
                 next_state, reward, done, _ = env.step(action_np)
