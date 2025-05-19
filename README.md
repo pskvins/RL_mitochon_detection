@@ -12,4 +12,5 @@ Code from [yolov11](https://github.com/ultralytics/ultralytics?tab=readme-ov-fil
 
 # DDPG
 - result 1 :
+  without editing
   ![image](https://github.com/user-attachments/assets/61914b59-0fb0-4d14-9037-ddd8676a75d4)
