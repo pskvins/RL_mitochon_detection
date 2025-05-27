@@ -1,0 +1,20 @@
+#paths
+paths:
+  image_dir: datasets/test/images
+  label_dir: datasets/test/labels
+  coarse_dir: datasets/test/coarse_boxes_yolo
+
+  yolo_path: yolo_runs/test/finetune_exp1/weights/best.pt #path to finetuned weight of YOLO
+  pt_path: ddpg_runs/ddpg_exp1/weights/ddpg_best.pt #path to weight of DDPG model
+
+#agents
+agent:
+  state_dim: 516
+  action_dim: 4
+  max_step: 10
+
+#save results
+save:
+  save_path: ddpg_runs/ddpg_exp1/test_results/
+  save_figs: True
+  

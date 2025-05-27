@@ -11,7 +11,7 @@ from src.ddpg_model.replay_buffer import ReplayBuffer
 from src.env.utils import compute_iou, ResNet18FeatureExtractor
 
 from src.env.box_env import BoxRefinementEnv
-from src.data.corse_boxex_loader import CoarseBoxesDataset
+from src.data.coarse_boxes_loader import CoarseBoxesDataset
 from src.data.generate_coarse_boxes import generate_coarse_boxes
 
 import argparse
