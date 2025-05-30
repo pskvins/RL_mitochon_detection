@@ -6,7 +6,6 @@ from PIL import ImageDraw, Image
 from src.env.box_env import BoxRefinementEnv
 from src.env.utils import ResNet18FeatureExtractor, make_gif
 from src.ddpg_model.agent import DDPGAgent
-from src.data.generate_coarse_boxes import generate_coarse_boxes
 
 def predict(img, cfg, save_img=False, 
                        save_gif=False, 
@@ -19,7 +18,7 @@ def predict(img, cfg, save_img=False,
     agent.load("ddpg_runs/ddpg_exp1/weights/ddpg_best.pt")
     feature_extractor = ResNet18FeatureExtractor(device=device)
 
-    yolo_result = YOLO(img, verbose = False)
+    yolo_result = yolo(img, verbose = False)
     det = yolo_result[0]
     boxes = det.boxes.xywh.cpu().numpy()
     scores = det.boxes.conf.cpu().numpy()

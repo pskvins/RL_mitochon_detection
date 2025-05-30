@@ -20,6 +20,7 @@ train:
   batch_size: 64
   replay_start: 1000
   noise_std: 0.1
+  noise_decay: 0.99
   conf_threshold: 0.3
 
 #save results
