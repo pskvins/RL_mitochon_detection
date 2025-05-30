@@ -1,9 +1,6 @@
 #paths
 paths:
   image_dir: datasets/test/images
-  label_dir: datasets/test/labels
-  coarse_dir: datasets/test/coarse_boxes_yolo
-
   yolo_path: yolo_runs/test/finetune_exp1/weights/best.pt #path to finetuned weight of YOLO
   pt_path: ddpg_runs/ddpg_exp1/weights/ddpg_best.pt #path to weight of DDPG model
 
@@ -15,6 +12,6 @@ agent:
 
 #save results
 save:
-  save_path: ddpg_runs/ddpg_exp1/test_results/
+  save_path: ddpg_runs/ddpg_exp1/inference
   save_figs: True
   

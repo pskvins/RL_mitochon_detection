@@ -71,26 +71,19 @@ class ResNet18FeatureExtractor:
             return feat.view(-1).cpu().numpy()  # [512]
         
 
-# Feature Extractor 2 (MobileNet)
-class MobileNetFeatureExtractor:
-    def __init__(self, device: str = "cpu"):
-        self.device = device
-        model = mobilenet_v2(pretrained=True)
-        self.model = model.features  # Feature block only
-        self.pool = nn.AdaptiveAvgPool2d((1, 1))
-        self.model.eval().to(device)
+#get gif which present the path bbox being refined
+import imageio
+from PIL import Image
 
-        self.transform = T.Compose([
-            T.Resize((64, 64)),
-            T.ToTensor(),
-            T.Normalize(mean=[0.485, 0.456, 0.406],
-                        std=[0.229, 0.224, 0.225])
-        ])
-
-    def __call__(self, img: Image.Image) -> np.ndarray:
-        with torch.no_grad():
-            x = self.transform(img).unsqueeze(0).to(self.device)  # [1, 3, 64, 64]
-            feat = self.model(x)  # [1, 1280, H, W]
-            feat = self.pool(feat).view(-1)  # → [1280]
-            return feat[:512].cpu().numpy()  # Keep first 512 dims
-
+def make_gif(patch_seq, save_path, duration=200):
+    """
+    patch_seq: list of PIL.Image.Image objects
+    save_path: str, path to save gif
+    duration: int, duration of each frame in milliseconds
+    """
+    if not patch_seq:
+        print("[WARNING] Empty patch sequence. GIF will not be created.")
+        return
+    
+    frames = [p.convert("RGB") if not isinstance(p, Image.Image) else p for p in patch_seq]
+    imageio.mimsave(save_path, frames, format="GIF", duration=duration / 1000.0)
