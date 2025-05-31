@@ -15,15 +15,18 @@ class Actor(nn.Module):
         super().__init__()
 
         self.net = nn.Sequential(
-            nn.Linear(state_dim, 256),
+            nn.Linear(state_dim, 512),
             nn.ReLU(),
-            nn.Linear(256, 256),
+            nn.Linear(512, 256),
             nn.ReLU(),
+            nn.Linear(256,256),
+            nn.ReLU(),
+            nn.Linear(256,256)
         )
 
-        self.shift_head = nn.Linear(256, 2)   #predict dx, dy 
-        self.scale_head = nn.Linear(256, 1)  #predict scale change 
-        self.term_head = nn.Linear(256, 1)   #predict termination probability
+        self.action_head = nn.Linear(256, 3)  # dx, dy, dscale
+        self.term_head = nn.Linear(256, 1)    # probability of termination
+        nn.init.constant_(self.term_head.bias, -2.0) #low initial p_term
 
         self.max_shift = max_shift
         self.max_scale = max_scale
@@ -40,15 +43,14 @@ class Actor(nn.Module):
             action(torch.Tensor): output action distribution of shape [B, 4]
                 [dx, dy, scale, p_terminate]
         """
-        x = self.net(state)
+        out = self.net(state)
 
-        #tanh for clipping each neural net output to [-1,1]
-        #then rescale to each range
-        shift = torch.tanh(self.shift_head(x)) * self.max_shift       # [-max_shift, max_shift]
-        scale = torch.tanh(self.scale_head(x)) * self.max_scale     # [-max_scale, max_scale]
-
+        move = torch.tanh(self.action_head(out))  # [dx, dy, dscale] ∈ [-1,1]
+        shift = move[:, :2] * self.max_shift
+        scale = move[:, 2:3] * self.max_scale
+        action = torch.cat([shift, scale, p_term], dim=1)
         #sigmoid for clipping the nn output to [0,1]
-        p_term = torch.sigmoid(self.term_head(x)) 
+        p_term = torch.sigmoid(self.term_head(out)) 
 
         action = torch.cat([shift, scale, p_term], dim=1)  # shape: [B, 4]
         return action 

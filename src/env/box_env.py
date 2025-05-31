@@ -56,7 +56,7 @@ class BoxRefinementEnv:
         self.cur_box[1] += dy
 
         # Apply scale
-        scale = np.clip(1.0 + dscale, 0.5, 2.0) #prevent bbox collapse or explosion     
+        scale = np.clip(1.0 + dscale, 0.75, 1.25) #prevent bbox collapse or explosion     
         self.cur_box[2] *= scale
         self.cur_box[3] *= scale
 
@@ -71,7 +71,7 @@ class BoxRefinementEnv:
 
         # Done condition
         self.step_count += 1
-        done = (p_term > 0.5) or (self.step_count >= self.max_steps)
+        done = (self.step_count >= 3 and p_term > 0.5) or (self.step_count >= self.max_steps)
 
         # Compute Rewards
         # 1. use delta_IoU = cur_iou - prev_iou
@@ -87,16 +87,15 @@ class BoxRefinementEnv:
             cur_iou = self.iou_fn(self.cur_box, best_gt)
 
             iou_delta = cur_iou - self.prev_iou
-            reward = np.tanh(iou_delta) * 100 #scaling reward
+            reward = np.tanh(iou_delta) * 10 #scaling reward
 
             if p_term > 0.5: #when the agent select to terminate
-                if cur_iou > self.initial_iou: #refinement success
-                    reward += 1.0
-                else: #refinement failed
-                    reward -= 1.0
-
-
-
+                delta = cur_iou - self.initial_iou
+                if delta > 0: #refinement success
+                    reward += 10.0
+                elif delta < -0.05: #refinement fail
+                    reward -= 5.0
+        self.prev_iou = cur_iou
         return self._get_state(), reward, done, {"iou": cur_iou,
                                                  "step": self.step_count}
 

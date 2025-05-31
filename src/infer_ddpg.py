@@ -7,7 +7,7 @@ from src.env.box_env import BoxRefinementEnv
 from src.env.utils import ResNet18FeatureExtractor, make_gif
 from src.ddpg_model.agent import DDPGAgent
 
-def predict(img, weight="ddpg_epoch_80.pt", save_img=True, save_gif=False, save_dir="./results"):   
+def predict(img, weight="ddpg_epoch_10pt", save_img=True, save_gif=False, save_dir="./results"):   
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     os.makedirs(save_dir, exist_ok=True)
 
@@ -50,8 +50,8 @@ def predict(img, weight="ddpg_epoch_80.pt", save_img=True, save_gif=False, save_
             next_state, _, done, _ = env.step(action_np)
             box_seq.append(env.cur_box.clone())
             state = next_state
-            if done:
-                break
+            # if done:
+            #     break
 
         refined_seq.append(box_seq)
         refined_box = env.cur_box.clone().cpu().numpy()
