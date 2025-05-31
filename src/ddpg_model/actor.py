@@ -11,7 +11,7 @@ class Actor(nn.Module):
         max_shift: maximum pixel shift allowed in both x & y
         max_scale: maximum scale ratio allowed for zoom in/out
     """
-    def __init__(self, state_dim, max_shift=20.0, max_scale=0.3):
+    def __init__(self, state_dim, max_shift=2.0, max_scale=0.25):
         super().__init__()
 
         self.net = nn.Sequential(
@@ -48,9 +48,8 @@ class Actor(nn.Module):
         move = torch.tanh(self.action_head(out))  # [dx, dy, dscale] ∈ [-1,1]
         shift = move[:, :2] * self.max_shift
         scale = move[:, 2:3] * self.max_scale
-        action = torch.cat([shift, scale, p_term], dim=1)
         #sigmoid for clipping the nn output to [0,1]
         p_term = torch.sigmoid(self.term_head(out)) 
+        action = torch.cat([shift, scale, p_term], dim=1)
 
-        action = torch.cat([shift, scale, p_term], dim=1)  # shape: [B, 4]
         return action 
