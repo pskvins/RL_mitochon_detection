@@ -1,26 +1,29 @@
 import os
 import torch
 import numpy as np
+from PIL import ImageDraw
 from ultralytics import YOLO
-from PIL import ImageDraw, Image
 from src.env.box_env import BoxRefinementEnv
 from src.env.utils import ResNet18FeatureExtractor, make_gif
 from src.ddpg_model.agent import DDPGAgent
 
-def predict(img, save_img=True, save_gif=False, save_dir="./results"):   
+def predict(img, weight="ddpg_epoch_80.pt", save_img=True, save_gif=False, save_dir="./results"):   
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     os.makedirs(save_dir, exist_ok=True)
+
+    # 모델 불러오기
     yolo = YOLO("yolo_runs/train/finetune_exp1/weights/best.pt")
     agent = DDPGAgent(516, 4, device)
-    agent.load("ddpg_epoch_100.pt", map_location=device)
+    agent.load(weight, map_location=device)
     feature_extractor = ResNet18FeatureExtractor(device=device)
 
+    # YOLO coarse box 추출
     yolo_result = yolo(img, verbose=False)
     det = yolo_result[0]
     boxes = det.boxes.xywh  # Tensor [N, 4]
     scores = det.boxes.conf
     keep = scores >= 0.3
-    coarse_boxes = boxes[keep].to(device).float()  # Tensor [M, 4]
+    coarse_boxes = boxes[keep].cpu().numpy().astype(np.float32)  # 🔥 반드시 numpy로 변환
 
     ddpg_results = []
     vis_img = img.copy()
@@ -31,27 +34,28 @@ def predict(img, save_img=True, save_gif=False, save_dir="./results"):
         box_seq = []
         env = BoxRefinementEnv(
             image=img,
-            gt_boxes=[],  # no gt in inference
-            initial_box=box,
+            gt_boxes=[],  # inference라 GT 없음
+            initial_box=box,  # numpy형식
             feature_extractor=feature_extractor,
-            iou_fn=lambda a, b: 0.0,  # dummy iou
+            iou_fn=lambda a, b: 0.0,
             device=device
         )
         state = env.reset()
 
         for _ in range(10):
-            state_tensor = state.unsqueeze(0).to(device)
+            state_tensor = state.unsqueeze(0).to(device)  # torch.Tensor
             with torch.no_grad():
                 action = agent.select_action(state_tensor, noise_std=0.0)
-            action_np = action.squeeze(0)
+            action_np = action.squeeze(0).cpu().numpy()  # numpy로 변환해 env에 전달
             next_state, _, done, _ = env.step(action_np)
             box_seq.append(env.cur_box.clone())
             state = next_state
-            # if done: break
+            if done:
+                break
 
         refined_seq.append(box_seq)
-        refined_box = env.cur_box.clone()
-        ddpg_results.append({"box": refined_box, "iou": None})
+        refined_box = env.cur_box.clone().cpu().numpy()
+        ddpg_results.append({"box": torch.tensor(refined_box), "iou": None})
 
         x, y, w, h = refined_box.tolist()
         draw.rectangle([x - w / 2, y - h / 2, x + w / 2, y + h / 2], outline="blue", width=2)

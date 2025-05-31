@@ -38,7 +38,7 @@ class BoxRefinementEnv:
         self.cur_box = self.initial_box.clone()
         self.step_count = 0
 
-        if not self.gt_boxes:
+        if self.gt_boxes is None or len(self.gt_boxes) == 0:
             self.prev_iou = 0.0
             self.initial_iou = 0.0
         else:
@@ -78,7 +78,7 @@ class BoxRefinementEnv:
         # 2. clipping by tanh
         # 3. give a small penalty for action (to minimize number of step)
         # 4. give extra reward/penalty for termination
-        if not self.gt_boxes: 
+        if self.gt_boxes is None or len(self.gt_boxes) == 0: 
             reward = 0.0
             done = True
             return self._get_state(), reward, done, {}
@@ -87,8 +87,7 @@ class BoxRefinementEnv:
             cur_iou = self.iou_fn(self.cur_box, best_gt)
 
             iou_delta = cur_iou - self.prev_iou
-            action_penalty = 0.01 * np.sum(np.abs(action[:3]))  # dx, dy, scale
-            reward = np.tanh(iou_delta) - action_penalty
+            reward = np.tanh(iou_delta) * 100 #scaling reward
 
             if p_term > 0.5: #when the agent select to terminate
                 if cur_iou > self.initial_iou: #refinement success
@@ -107,7 +106,7 @@ class BoxRefinementEnv:
             CNN feature and current position of box
         """
         cur_patch = self._crop_box(self.cur_box)
-        feat = self.feature_extractor(cur_patch)
+        feat = self.feature_extractor(cur_patch).to(self.device)
         return torch.cat([self.cur_box, feat], axis=0)
 
     def _crop_box(self, box: np.ndarray) -> Image.Image:
