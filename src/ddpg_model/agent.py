@@ -57,7 +57,7 @@ class DDPGAgent:
 
         if noise_std > 0:
             action += noise_std * torch.randn_like(action)
-        return action.clamp(-1.0, 1.0)  # optional: clip action range
+        return action
 
     def update(self, buffer: ReplayBuffer, batch_size: int = 64):
         """
@@ -108,8 +108,8 @@ class DDPGAgent:
             'critic': self.critic.state_dict()
         }, path)
 
-    def load(self, path: str):
-        checkpoint = torch.load(path)
+    def load(self, path: str,map_location=None):
+        checkpoint = torch.load(path,map_location = map_location)
         self.actor.load_state_dict(checkpoint['actor'])
         self.critic.load_state_dict(checkpoint['critic'])
         self.actor_target.load_state_dict(checkpoint['actor'])

@@ -43,7 +43,7 @@ def compute_iou(box1: np.ndarray, box2: np.ndarray) -> float:
         return 0.0
 
 
-# Feature Extractor 1 (ResNet18)
+# Feature Extractor (ResNet18)
 class ResNet18FeatureExtractor:
     def __init__(self, device: str = "cpu"):
         self.device = device
@@ -58,32 +58,103 @@ class ResNet18FeatureExtractor:
                         std=[0.229, 0.224, 0.225])
         ])
 
-    def __call__(self, img: Image.Image) -> np.ndarray:
+    def __call__(self, img: Image.Image) -> torch.Tensor:
         """
         Args:
             img: PIL image (already cropped ROI)
         Returns:
-            np.ndarray of shape [512]
+            torch.Tensor of shape [512] on the correct device
         """
         with torch.no_grad():
             x = self.transform(img).unsqueeze(0).to(self.device)  # [1, 3, 64, 64]
             feat = self.model(x)  # [1, 512, 1, 1]
-            return feat.view(-1).cpu().numpy()  # [512]
-        
+            return feat.view(-1)  # [512], torch.Tensor
 
 #get gif which present the path bbox being refined
 import imageio
-from PIL import Image
+from PIL import ImageDraw 
+from PIL import Image, ImageDraw
+import imageio
+import numpy as np
 
-def make_gif(patch_seq, save_path, duration=200):
+def make_gif(
+    base_img: Image.Image,
+    coarse_boxes: list,
+    refined_seqs: list,
+    gt_boxes: list = None,
+    save_path: str = "combined.gif",
+    duration: int = 200
+):
     """
-    patch_seq: list of PIL.Image.Image objects
-    save_path: str, path to save gif
-    duration: int, duration of each frame in milliseconds
+    Create a GIF showing sequential refinement of boxes on a single image.
+
+    Visual Logic:
+    - GT boxes (if provided): green (always visible)
+    - Initial coarse boxes: gray
+    - Active refinement box: red (only one at a time)
+    - Finished (refined) boxes: blue (locked after termination)
+
+    Args:
+        base_img (PIL.Image): the original image
+        coarse_boxes (list): list of [x, y, w, h] initial boxes
+        refined_seqs (list): list of list of [x, y, w, h] for each refinement step per box
+        gt_boxes (list): optional list of GT boxes
+        save_path (str): where to save the gif
+        duration (int): frame duration in milliseconds
     """
-    if not patch_seq:
-        print("[WARNING] Empty patch sequence. GIF will not be created.")
-        return
-    
-    frames = [p.convert("RGB") if not isinstance(p, Image.Image) else p for p in patch_seq]
-    imageio.mimsave(save_path, frames, format="GIF", duration=duration / 1000.0)
+    frames = []
+    num_boxes = len(coarse_boxes)
+    finished_boxes = []
+
+    # Track which coarse boxes are still gray (not started yet)
+    remaining_coarse_boxes = [True] * num_boxes
+
+    for agent_idx, box_seq in enumerate(refined_seqs):
+        for step_idx, step_box in enumerate(box_seq):
+            frame = base_img.copy()
+            draw = ImageDraw.Draw(frame)
+
+            # Draw GT boxes (green)
+            if gt_boxes:
+                for gt in gt_boxes:
+                    x, y, w, h = gt
+                    draw.rectangle([x - w/2, y - h/2, x + w/2, y + h/2], outline="green", width=2)
+
+            # Draw unfinished coarse boxes in gray
+            for i, cb in enumerate(coarse_boxes):
+                if remaining_coarse_boxes[i] and i != agent_idx:
+                    x, y, w, h = cb
+                    draw.rectangle([x - w/2, y - h/2, x + w/2, y + h/2], outline="gray", width=1)
+
+            # Draw finished boxes (blue)
+            for fb in finished_boxes:
+                x, y, w, h = fb
+                draw.rectangle([x - w/2, y - h/2, x + w/2, y + h/2], outline="blue", width=2)
+
+            # Draw current active refinement box (red)
+            x, y, w, h = step_box
+            draw.rectangle([x - w/2, y - h/2, x + w/2, y + h/2], outline="red", width=2)
+            draw.text((10, 10), f"Refining {agent_idx+1}/{num_boxes}, Step {step_idx+1}", fill="white")
+
+            frames.append(frame)
+
+        # After refinement, mark box as finished
+        finished_boxes.append(step_box)
+        remaining_coarse_boxes[agent_idx] = False
+
+    # Final frame: only GT (green) and refined (blue)
+    frame = base_img.copy()
+    draw = ImageDraw.Draw(frame)
+
+    if gt_boxes:
+        for gt in gt_boxes:
+            x, y, w, h = gt
+            draw.rectangle([x - w/2, y - h/2, x + w/2, y + h/2], outline="green", width=2)
+
+    for fb in finished_boxes:
+        x, y, w, h = fb
+        draw.rectangle([x - w/2, y - h/2, x + w/2, y + h/2], outline="blue", width=2)
+
+    frames.append(frame)
+
+    imageio.mimsave(save_path, frames, format="GIF", duration=duration)

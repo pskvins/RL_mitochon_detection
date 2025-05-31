@@ -53,7 +53,6 @@ noise_std = train_cfg['noise_std']
 noise_decay = train_cfg['noise_decay']
 conf_threshold = train_cfg['conf_threshold'] #thershold for filtering coarse boxes
 
-
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
 #save results
@@ -107,7 +106,9 @@ dataloader = DataLoader(dataset, batch_size=batch_size,
 # -----------------------
 # Training Loop
 # -----------------------
+
 os.makedirs("checkpoints", exist_ok=True)
+os.makedirs(checkpoint_dir,exist_ok = True)
 for epoch in range(epochs):
     print(f"[Epoch {epoch+1}/{epochs}]")
     episode_rewards = []
@@ -132,7 +133,7 @@ for epoch in range(epochs):
             total_reward = 0
 
             for _ in range(steps_per_episode):
-                state_tensor = torch.FloatTensor(state).unsqueeze(0).to(device)
+                state_tensor = state.unsqueeze(0)
                 action = agent.select_action(state_tensor, noise_std)
                 action_np = action.squeeze(0).detach().cpu().numpy()
 
@@ -142,7 +143,7 @@ for epoch in range(epochs):
                 replay_buffer.add(state, action_np, reward, next_state, done)
                 state = next_state
 
-                if replay_buffer.size > 500:
+                if replay_buffer.size > replay_start:
                     actor_loss, critic_loss = agent.update(replay_buffer, batch_size=64)
 
                 if done: #done if p_term > 0.5 or max steps hit

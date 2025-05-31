@@ -142,7 +142,7 @@ with torch.no_grad():
             )
             state = env.reset()
             for _ in range(max_step):
-                state_tensor = torch.FloatTensor(state).unsqueeze(0).to(device)
+                state_tensor = state.unsqueeze(0)
                 action = agent.select_action(state_tensor, noise_std=0.0)
                 action_np = action.squeeze(0).cpu().numpy()
                 next_state, _, done, _ = env.step(action_np)
