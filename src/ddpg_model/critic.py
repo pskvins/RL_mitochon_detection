@@ -14,18 +14,20 @@ class Critic(nn.Module):
                 default setting is 4, [dx, dy, scale, p_term]
         """
         super().__init__()
-        input_dim = state_dim + action_dim
+        self.input_dim = state_dim + action_dim  # e.g., 516 + 4 = 520
 
-        self.net = nn.Sequential(
-            nn.Linear(input_dim, 512),
+        self.conv = nn.Sequential(
+            nn.Conv2d(self.input_dim, 128, kernel_size=1),
             nn.ReLU(),
-            nn.Linear(512, 256),
-            nn.ReLU(),
-            nn.Linear(256,256),
-            nn.ReLU(),
-            nn.Linear(256, 1)  # Q-value output
+            nn.Conv2d(128, 64, kernel_size=1),
+            nn.ReLU()
         )
 
+        self.mlp = nn.Sequential(
+            nn.Linear(64, 128),
+            nn.ReLU(),
+            nn.Linear(128, 1)  # Q-value scalar
+        )
     def forward(self, state: Tensor, action: Tensor) -> Tensor:
         """
         Forward pass of the critic.
@@ -37,6 +39,9 @@ class Critic(nn.Module):
         Returns:
             q_value: Tensor of shape [B, 1]
         """
-        x = torch.cat([state, action], dim=1)
-        q_value = self.net(x)
-        return q_value
+        x = torch.cat([state, action], dim=1)  # [B, 520]
+        B = x.size(0)
+        x = x.view(B, self.input_dim, 1, 1)     # [B, 520, 1, 1]
+        x = self.conv(x).view(B, -1)            # [B, 64]
+        q = self.mlp(x)                         # [B, 1]
+        return q

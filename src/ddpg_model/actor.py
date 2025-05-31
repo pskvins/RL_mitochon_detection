@@ -14,15 +14,11 @@ class Actor(nn.Module):
     def __init__(self, state_dim, max_shift=2.0, max_scale=0.25):
         super().__init__()
 
-        self.net = nn.Sequential(
-            nn.Linear(state_dim, 512),
+        self.conv = nn.Sequential(
+            nn.Conv2d(in_channels=516, out_channels=128, kernel_size=1),
             nn.ReLU(),
-            nn.Linear(512, 256),
-            nn.ReLU(),
-            nn.Linear(256,256),
-            nn.ReLU(),
-            nn.Linear(256,256)
-        )
+            nn.Conv2d(128, 64, kernel_size=1),
+            nn.ReLU())
 
         self.action_head = nn.Linear(256, 3)  # dx, dy, dscale
         self.term_head = nn.Linear(256, 1)    # probability of termination
@@ -43,13 +39,14 @@ class Actor(nn.Module):
             action(torch.Tensor): output action distribution of shape [B, 4]
                 [dx, dy, scale, p_terminate]
         """
-        out = self.net(state)
+        B = state.shape[0]
+        x = state.view(B, 516, 1, 1)  # [B, 516, 1, 1]
+        x = self.conv(x).view(B, -1)  # [B, 64]
+        x = self.mlp(x)
 
-        move = torch.tanh(self.action_head(out))  # [dx, dy, dscale] ∈ [-1,1]
+        move = torch.tanh(self.action_head(x))  # [B, 3]
         shift = move[:, :2] * self.max_shift
         scale = move[:, 2:3] * self.max_scale
-        #sigmoid for clipping the nn output to [0,1]
-        p_term = torch.sigmoid(self.term_head(out)) 
-        action = torch.cat([shift, scale, p_term], dim=1)
-
+        p_term = torch.sigmoid(self.term_head(x))
+        action = torch.cat([shift, scale, p_term], dim=1)  # [B, 4]
         return action 
