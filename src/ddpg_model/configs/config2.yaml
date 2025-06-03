@@ -25,7 +25,7 @@ train:
 
 #save results
 save:
-  checkpoint_dir: ddpg_runs/ddpg_exp1/weights
+  checkpoint_dir: ddpg_runs/ddpg_exp1/weights/ddpg_test
   save_interval: 5  # Save weights every N epochs
   save_best_only: false
 

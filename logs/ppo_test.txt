@@ -1,0 +1,3006 @@
+Starting PPO training on cuda
+Dataset size: 1015 images
+Rollout length: 256 steps
+
+[Epoch 1/500]
+  Early stopping at PPO epoch 6 due to large KL
+[Epoch 1] Rollout Reward: -4.6007, Running Avg: -4.6007
+  Actor Loss: 106.5043, Critic Loss: 8.0840
+  Entropy: 5.6680, KL: 0.3956
+[Epoch 1] Best model saved with reward -4.6007
+
+[Epoch 2/500]
+  Early stopping at PPO epoch 3 due to large KL
+[Epoch 2] Rollout Reward: -12.2626, Running Avg: -8.4317
+  Actor Loss: 143295521863401.6562, Critic Loss: 58.8275
+  Entropy: 5.6558, KL: 0.2852
+
+[Epoch 3/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 3] Rollout Reward: -12.6500, Running Avg: -9.8378
+  Actor Loss: 108874073023936.0000, Critic Loss: 53.6540
+  Entropy: 5.6520, KL: 11.4864
+
+[Epoch 4/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 4] Rollout Reward: -12.0783, Running Avg: -10.3979
+  Actor Loss: 40184675712.0000, Critic Loss: 54.3357
+  Entropy: 5.6500, KL: 80.3671
+
+[Epoch 5/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 5] Rollout Reward: -13.5537, Running Avg: -11.0291
+  Actor Loss: 162203205.3281, Critic Loss: 38.3678
+  Entropy: 5.6479, KL: 169.7649
+
+[Epoch 6/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 6] Rollout Reward: -14.8971, Running Avg: -11.6737
+  Actor Loss: 390813086.9064, Critic Loss: 46.7133
+  Entropy: 5.6455, KL: 318.2000
+
+[Epoch 7/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 7] Rollout Reward: -13.0996, Running Avg: -11.8774
+  Actor Loss: 5518042.6786, Critic Loss: 45.9128
+  Entropy: 5.6438, KL: 601.2016
+
+[Epoch 8/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 8] Rollout Reward: -11.2897, Running Avg: -11.8040
+  Actor Loss: 0.2267, Critic Loss: 51.1765
+  Entropy: 5.6433, KL: 701.9895
+
+[Epoch 9/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 9] Rollout Reward: -12.2294, Running Avg: -11.8512
+  Actor Loss: 0.2432, Critic Loss: 58.8200
+  Entropy: 5.6441, KL: 905.8724
+
+[Epoch 10/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 10] Rollout Reward: -11.4329, Running Avg: -11.8094
+  Actor Loss: 713.4577, Critic Loss: 51.1390
+  Entropy: 5.6459, KL: 1380.7065
+
+[Epoch 11/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 11] Rollout Reward: -12.8759, Running Avg: -11.9063
+  Actor Loss: 0.2556, Critic Loss: 39.3916
+  Entropy: 5.6474, KL: 1565.2149
+
+[Epoch 12/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 12] Rollout Reward: -10.9796, Running Avg: -11.8291
+  Actor Loss: 0.2482, Critic Loss: 56.2280
+  Entropy: 5.6497, KL: 1707.9930
+
+[Epoch 13/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 13] Rollout Reward: -12.5074, Running Avg: -11.8813
+  Actor Loss: 0.2419, Critic Loss: 45.7364
+  Entropy: 5.6526, KL: 1894.2670
+
+[Epoch 14/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 14] Rollout Reward: -12.2800, Running Avg: -11.9098
+  Actor Loss: 207.2419, Critic Loss: 46.2836
+  Entropy: 5.6557, KL: 1995.9646
+
+[Epoch 15/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 15] Rollout Reward: -13.5671, Running Avg: -12.0203
+  Actor Loss: 0.2619, Critic Loss: 35.9457
+  Entropy: 5.6579, KL: 2173.0272
+
+[Epoch 16/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 16] Rollout Reward: -12.6516, Running Avg: -12.0597
+  Actor Loss: 0.2410, Critic Loss: 46.6053
+  Entropy: 5.6601, KL: 2357.5389
+
+[Epoch 17/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 17] Rollout Reward: -14.4418, Running Avg: -12.1998
+  Actor Loss: 0.2708, Critic Loss: 30.4462
+  Entropy: 5.6629, KL: 2381.1134
+
+[Epoch 18/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 18] Rollout Reward: -11.4067, Running Avg: -12.1558
+  Actor Loss: 0.2399, Critic Loss: 52.3884
+  Entropy: 5.6661, KL: 2219.5562
+
+[Epoch 19/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 19] Rollout Reward: -12.9258, Running Avg: -12.1963
+  Actor Loss: 0.2377, Critic Loss: 47.3032
+  Entropy: 5.6695, KL: 2448.9572
+
+[Epoch 20/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 20] Rollout Reward: -11.7924, Running Avg: -12.1761
+  Actor Loss: 0.2428, Critic Loss: 50.3688
+  Entropy: 5.6731, KL: 2741.6411
+
+[Epoch 21/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 21] Rollout Reward: -9.9704, Running Avg: -12.0711
+  Actor Loss: 0.2352, Critic Loss: 59.1869
+  Entropy: 5.6768, KL: 2629.8240
+
+[Epoch 22/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 22] Rollout Reward: -12.8788, Running Avg: -12.1078
+  Actor Loss: 0.2369, Critic Loss: 46.2227
+  Entropy: 5.6806, KL: 2611.6589
+
+[Epoch 23/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 23] Rollout Reward: -11.1184, Running Avg: -12.0648
+  Actor Loss: 0.2479, Critic Loss: 51.0587
+  Entropy: 5.6844, KL: 2315.7103
+
+[Epoch 24/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 24] Rollout Reward: -12.7940, Running Avg: -12.0952
+  Actor Loss: 0.2267, Critic Loss: 52.4439
+  Entropy: 5.6883, KL: 2597.1849
+
+[Epoch 25/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 25] Rollout Reward: -9.0525, Running Avg: -11.9735
+  Actor Loss: 0.2429, Critic Loss: 71.9249
+  Entropy: 5.6922, KL: 2341.5647
+
+[Epoch 26/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 26] Rollout Reward: -12.1667, Running Avg: -11.9809
+  Actor Loss: 0.2468, Critic Loss: 33.8828
+  Entropy: 5.6962, KL: 2573.8271
+
+[Epoch 27/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 27] Rollout Reward: -11.9803, Running Avg: -11.9809
+  Actor Loss: 0.2486, Critic Loss: 37.4881
+  Entropy: 5.7001, KL: 2549.9611
+
+[Epoch 28/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 28] Rollout Reward: -13.9899, Running Avg: -12.0526
+  Actor Loss: 0.2600, Critic Loss: 32.8217
+  Entropy: 5.7041, KL: 2763.5706
+
+[Epoch 29/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 29] Rollout Reward: -14.1050, Running Avg: -12.1234
+  Actor Loss: 0.2472, Critic Loss: 33.4794
+  Entropy: 5.7082, KL: 2857.0911
+
+[Epoch 30/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 30] Rollout Reward: -16.1008, Running Avg: -12.2560
+  Actor Loss: 0.2658, Critic Loss: 27.4528
+  Entropy: 5.7122, KL: 2598.8040
+
+[Epoch 31/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 31] Rollout Reward: -15.0895, Running Avg: -12.3474
+  Actor Loss: 0.2338, Critic Loss: 37.7521
+  Entropy: 5.7162, KL: 2576.6137
+
+[Epoch 32/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 32] Rollout Reward: -10.5697, Running Avg: -12.2918
+  Actor Loss: 0.2332, Critic Loss: 56.7304
+  Entropy: 5.7203, KL: 2437.5903
+
+[Epoch 33/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 33] Rollout Reward: -9.5035, Running Avg: -12.2073
+  Actor Loss: 0.2309, Critic Loss: 66.5510
+  Entropy: 5.7244, KL: 2643.1202
+
+[Epoch 34/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 34] Rollout Reward: -11.6424, Running Avg: -12.1907
+  Actor Loss: 0.2248, Critic Loss: 65.4643
+  Entropy: 5.7284, KL: 2476.9548
+
+[Epoch 35/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 35] Rollout Reward: -10.8109, Running Avg: -12.1513
+  Actor Loss: 0.2346, Critic Loss: 51.8173
+  Entropy: 5.7325, KL: 2636.5672
+
+[Epoch 36/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 36] Rollout Reward: -12.0040, Running Avg: -12.1472
+  Actor Loss: 0.2275, Critic Loss: 40.6943
+  Entropy: 5.7367, KL: 2746.3371
+
+[Epoch 37/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 37] Rollout Reward: -12.9982, Running Avg: -12.1702
+  Actor Loss: 0.2290, Critic Loss: 42.7071
+  Entropy: 5.7408, KL: 2370.1989
+
+[Epoch 38/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 38] Rollout Reward: -10.7087, Running Avg: -12.1317
+  Actor Loss: 0.2322, Critic Loss: 57.6650
+  Entropy: 5.7449, KL: 2402.7970
+
+[Epoch 39/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 39] Rollout Reward: -13.0679, Running Avg: -12.1557
+  Actor Loss: 0.2254, Critic Loss: 43.7167
+  Entropy: 5.7491, KL: 2732.7466
+
+[Epoch 40/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 40] Rollout Reward: -12.4493, Running Avg: -12.1631
+  Actor Loss: 0.2313, Critic Loss: 52.4069
+  Entropy: 5.7532, KL: 2804.5922
+
+[Epoch 41/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 41] Rollout Reward: -11.7144, Running Avg: -12.1521
+  Actor Loss: 0.2341, Critic Loss: 44.9789
+  Entropy: 5.7574, KL: 2577.1187
+
+[Epoch 42/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 42] Rollout Reward: -14.3482, Running Avg: -12.2044
+  Actor Loss: 0.2685, Critic Loss: 25.1256
+  Entropy: 5.7615, KL: 2740.5945
+
+[Epoch 43/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 43] Rollout Reward: -11.6026, Running Avg: -12.1904
+  Actor Loss: 0.2249, Critic Loss: 45.1374
+  Entropy: 5.7657, KL: 2590.4516
+
+[Epoch 44/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 44] Rollout Reward: -13.2942, Running Avg: -12.2155
+  Actor Loss: 0.2320, Critic Loss: 48.9685
+  Entropy: 5.7699, KL: 2336.3089
+
+[Epoch 45/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 45] Rollout Reward: -11.4163, Running Avg: -12.1978
+  Actor Loss: 0.2349, Critic Loss: 50.5219
+  Entropy: 5.7741, KL: 2381.5497
+
+[Epoch 46/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 46] Rollout Reward: -12.2405, Running Avg: -12.1987
+  Actor Loss: 0.2257, Critic Loss: 47.9496
+  Entropy: 5.7783, KL: 2498.8238
+
+[Epoch 47/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 47] Rollout Reward: -9.5221, Running Avg: -12.1417
+  Actor Loss: 0.2339, Critic Loss: 46.1932
+  Entropy: 5.7825, KL: 2247.4365
+
+[Epoch 48/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 48] Rollout Reward: -11.9943, Running Avg: -12.1387
+  Actor Loss: 0.2271, Critic Loss: 49.0995
+  Entropy: 5.7868, KL: 2651.9069
+
+[Epoch 49/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 49] Rollout Reward: -10.5733, Running Avg: -12.1067
+  Actor Loss: 0.2464, Critic Loss: 40.3761
+  Entropy: 5.7910, KL: 2579.9363
+
+[Epoch 50/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 50] Rollout Reward: -11.7515, Running Avg: -12.0996
+  Actor Loss: 0.2402, Critic Loss: 46.2838
+  Entropy: 5.7952, KL: 2804.3506
+
+[Epoch 51/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 51] Rollout Reward: -13.5468, Running Avg: -12.1280
+  Actor Loss: 0.2365, Critic Loss: 38.9151
+  Entropy: 5.7995, KL: 2539.4777
+
+[Epoch 52/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 52] Rollout Reward: -16.2400, Running Avg: -12.2071
+  Actor Loss: 0.2433, Critic Loss: 27.9833
+  Entropy: 5.8040, KL: 2405.3106
+
+[Epoch 53/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 53] Rollout Reward: -13.3142, Running Avg: -12.2280
+  Actor Loss: 0.2344, Critic Loss: 32.1867
+  Entropy: 5.8087, KL: 2346.9288
+
+[Epoch 54/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 54] Rollout Reward: -12.0451, Running Avg: -12.2246
+  Actor Loss: 0.2443, Critic Loss: 37.9721
+  Entropy: 5.8131, KL: 2151.5775
+
+[Epoch 55/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 55] Rollout Reward: -10.5756, Running Avg: -12.1946
+  Actor Loss: 0.2335, Critic Loss: 59.2827
+  Entropy: 5.8175, KL: 2076.3098
+
+[Epoch 56/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 56] Rollout Reward: -10.4839, Running Avg: -12.1640
+  Actor Loss: 0.2338, Critic Loss: 46.4450
+  Entropy: 5.8218, KL: 1968.3156
+
+[Epoch 57/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 57] Rollout Reward: -10.5224, Running Avg: -12.1352
+  Actor Loss: 0.2411, Critic Loss: 53.6013
+  Entropy: 5.8262, KL: 2059.5557
+
+[Epoch 58/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 58] Rollout Reward: -11.7541, Running Avg: -12.1287
+  Actor Loss: 0.2297, Critic Loss: 51.5269
+  Entropy: 5.8304, KL: 2132.3306
+
+[Epoch 59/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 59] Rollout Reward: -13.1305, Running Avg: -12.1456
+  Actor Loss: 0.2393, Critic Loss: 36.8177
+  Entropy: 5.8347, KL: 2435.9993
+
+[Epoch 60/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 60] Rollout Reward: -10.9607, Running Avg: -12.1259
+  Actor Loss: 0.2142, Critic Loss: 51.6651
+  Entropy: 5.8390, KL: 1749.9795
+
+[Epoch 61/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 61] Rollout Reward: -11.1751, Running Avg: -12.1103
+  Actor Loss: 0.2359, Critic Loss: 43.7642
+  Entropy: 5.8432, KL: 1792.4724
+
+[Epoch 62/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 62] Rollout Reward: -11.8623, Running Avg: -12.1063
+  Actor Loss: 0.2265, Critic Loss: 46.7886
+  Entropy: 5.8475, KL: 1965.6188
+
+[Epoch 63/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 63] Rollout Reward: -11.5693, Running Avg: -12.0978
+  Actor Loss: 0.2269, Critic Loss: 42.3441
+  Entropy: 5.8518, KL: 1951.9130
+
+[Epoch 64/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 64] Rollout Reward: -13.9102, Running Avg: -12.1261
+  Actor Loss: 0.2325, Critic Loss: 36.8592
+  Entropy: 5.8560, KL: 2075.1815
+
+[Epoch 65/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 65] Rollout Reward: -13.5071, Running Avg: -12.1474
+  Actor Loss: 0.2230, Critic Loss: 47.7595
+  Entropy: 5.8603, KL: 2121.7429
+
+[Epoch 66/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 66] Rollout Reward: -13.1145, Running Avg: -12.1620
+  Actor Loss: 0.2225, Critic Loss: 46.5837
+  Entropy: 5.8646, KL: 1770.3080
+
+[Epoch 67/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 67] Rollout Reward: -11.7672, Running Avg: -12.1561
+  Actor Loss: 0.2267, Critic Loss: 50.1148
+  Entropy: 5.8689, KL: 1994.3860
+
+[Epoch 68/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 68] Rollout Reward: -14.8754, Running Avg: -12.1961
+  Actor Loss: 0.2295, Critic Loss: 33.0273
+  Entropy: 5.8732, KL: 1823.8601
+
+[Epoch 69/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 69] Rollout Reward: -13.0163, Running Avg: -12.2080
+  Actor Loss: 0.2333, Critic Loss: 32.4884
+  Entropy: 5.8775, KL: 1721.8177
+
+[Epoch 70/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 70] Rollout Reward: -10.8314, Running Avg: -12.1883
+  Actor Loss: 0.2220, Critic Loss: 47.7297
+  Entropy: 5.8818, KL: 1284.1036
+
+[Epoch 71/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 71] Rollout Reward: -12.9424, Running Avg: -12.1989
+  Actor Loss: 0.2252, Critic Loss: 35.6181
+  Entropy: 5.8861, KL: 1710.2650
+
+[Epoch 72/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 72] Rollout Reward: -11.2483, Running Avg: -12.1857
+  Actor Loss: 0.2329, Critic Loss: 41.9760
+  Entropy: 5.8904, KL: 1690.7202
+
+[Epoch 73/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 73] Rollout Reward: -12.8399, Running Avg: -12.1947
+  Actor Loss: 0.2322, Critic Loss: 40.9456
+  Entropy: 5.8947, KL: 1841.0681
+
+[Epoch 74/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 74] Rollout Reward: -13.1168, Running Avg: -12.2072
+  Actor Loss: 0.2274, Critic Loss: 36.5102
+  Entropy: 5.8991, KL: 1904.5704
+
+[Epoch 75/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 75] Rollout Reward: -12.4051, Running Avg: -12.2098
+  Actor Loss: 0.2198, Critic Loss: 52.4024
+  Entropy: 5.9034, KL: 2037.7543
+
+[Epoch 76/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 76] Rollout Reward: -9.9390, Running Avg: -12.1799
+  Actor Loss: 0.2235, Critic Loss: 61.5060
+  Entropy: 5.9077, KL: 1910.9871
+
+[Epoch 77/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 77] Rollout Reward: -16.0825, Running Avg: -12.2306
+  Actor Loss: 0.2560, Critic Loss: 26.1866
+  Entropy: 5.9121, KL: 1771.0682
+
+[Epoch 78/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 78] Rollout Reward: -8.5136, Running Avg: -12.1830
+  Actor Loss: 0.2238, Critic Loss: 57.8600
+  Entropy: 5.9164, KL: 1610.1711
+
+[Epoch 79/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 79] Rollout Reward: -12.3153, Running Avg: -12.1846
+  Actor Loss: 0.2355, Critic Loss: 32.5612
+  Entropy: 5.9207, KL: 1667.1612
+
+[Epoch 80/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 80] Rollout Reward: -12.5928, Running Avg: -12.1897
+  Actor Loss: 0.2347, Critic Loss: 42.4949
+  Entropy: 5.9251, KL: 1942.6809
+
+[Epoch 81/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 81] Rollout Reward: -13.5057, Running Avg: -12.2060
+  Actor Loss: 2041.0547, Critic Loss: 30.5874
+  Entropy: 5.9290, KL: 1660.9030
+
+[Epoch 82/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 82] Rollout Reward: -12.0862, Running Avg: -12.2045
+  Actor Loss: 0.2442, Critic Loss: 41.3964
+  Entropy: 5.9324, KL: 2037.5653
+
+[Epoch 83/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 83] Rollout Reward: -12.5182, Running Avg: -12.2083
+  Actor Loss: 0.2244, Critic Loss: 41.1254
+  Entropy: 5.9362, KL: 2184.9849
+
+[Epoch 84/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 84] Rollout Reward: -10.0496, Running Avg: -12.1826
+  Actor Loss: 0.2323, Critic Loss: 54.0850
+  Entropy: 5.9401, KL: 2310.9146
+
+[Epoch 85/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 85] Rollout Reward: -13.2739, Running Avg: -12.1954
+  Actor Loss: 0.2177, Critic Loss: 37.6542
+  Entropy: 5.9442, KL: 2284.6121
+
+[Epoch 86/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 86] Rollout Reward: -12.1033, Running Avg: -12.1944
+  Actor Loss: 0.2288, Critic Loss: 37.5772
+  Entropy: 5.9484, KL: 2329.6545
+
+[Epoch 87/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 87] Rollout Reward: -12.5654, Running Avg: -12.1986
+  Actor Loss: 0.2509, Critic Loss: 28.5734
+  Entropy: 5.9526, KL: 2819.0654
+
+[Epoch 88/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 88] Rollout Reward: -11.6307, Running Avg: -12.1922
+  Actor Loss: 0.2242, Critic Loss: 40.6707
+  Entropy: 5.9569, KL: 2186.9779
+
+[Epoch 89/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 89] Rollout Reward: -8.5361, Running Avg: -12.1511
+  Actor Loss: 0.2358, Critic Loss: 75.6021
+  Entropy: 5.9612, KL: 2521.6701
+
+[Epoch 90/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 90] Rollout Reward: -13.3250, Running Avg: -12.1641
+  Actor Loss: 13697.6313, Critic Loss: 49.8044
+  Entropy: 5.9655, KL: 2255.4406
+
+[Epoch 91/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 91] Rollout Reward: -11.1155, Running Avg: -12.1526
+  Actor Loss: 0.2227, Critic Loss: 47.8810
+  Entropy: 5.9683, KL: 3010.9605
+
+[Epoch 92/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 92] Rollout Reward: -11.5969, Running Avg: -12.1466
+  Actor Loss: 0.2287, Critic Loss: 50.6742
+  Entropy: 5.9712, KL: 3853.4113
+
+[Epoch 93/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 93] Rollout Reward: -12.6777, Running Avg: -12.1523
+  Actor Loss: 0.2165, Critic Loss: 49.2195
+  Entropy: 5.9745, KL: 3276.2589
+
+[Epoch 94/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 94] Rollout Reward: -11.9795, Running Avg: -12.1505
+  Actor Loss: 0.2267, Critic Loss: 46.1069
+  Entropy: 5.9782, KL: 4238.1808
+
+[Epoch 95/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 95] Rollout Reward: -15.3643, Running Avg: -12.1843
+  Actor Loss: 0.2484, Critic Loss: 22.1087
+  Entropy: 5.9821, KL: 4168.7252
+
+[Epoch 96/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 96] Rollout Reward: -14.5298, Running Avg: -12.2087
+  Actor Loss: 0.2359, Critic Loss: 30.4838
+  Entropy: 5.9862, KL: 3949.4291
+
+[Epoch 97/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 97] Rollout Reward: -13.6126, Running Avg: -12.2232
+  Actor Loss: 0.2251, Critic Loss: 50.9854
+  Entropy: 5.9903, KL: 4549.8384
+
+[Epoch 98/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 98] Rollout Reward: -11.6114, Running Avg: -12.2169
+  Actor Loss: 0.2154, Critic Loss: 44.5334
+  Entropy: 5.9945, KL: 4107.1072
+
+[Epoch 99/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 99] Rollout Reward: -14.8435, Running Avg: -12.2435
+  Actor Loss: 0.2478, Critic Loss: 25.0622
+  Entropy: 5.9988, KL: 4294.2975
+
+[Epoch 100/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 100] Rollout Reward: -13.2341, Running Avg: -12.2534
+  Actor Loss: 0.2205, Critic Loss: 31.9518
+  Entropy: 6.0030, KL: 4993.9560
+
+[Epoch 101/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 101] Rollout Reward: -10.9430, Running Avg: -12.3168
+  Actor Loss: 0.2274, Critic Loss: 67.0087
+  Entropy: 6.0074, KL: 4536.9684
+
+[Epoch 102/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 102] Rollout Reward: -10.8469, Running Avg: -12.3026
+  Actor Loss: 0.2276, Critic Loss: 51.2166
+  Entropy: 6.0117, KL: 3769.5104
+
+[Epoch 103/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 103] Rollout Reward: -12.7313, Running Avg: -12.3035
+  Actor Loss: 0.2263, Critic Loss: 37.6007
+  Entropy: 6.0160, KL: 4732.4290
+
+[Epoch 104/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 104] Rollout Reward: -10.4675, Running Avg: -12.2873
+  Actor Loss: 0.2354, Critic Loss: 50.9243
+  Entropy: 6.0204, KL: 4709.3920
+
+[Epoch 105/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 105] Rollout Reward: -11.6367, Running Avg: -12.2682
+  Actor Loss: 0.2267, Critic Loss: 47.7680
+  Entropy: 6.0247, KL: 4219.2742
+
+[Epoch 106/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 106] Rollout Reward: -11.5276, Running Avg: -12.2345
+  Actor Loss: 0.2306, Critic Loss: 46.0057
+  Entropy: 6.0291, KL: 4081.8108
+
+[Epoch 107/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 107] Rollout Reward: -12.3168, Running Avg: -12.2267
+  Actor Loss: 0.2362, Critic Loss: 26.0019
+  Entropy: 6.0334, KL: 4145.1843
+
+[Epoch 108/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 108] Rollout Reward: -12.1499, Running Avg: -12.2353
+  Actor Loss: 0.2190, Critic Loss: 40.6835
+  Entropy: 6.0378, KL: 4385.6617
+
+[Epoch 109/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 109] Rollout Reward: -13.4675, Running Avg: -12.2476
+  Actor Loss: 0.2296, Critic Loss: 32.7307
+  Entropy: 6.0421, KL: 4981.3783
+
+[Epoch 110/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 110] Rollout Reward: -12.3967, Running Avg: -12.2573
+  Actor Loss: 0.2281, Critic Loss: 39.2009
+  Entropy: 6.0465, KL: 4360.8025
+
+[Epoch 111/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 111] Rollout Reward: -14.0628, Running Avg: -12.2691
+  Actor Loss: 0.2254, Critic Loss: 32.9271
+  Entropy: 6.0509, KL: 4174.9182
+
+[Epoch 112/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 112] Rollout Reward: -11.3871, Running Avg: -12.2732
+  Actor Loss: 0.2248, Critic Loss: 46.5710
+  Entropy: 6.0553, KL: 4816.6709
+
+[Epoch 113/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 113] Rollout Reward: -13.4448, Running Avg: -12.2826
+  Actor Loss: 0.2145, Critic Loss: 44.6836
+  Entropy: 6.0597, KL: 4558.2899
+
+[Epoch 114/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 114] Rollout Reward: -16.2058, Running Avg: -12.3219
+  Actor Loss: 0.2264, Critic Loss: 28.9315
+  Entropy: 6.0640, KL: 4408.5793
+
+[Epoch 115/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 115] Rollout Reward: -12.5814, Running Avg: -12.3120
+  Actor Loss: 0.2093, Critic Loss: 47.9865
+  Entropy: 6.0684, KL: 4457.2469
+
+[Epoch 116/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 116] Rollout Reward: -11.5422, Running Avg: -12.3009
+  Actor Loss: 0.2203, Critic Loss: 45.4657
+  Entropy: 6.0728, KL: 4106.3312
+
+[Epoch 117/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 117] Rollout Reward: -11.4906, Running Avg: -12.2714
+  Actor Loss: 0.2261, Critic Loss: 44.5113
+  Entropy: 6.0772, KL: 4129.4507
+
+[Epoch 118/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 118] Rollout Reward: -10.2240, Running Avg: -12.2596
+  Actor Loss: 0.2208, Critic Loss: 44.9723
+  Entropy: 6.0816, KL: 4139.9600
+
+[Epoch 119/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 119] Rollout Reward: -12.0683, Running Avg: -12.2510
+  Actor Loss: 0.2253, Critic Loss: 39.6085
+  Entropy: 6.0860, KL: 4337.4453
+
+[Epoch 120/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 120] Rollout Reward: -12.8352, Running Avg: -12.2614
+  Actor Loss: 0.2262, Critic Loss: 32.3710
+  Entropy: 6.0904, KL: 4451.1972
+
+[Epoch 121/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 121] Rollout Reward: -9.9529, Running Avg: -12.2612
+  Actor Loss: 0.2186, Critic Loss: 58.9196
+  Entropy: 6.0948, KL: 4291.2137
+
+[Epoch 122/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 122] Rollout Reward: -9.1631, Running Avg: -12.2241
+  Actor Loss: 0.2173, Critic Loss: 55.1991
+  Entropy: 6.0992, KL: 4349.0630
+
+[Epoch 123/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 123] Rollout Reward: -10.9267, Running Avg: -12.2222
+  Actor Loss: 0.2199, Critic Loss: 58.8399
+  Entropy: 6.1036, KL: 3681.9536
+
+[Epoch 124/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 124] Rollout Reward: -15.0241, Running Avg: -12.2445
+  Actor Loss: 0.2189, Critic Loss: 41.1912
+  Entropy: 6.1080, KL: 4453.9790
+
+[Epoch 125/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 125] Rollout Reward: -12.9353, Running Avg: -12.2833
+  Actor Loss: 0.2307, Critic Loss: 43.1911
+  Entropy: 6.1125, KL: 4927.0123
+
+[Epoch 126/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 126] Rollout Reward: -13.3713, Running Avg: -12.2953
+  Actor Loss: 0.2257, Critic Loss: 38.0696
+  Entropy: 6.1169, KL: 4463.6954
+
+[Epoch 127/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 127] Rollout Reward: -13.5574, Running Avg: -12.3111
+  Actor Loss: 0.2249, Critic Loss: 39.8446
+  Entropy: 6.1213, KL: 4430.0145
+
+[Epoch 128/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 128] Rollout Reward: -10.9538, Running Avg: -12.2808
+  Actor Loss: 0.2293, Critic Loss: 49.7334
+  Entropy: 6.1257, KL: 4467.4771
+
+[Epoch 129/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 129] Rollout Reward: -13.4358, Running Avg: -12.2741
+  Actor Loss: 0.2265, Critic Loss: 36.5577
+  Entropy: 6.1302, KL: 4118.4985
+
+[Epoch 130/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 130] Rollout Reward: -11.3900, Running Avg: -12.2270
+  Actor Loss: 0.2286, Critic Loss: 48.0428
+  Entropy: 6.1346, KL: 4765.7980
+
+[Epoch 131/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 131] Rollout Reward: -13.1512, Running Avg: -12.2076
+  Actor Loss: 0.2367, Critic Loss: 34.4482
+  Entropy: 6.1390, KL: 3677.6011
+
+[Epoch 132/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 132] Rollout Reward: -11.6925, Running Avg: -12.2188
+  Actor Loss: 0.2300, Critic Loss: 47.4861
+  Entropy: 6.1435, KL: 4608.5094
+
+[Epoch 133/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 133] Rollout Reward: -12.3732, Running Avg: -12.2475
+  Actor Loss: 0.2419, Critic Loss: 31.0758
+  Entropy: 6.1479, KL: 4149.9368
+
+[Epoch 134/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 134] Rollout Reward: -13.0942, Running Avg: -12.2620
+  Actor Loss: 0.2344, Critic Loss: 34.4437
+  Entropy: 6.1523, KL: 4857.4434
+
+[Epoch 135/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 135] Rollout Reward: -12.2594, Running Avg: -12.2765
+  Actor Loss: 0.2284, Critic Loss: 44.4830
+  Entropy: 6.1568, KL: 4055.6076
+
+[Epoch 136/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 136] Rollout Reward: -14.5430, Running Avg: -12.3019
+  Actor Loss: 0.2221, Critic Loss: 40.2214
+  Entropy: 6.1612, KL: 4330.2181
+
+[Epoch 137/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 137] Rollout Reward: -11.2425, Running Avg: -12.2843
+  Actor Loss: 0.2300, Critic Loss: 44.6664
+  Entropy: 6.1657, KL: 4298.2592
+
+[Epoch 138/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 138] Rollout Reward: -13.4556, Running Avg: -12.3118
+  Actor Loss: 0.2394, Critic Loss: 26.3676
+  Entropy: 6.1701, KL: 4285.5621
+
+[Epoch 139/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 139] Rollout Reward: -15.0030, Running Avg: -12.3312
+  Actor Loss: 0.2292, Critic Loss: 34.9852
+  Entropy: 6.1746, KL: 3566.6981
+
+[Epoch 140/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 140] Rollout Reward: -11.8763, Running Avg: -12.3254
+  Actor Loss: 0.2194, Critic Loss: 36.7881
+  Entropy: 6.1790, KL: 4165.6226
+
+[Epoch 141/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 141] Rollout Reward: -13.9173, Running Avg: -12.3474
+  Actor Loss: 0.2457, Critic Loss: 28.0708
+  Entropy: 6.1835, KL: 4725.0802
+
+[Epoch 142/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 142] Rollout Reward: -12.2042, Running Avg: -12.3260
+  Actor Loss: 0.2156, Critic Loss: 49.9847
+  Entropy: 6.1879, KL: 4748.4888
+
+[Epoch 143/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 143] Rollout Reward: -12.5588, Running Avg: -12.3356
+  Actor Loss: 0.2280, Critic Loss: 40.3277
+  Entropy: 6.1924, KL: 3497.6204
+
+[Epoch 144/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 144] Rollout Reward: -10.0975, Running Avg: -12.3036
+  Actor Loss: 0.2137, Critic Loss: 54.7724
+  Entropy: 6.1969, KL: 5319.4237
+
+[Epoch 145/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 145] Rollout Reward: -12.5308, Running Avg: -12.3147
+  Actor Loss: 0.2191, Critic Loss: 40.4680
+  Entropy: 6.2013, KL: 4352.5992
+
+[Epoch 146/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 146] Rollout Reward: -14.2040, Running Avg: -12.3344
+  Actor Loss: 0.2178, Critic Loss: 38.5177
+  Entropy: 6.2058, KL: 4440.0299
+
+[Epoch 147/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 147] Rollout Reward: -14.3405, Running Avg: -12.3826
+  Actor Loss: 0.2268, Critic Loss: 31.5041
+  Entropy: 6.2103, KL: 3957.7409
+
+[Epoch 148/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 148] Rollout Reward: -13.4773, Running Avg: -12.3974
+  Actor Loss: 0.2172, Critic Loss: 53.9871
+  Entropy: 6.2147, KL: 4373.8033
+
+[Epoch 149/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 149] Rollout Reward: -13.4804, Running Avg: -12.4265
+  Actor Loss: 0.2366, Critic Loss: 31.8809
+  Entropy: 6.2192, KL: 4191.9775
+
+[Epoch 150/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 150] Rollout Reward: -13.4438, Running Avg: -12.4434
+  Actor Loss: 0.2407, Critic Loss: 29.2218
+  Entropy: 6.2237, KL: 4009.5529
+
+[Epoch 151/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 151] Rollout Reward: -14.7933, Running Avg: -12.4559
+  Actor Loss: 0.2256, Critic Loss: 28.1971
+  Entropy: 6.2282, KL: 4275.4470
+
+[Epoch 152/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 152] Rollout Reward: -13.3698, Running Avg: -12.4272
+  Actor Loss: 0.2328, Critic Loss: 35.3182
+  Entropy: 6.2327, KL: 3960.6367
+
+[Epoch 153/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 153] Rollout Reward: -12.7576, Running Avg: -12.4216
+  Actor Loss: 0.2432, Critic Loss: 32.7288
+  Entropy: 6.2371, KL: 4559.7969
+
+[Epoch 154/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 154] Rollout Reward: -12.2777, Running Avg: -12.4239
+  Actor Loss: 0.2250, Critic Loss: 40.1774
+  Entropy: 6.2416, KL: 4408.5195
+
+[Epoch 155/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 155] Rollout Reward: -12.5394, Running Avg: -12.4436
+  Actor Loss: 0.2155, Critic Loss: 40.1074
+  Entropy: 6.2461, KL: 4622.6555
+
+[Epoch 156/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 156] Rollout Reward: -11.7127, Running Avg: -12.4558
+  Actor Loss: 0.2328, Critic Loss: 43.3468
+  Entropy: 6.2506, KL: 4365.4457
+
+[Epoch 157/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 157] Rollout Reward: -9.7773, Running Avg: -12.4484
+  Actor Loss: 0.2213, Critic Loss: 56.7254
+  Entropy: 6.2551, KL: 3970.6177
+
+[Epoch 158/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 158] Rollout Reward: -10.9767, Running Avg: -12.4406
+  Actor Loss: 0.2164, Critic Loss: 48.9912
+  Entropy: 6.2596, KL: 4056.0787
+
+[Epoch 159/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 159] Rollout Reward: -15.5599, Running Avg: -12.4649
+  Actor Loss: 0.2273, Critic Loss: 32.9070
+  Entropy: 6.2641, KL: 4008.2523
+
+[Epoch 160/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 160] Rollout Reward: -10.5893, Running Avg: -12.4612
+  Actor Loss: 0.2178, Critic Loss: 46.7423
+  Entropy: 6.2686, KL: 4118.3267
+
+[Epoch 161/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 161] Rollout Reward: -12.2439, Running Avg: -12.4719
+  Actor Loss: 0.2144, Critic Loss: 44.0943
+  Entropy: 6.2731, KL: 3704.5171
+
+[Epoch 162/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 162] Rollout Reward: -11.3334, Running Avg: -12.4666
+  Actor Loss: 0.2187, Critic Loss: 46.2099
+  Entropy: 6.2776, KL: 4144.3860
+
+[Epoch 163/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 163] Rollout Reward: -13.9619, Running Avg: -12.4905
+  Actor Loss: 0.2200, Critic Loss: 36.0701
+  Entropy: 6.2821, KL: 4440.3945
+
+[Epoch 164/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 164] Rollout Reward: -11.4879, Running Avg: -12.4663
+  Actor Loss: 0.2148, Critic Loss: 50.7282
+  Entropy: 6.2866, KL: 3442.0837
+
+[Epoch 165/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 165] Rollout Reward: -13.0666, Running Avg: -12.4619
+  Actor Loss: 0.2251, Critic Loss: 43.0381
+  Entropy: 6.2911, KL: 3767.3515
+
+[Epoch 166/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 166] Rollout Reward: -14.8279, Running Avg: -12.4790
+  Actor Loss: 0.2385, Critic Loss: 32.3207
+  Entropy: 6.2956, KL: 3517.5151
+
+[Epoch 167/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 167] Rollout Reward: -12.8137, Running Avg: -12.4895
+  Actor Loss: 0.2235, Critic Loss: 33.6382
+  Entropy: 6.3001, KL: 3839.9396
+
+[Epoch 168/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 168] Rollout Reward: -10.5804, Running Avg: -12.4465
+  Actor Loss: 0.2167, Critic Loss: 50.2610
+  Entropy: 6.3046, KL: 4638.8688
+
+[Epoch 169/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 169] Rollout Reward: -15.6195, Running Avg: -12.4726
+  Actor Loss: 0.2253, Critic Loss: 32.6687
+  Entropy: 6.3092, KL: 4644.9881
+
+[Epoch 170/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 170] Rollout Reward: -13.2612, Running Avg: -12.4969
+  Actor Loss: 0.2195, Critic Loss: 36.7131
+  Entropy: 6.3137, KL: 3845.7415
+
+[Epoch 171/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 171] Rollout Reward: -14.0756, Running Avg: -12.5082
+  Actor Loss: 0.2215, Critic Loss: 34.3654
+  Entropy: 6.3182, KL: 3608.5670
+
+[Epoch 172/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 172] Rollout Reward: -11.6869, Running Avg: -12.5126
+  Actor Loss: 0.2193, Critic Loss: 51.2288
+  Entropy: 6.3227, KL: 3966.4092
+
+[Epoch 173/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 173] Rollout Reward: -12.7272, Running Avg: -12.5115
+  Actor Loss: 0.2151, Critic Loss: 39.5329
+  Entropy: 6.3272, KL: 4146.6125
+
+[Epoch 174/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 174] Rollout Reward: -14.3234, Running Avg: -12.5235
+  Actor Loss: 0.2198, Critic Loss: 36.2913
+  Entropy: 6.3318, KL: 4113.0624
+
+[Epoch 175/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 175] Rollout Reward: -11.9418, Running Avg: -12.5189
+  Actor Loss: 0.2100, Critic Loss: 47.3541
+  Entropy: 6.3363, KL: 4469.1592
+
+[Epoch 176/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 176] Rollout Reward: -13.8496, Running Avg: -12.5580
+  Actor Loss: 0.2245, Critic Loss: 35.3996
+  Entropy: 6.3408, KL: 3560.3422
+
+[Epoch 177/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 177] Rollout Reward: -14.6602, Running Avg: -12.5438
+  Actor Loss: 0.2355, Critic Loss: 20.8519
+  Entropy: 6.3453, KL: 3349.7260
+
+[Epoch 178/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 178] Rollout Reward: -9.0573, Running Avg: -12.5492
+  Actor Loss: 0.2317, Critic Loss: 60.4545
+  Entropy: 6.3499, KL: 3959.7823
+
+[Epoch 179/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 179] Rollout Reward: -12.0169, Running Avg: -12.5462
+  Actor Loss: 0.2186, Critic Loss: 46.6881
+  Entropy: 6.3544, KL: 3448.7242
+
+[Epoch 180/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 180] Rollout Reward: -11.1123, Running Avg: -12.5314
+  Actor Loss: 0.2213, Critic Loss: 59.9830
+  Entropy: 6.3589, KL: 3537.3336
+
+[Epoch 181/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 181] Rollout Reward: -12.4135, Running Avg: -12.5205
+  Actor Loss: 0.2304, Critic Loss: 39.7852
+  Entropy: 6.3635, KL: 3428.5724
+
+[Epoch 182/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 182] Rollout Reward: -12.1330, Running Avg: -12.5210
+  Actor Loss: 0.2236, Critic Loss: 36.8980
+  Entropy: 6.3680, KL: 3636.5229
+
+[Epoch 183/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 183] Rollout Reward: -11.7254, Running Avg: -12.5130
+  Actor Loss: 0.2216, Critic Loss: 54.8739
+  Entropy: 6.3725, KL: 3908.0828
+
+[Epoch 184/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 184] Rollout Reward: -10.9138, Running Avg: -12.5217
+  Actor Loss: 0.2144, Critic Loss: 56.4432
+  Entropy: 6.3771, KL: 3697.4786
+
+[Epoch 185/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 185] Rollout Reward: -10.5519, Running Avg: -12.4945
+  Actor Loss: 0.2216, Critic Loss: 51.4559
+  Entropy: 6.3816, KL: 3593.6188
+
+[Epoch 186/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 186] Rollout Reward: -11.2541, Running Avg: -12.4860
+  Actor Loss: 0.2242, Critic Loss: 44.7220
+  Entropy: 6.3862, KL: 4716.7303
+
+[Epoch 187/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 187] Rollout Reward: -13.4560, Running Avg: -12.4949
+  Actor Loss: 0.2142, Critic Loss: 41.5873
+  Entropy: 6.3907, KL: 4007.0592
+
+[Epoch 188/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 188] Rollout Reward: -14.6037, Running Avg: -12.5246
+  Actor Loss: 0.2168, Critic Loss: 43.0741
+  Entropy: 6.3953, KL: 3308.2126
+
+[Epoch 189/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 189] Rollout Reward: -13.1514, Running Avg: -12.5708
+  Actor Loss: 0.2302, Critic Loss: 36.6419
+  Entropy: 6.3998, KL: 4270.4597
+
+[Epoch 190/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 190] Rollout Reward: -12.5394, Running Avg: -12.5629
+  Actor Loss: 0.2062, Critic Loss: 46.6509
+  Entropy: 6.4044, KL: 4154.6790
+
+[Epoch 191/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 191] Rollout Reward: -15.0184, Running Avg: -12.6019
+  Actor Loss: 0.2092, Critic Loss: 32.2356
+  Entropy: 6.4089, KL: 3617.8228
+
+[Epoch 192/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 192] Rollout Reward: -11.9542, Running Avg: -12.6055
+  Actor Loss: 0.2098, Critic Loss: 50.4819
+  Entropy: 6.4135, KL: 4177.1939
+
+[Epoch 193/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 193] Rollout Reward: -12.0609, Running Avg: -12.5993
+  Actor Loss: 0.2220, Critic Loss: 50.5223
+  Entropy: 6.4180, KL: 3225.9615
+
+[Epoch 194/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 194] Rollout Reward: -14.5203, Running Avg: -12.6247
+  Actor Loss: 0.2174, Critic Loss: 35.0355
+  Entropy: 6.4226, KL: 3369.1738
+
+[Epoch 195/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 195] Rollout Reward: -13.3945, Running Avg: -12.6051
+  Actor Loss: 0.2355, Critic Loss: 34.4900
+  Entropy: 6.4271, KL: 3701.0420
+
+[Epoch 196/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 196] Rollout Reward: -13.3425, Running Avg: -12.5932
+  Actor Loss: 0.2209, Critic Loss: 33.4358
+  Entropy: 6.4317, KL: 3895.9543
+
+[Epoch 197/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 197] Rollout Reward: -13.2486, Running Avg: -12.5895
+  Actor Loss: 0.2360, Critic Loss: 32.0498
+  Entropy: 6.4362, KL: 3918.1450
+
+[Epoch 198/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 198] Rollout Reward: -8.9549, Running Avg: -12.5630
+  Actor Loss: 0.2195, Critic Loss: 55.2835
+  Entropy: 6.4408, KL: 3441.1279
+
+[Epoch 199/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 199] Rollout Reward: -13.2622, Running Avg: -12.5472
+  Actor Loss: 0.2204, Critic Loss: 40.5543
+  Entropy: 6.4454, KL: 4020.4624
+
+[Epoch 200/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 200] Rollout Reward: -10.9014, Running Avg: -12.5238
+  Actor Loss: 0.2120, Critic Loss: 41.4428
+  Entropy: 6.4499, KL: 3361.6389
+
+[Epoch 201/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 201] Rollout Reward: -11.0689, Running Avg: -12.5251
+  Actor Loss: 0.2169, Critic Loss: 38.0450
+  Entropy: 6.4545, KL: 4023.5768
+
+[Epoch 202/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 202] Rollout Reward: -13.9407, Running Avg: -12.5560
+  Actor Loss: 0.2132, Critic Loss: 36.3870
+  Entropy: 6.4591, KL: 3660.8500
+
+[Epoch 203/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 203] Rollout Reward: -12.8182, Running Avg: -12.5569
+  Actor Loss: 0.2111, Critic Loss: 35.3737
+  Entropy: 6.4636, KL: 3342.8225
+
+[Epoch 204/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 204] Rollout Reward: -12.5883, Running Avg: -12.5781
+  Actor Loss: 0.2314, Critic Loss: 38.8200
+  Entropy: 6.4682, KL: 3543.5373
+
+[Epoch 205/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 205] Rollout Reward: -12.0391, Running Avg: -12.5821
+  Actor Loss: 0.2224, Critic Loss: 45.7201
+  Entropy: 6.4728, KL: 3265.4782
+
+[Epoch 206/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 206] Rollout Reward: -11.7866, Running Avg: -12.5847
+  Actor Loss: 0.2238, Critic Loss: 36.7916
+  Entropy: 6.4773, KL: 3199.1381
+
+[Epoch 207/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 207] Rollout Reward: -15.3237, Running Avg: -12.6148
+  Actor Loss: 0.2326, Critic Loss: 27.3631
+  Entropy: 6.4819, KL: 3746.3664
+
+[Epoch 208/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 208] Rollout Reward: -12.0966, Running Avg: -12.6143
+  Actor Loss: 0.2222, Critic Loss: 43.3000
+  Entropy: 6.4865, KL: 3610.5827
+
+[Epoch 209/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 209] Rollout Reward: -11.7218, Running Avg: -12.5968
+  Actor Loss: 0.2056, Critic Loss: 38.5321
+  Entropy: 6.4911, KL: 3462.2464
+
+[Epoch 210/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 210] Rollout Reward: -12.5970, Running Avg: -12.5988
+  Actor Loss: 0.2146, Critic Loss: 40.1977
+  Entropy: 6.4956, KL: 4303.4807
+
+[Epoch 211/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 211] Rollout Reward: -10.5398, Running Avg: -12.5636
+  Actor Loss: 0.2149, Critic Loss: 39.3228
+  Entropy: 6.5002, KL: 3295.1577
+
+[Epoch 212/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 212] Rollout Reward: -13.7381, Running Avg: -12.5871
+  Actor Loss: 0.2322, Critic Loss: 34.2281
+  Entropy: 6.5048, KL: 3571.5859
+
+[Epoch 213/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 213] Rollout Reward: -13.7028, Running Avg: -12.5897
+  Actor Loss: 0.2190, Critic Loss: 38.1891
+  Entropy: 6.5094, KL: 4598.0294
+
+[Epoch 214/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 214] Rollout Reward: -7.4620, Running Avg: -12.5022
+  Actor Loss: 0.2203, Critic Loss: 68.8063
+  Entropy: 6.5140, KL: 3321.6663
+
+[Epoch 215/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 215] Rollout Reward: -11.2489, Running Avg: -12.4889
+  Actor Loss: 0.2327, Critic Loss: 50.7450
+  Entropy: 6.5185, KL: 2875.8521
+
+[Epoch 216/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 216] Rollout Reward: -10.7568, Running Avg: -12.4810
+  Actor Loss: 0.2214, Critic Loss: 48.8266
+  Entropy: 6.5231, KL: 3699.3535
+
+[Epoch 217/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 217] Rollout Reward: -11.2885, Running Avg: -12.4790
+  Actor Loss: 0.2172, Critic Loss: 43.8996
+  Entropy: 6.5277, KL: 3502.3270
+
+[Epoch 218/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 218] Rollout Reward: -13.2573, Running Avg: -12.5094
+  Actor Loss: 0.2130, Critic Loss: 39.6022
+  Entropy: 6.5323, KL: 3919.1199
+
+[Epoch 219/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 219] Rollout Reward: -10.6669, Running Avg: -12.4953
+  Actor Loss: 0.2251, Critic Loss: 44.9649
+  Entropy: 6.5369, KL: 3476.8051
+
+[Epoch 220/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 220] Rollout Reward: -11.1293, Running Avg: -12.4783
+  Actor Loss: 0.2038, Critic Loss: 50.0070
+  Entropy: 6.5415, KL: 3581.6284
+
+[Epoch 221/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 221] Rollout Reward: -13.7972, Running Avg: -12.5167
+  Actor Loss: 0.2395, Critic Loss: 29.1227
+  Entropy: 6.5461, KL: 3463.3601
+
+[Epoch 222/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 222] Rollout Reward: -12.6866, Running Avg: -12.5520
+  Actor Loss: 0.2313, Critic Loss: 33.6520
+  Entropy: 6.5507, KL: 3038.0778
+
+[Epoch 223/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 223] Rollout Reward: -11.5401, Running Avg: -12.5581
+  Actor Loss: 0.2162, Critic Loss: 42.4004
+  Entropy: 6.5553, KL: 3037.2921
+
+[Epoch 224/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 224] Rollout Reward: -13.1681, Running Avg: -12.5395
+  Actor Loss: 0.2270, Critic Loss: 37.2479
+  Entropy: 6.5599, KL: 3942.8123
+
+[Epoch 225/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 225] Rollout Reward: -14.6675, Running Avg: -12.5569
+  Actor Loss: 0.2016, Critic Loss: 41.8271
+  Entropy: 6.5644, KL: 3773.9209
+
+[Epoch 226/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 226] Rollout Reward: -11.2387, Running Avg: -12.5355
+  Actor Loss: 0.2209, Critic Loss: 40.4601
+  Entropy: 6.5690, KL: 3689.9035
+
+[Epoch 227/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 227] Rollout Reward: -11.1465, Running Avg: -12.5114
+  Actor Loss: 0.2195, Critic Loss: 52.7897
+  Entropy: 6.5736, KL: 2966.6746
+
+[Epoch 228/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 228] Rollout Reward: -13.7445, Running Avg: -12.5393
+  Actor Loss: 0.2254, Critic Loss: 35.4675
+  Entropy: 6.5782, KL: 3656.3152
+
+[Epoch 229/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 229] Rollout Reward: -9.4413, Running Avg: -12.4994
+  Actor Loss: 0.2096, Critic Loss: 47.7144
+  Entropy: 6.5828, KL: 3010.7963
+
+[Epoch 230/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 230] Rollout Reward: -13.3258, Running Avg: -12.5187
+  Actor Loss: 0.2267, Critic Loss: 36.5099
+  Entropy: 6.5874, KL: 3820.4407
+
+[Epoch 231/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 231] Rollout Reward: -14.1130, Running Avg: -12.5284
+  Actor Loss: 0.2190, Critic Loss: 36.0181
+  Entropy: 6.5920, KL: 3183.4076
+
+[Epoch 232/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 232] Rollout Reward: -13.9409, Running Avg: -12.5508
+  Actor Loss: 0.2243, Critic Loss: 31.6299
+  Entropy: 6.5966, KL: 3681.3126
+
+[Epoch 233/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 233] Rollout Reward: -12.7462, Running Avg: -12.5546
+  Actor Loss: 0.2131, Critic Loss: 37.1478
+  Entropy: 6.6013, KL: 3199.2197
+
+[Epoch 234/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 234] Rollout Reward: -11.7637, Running Avg: -12.5413
+  Actor Loss: 0.2164, Critic Loss: 36.5209
+  Entropy: 6.6059, KL: 3651.8125
+
+[Epoch 235/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 235] Rollout Reward: -12.2887, Running Avg: -12.5416
+  Actor Loss: 0.2023, Critic Loss: 43.2253
+  Entropy: 6.6105, KL: 3294.5042
+
+[Epoch 236/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 236] Rollout Reward: -13.3982, Running Avg: -12.5301
+  Actor Loss: 0.2213, Critic Loss: 35.5168
+  Entropy: 6.6151, KL: 4102.8179
+
+[Epoch 237/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 237] Rollout Reward: -12.7084, Running Avg: -12.5448
+  Actor Loss: 0.2241, Critic Loss: 42.7489
+  Entropy: 6.6197, KL: 3433.8414
+
+[Epoch 238/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 238] Rollout Reward: -11.8695, Running Avg: -12.5289
+  Actor Loss: 0.2037, Critic Loss: 46.7888
+  Entropy: 6.6243, KL: 3450.6914
+
+[Epoch 239/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 239] Rollout Reward: -13.1485, Running Avg: -12.5104
+  Actor Loss: 0.2187, Critic Loss: 40.1163
+  Entropy: 6.6289, KL: 3177.7512
+
+[Epoch 240/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 240] Rollout Reward: -11.5879, Running Avg: -12.5075
+  Actor Loss: 0.2213, Critic Loss: 43.1436
+  Entropy: 6.6335, KL: 3301.4968
+
+[Epoch 241/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 241] Rollout Reward: -11.7523, Running Avg: -12.4858
+  Actor Loss: 0.2292, Critic Loss: 38.5189
+  Entropy: 6.6381, KL: 3350.7929
+
+[Epoch 242/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 242] Rollout Reward: -12.7582, Running Avg: -12.4914
+  Actor Loss: 0.2206, Critic Loss: 39.0484
+  Entropy: 6.6427, KL: 3626.7181
+
+[Epoch 243/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 243] Rollout Reward: -12.0933, Running Avg: -12.4867
+  Actor Loss: 0.2150, Critic Loss: 42.9147
+  Entropy: 6.6474, KL: 2907.7041
+
+[Epoch 244/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 244] Rollout Reward: -12.2809, Running Avg: -12.5086
+  Actor Loss: 0.2063, Critic Loss: 51.5104
+  Entropy: 6.6520, KL: 3603.9484
+
+[Epoch 245/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 245] Rollout Reward: -9.9376, Running Avg: -12.4826
+  Actor Loss: 0.2290, Critic Loss: 51.9168
+  Entropy: 6.6566, KL: 2703.9213
+
+[Epoch 246/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 246] Rollout Reward: -11.9857, Running Avg: -12.4604
+  Actor Loss: 0.2167, Critic Loss: 37.0606
+  Entropy: 6.6612, KL: 3536.8376
+
+[Epoch 247/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 247] Rollout Reward: -11.8757, Running Avg: -12.4358
+  Actor Loss: 0.2234, Critic Loss: 34.7588
+  Entropy: 6.6658, KL: 2619.9711
+
+[Epoch 248/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 248] Rollout Reward: -12.2862, Running Avg: -12.4239
+  Actor Loss: 0.2237, Critic Loss: 35.9388
+  Entropy: 6.6704, KL: 3500.9637
+
+[Epoch 249/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 249] Rollout Reward: -11.1072, Running Avg: -12.4001
+  Actor Loss: 0.2122, Critic Loss: 44.3699
+  Entropy: 6.6751, KL: 2844.4842
+
+[Epoch 250/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 250] Rollout Reward: -11.3742, Running Avg: -12.3795
+  Actor Loss: 0.2122, Critic Loss: 44.8979
+  Entropy: 6.6797, KL: 3635.4022
+
+[Epoch 251/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 251] Rollout Reward: -12.5146, Running Avg: -12.3567
+  Actor Loss: 0.2297, Critic Loss: 35.5292
+  Entropy: 6.6843, KL: 2963.4980
+
+[Epoch 252/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 252] Rollout Reward: -11.2676, Running Avg: -12.3356
+  Actor Loss: 0.1988, Critic Loss: 49.0959
+  Entropy: 6.6891, KL: 2670.7279
+
+[Epoch 253/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 253] Rollout Reward: -13.1751, Running Avg: -12.3398
+  Actor Loss: 0.2240, Critic Loss: 34.6966
+  Entropy: 6.6939, KL: 2950.4841
+
+[Epoch 254/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 254] Rollout Reward: -10.6187, Running Avg: -12.3232
+  Actor Loss: 0.2176, Critic Loss: 36.6421
+  Entropy: 6.6986, KL: 3408.0091
+
+[Epoch 255/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 255] Rollout Reward: -13.3909, Running Avg: -12.3317
+  Actor Loss: 0.2222, Critic Loss: 38.5981
+  Entropy: 6.7033, KL: 2747.1821
+
+[Epoch 256/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 256] Rollout Reward: -13.4946, Running Avg: -12.3496
+  Actor Loss: 0.2347, Critic Loss: 36.9206
+  Entropy: 6.7079, KL: 3119.6435
+
+[Epoch 257/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 257] Rollout Reward: -12.4636, Running Avg: -12.3764
+  Actor Loss: 0.2208, Critic Loss: 38.7404
+  Entropy: 6.7126, KL: 3154.5303
+
+[Epoch 258/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 258] Rollout Reward: -10.2635, Running Avg: -12.3693
+  Actor Loss: 0.2302, Critic Loss: 52.3920
+  Entropy: 6.7172, KL: 3003.6990
+
+[Epoch 259/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 259] Rollout Reward: -13.6496, Running Avg: -12.3502
+  Actor Loss: 0.2330, Critic Loss: 29.6783
+  Entropy: 6.7219, KL: 2718.1561
+
+[Epoch 260/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 260] Rollout Reward: -11.1510, Running Avg: -12.3558
+  Actor Loss: 0.2066, Critic Loss: 48.4921
+  Entropy: 6.7265, KL: 2569.3388
+
+[Epoch 261/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 261] Rollout Reward: -13.2186, Running Avg: -12.3656
+  Actor Loss: 0.2216, Critic Loss: 35.2734
+  Entropy: 6.7311, KL: 2707.0212
+
+[Epoch 262/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 262] Rollout Reward: -13.7692, Running Avg: -12.3899
+  Actor Loss: 0.2125, Critic Loss: 37.9911
+  Entropy: 6.7358, KL: 3044.3472
+
+[Epoch 263/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 263] Rollout Reward: -14.6096, Running Avg: -12.3964
+  Actor Loss: 0.2146, Critic Loss: 31.2340
+  Entropy: 6.7404, KL: 3066.9417
+
+[Epoch 264/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 264] Rollout Reward: -10.0407, Running Avg: -12.3819
+  Actor Loss: 0.2261, Critic Loss: 49.1314
+  Entropy: 6.7450, KL: 2719.8066
+
+[Epoch 265/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 265] Rollout Reward: -11.9720, Running Avg: -12.3710
+  Actor Loss: 0.2205, Critic Loss: 40.9400
+  Entropy: 6.7497, KL: 2602.2845
+
+[Epoch 266/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 266] Rollout Reward: -13.7846, Running Avg: -12.3605
+  Actor Loss: 0.2208, Critic Loss: 35.4840
+  Entropy: 6.7543, KL: 2918.6524
+
+[Epoch 267/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 267] Rollout Reward: -12.0721, Running Avg: -12.3531
+  Actor Loss: 0.2133, Critic Loss: 49.2201
+  Entropy: 6.7589, KL: 3043.8662
+
+[Epoch 268/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 268] Rollout Reward: -13.9107, Running Avg: -12.3864
+  Actor Loss: 0.2102, Critic Loss: 34.4257
+  Entropy: 6.7636, KL: 2269.3022
+
+[Epoch 269/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 269] Rollout Reward: -15.3157, Running Avg: -12.3834
+  Actor Loss: 0.2396, Critic Loss: 24.7734
+  Entropy: 6.7682, KL: 2682.6429
+
+[Epoch 270/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 270] Rollout Reward: -10.5266, Running Avg: -12.3560
+  Actor Loss: 0.2258, Critic Loss: 55.6109
+  Entropy: 6.7728, KL: 2738.9957
+
+[Epoch 271/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 271] Rollout Reward: -13.9676, Running Avg: -12.3550
+  Actor Loss: 0.2059, Critic Loss: 34.5165
+  Entropy: 6.7775, KL: 2831.0206
+
+[Epoch 272/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 272] Rollout Reward: -12.2689, Running Avg: -12.3608
+  Actor Loss: 0.2165, Critic Loss: 46.0457
+  Entropy: 6.7821, KL: 3068.9879
+
+[Epoch 273/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 273] Rollout Reward: -12.5838, Running Avg: -12.3593
+  Actor Loss: 0.2203, Critic Loss: 35.6905
+  Entropy: 6.7867, KL: 3021.3564
+
+[Epoch 274/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 274] Rollout Reward: -12.9848, Running Avg: -12.3460
+  Actor Loss: 0.2232, Critic Loss: 35.6568
+  Entropy: 6.7914, KL: 2520.5001
+
+[Epoch 275/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 275] Rollout Reward: -13.2642, Running Avg: -12.3592
+  Actor Loss: 0.1986, Critic Loss: 40.5131
+  Entropy: 6.7960, KL: 2546.0259
+
+[Epoch 276/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 276] Rollout Reward: -11.8224, Running Avg: -12.3389
+  Actor Loss: 0.2132, Critic Loss: 47.1979
+  Entropy: 6.8007, KL: 2553.1076
+
+[Epoch 277/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 277] Rollout Reward: -13.0267, Running Avg: -12.3226
+  Actor Loss: 0.2137, Critic Loss: 48.6818
+  Entropy: 6.8053, KL: 2555.0345
+
+[Epoch 278/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 278] Rollout Reward: -11.8914, Running Avg: -12.3509
+  Actor Loss: 13.2277, Critic Loss: 33.5145
+  Entropy: 6.8094, KL: 3090.6969
+
+[Epoch 279/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 279] Rollout Reward: -10.0003, Running Avg: -12.3308
+  Actor Loss: 0.2185, Critic Loss: 41.4600
+  Entropy: 6.8129, KL: 3280.9558
+
+[Epoch 280/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 280] Rollout Reward: -14.2716, Running Avg: -12.3623
+  Actor Loss: 0.2193, Critic Loss: 36.7252
+  Entropy: 6.8168, KL: 4547.7990
+
+[Epoch 281/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 281] Rollout Reward: -12.5568, Running Avg: -12.3638
+  Actor Loss: 0.2259, Critic Loss: 40.1891
+  Entropy: 6.8209, KL: 4341.9695
+
+[Epoch 282/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 282] Rollout Reward: -13.0230, Running Avg: -12.3727
+  Actor Loss: 0.2128, Critic Loss: 39.8187
+  Entropy: 6.8252, KL: 4104.5912
+
+[Epoch 283/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 283] Rollout Reward: -13.1251, Running Avg: -12.3867
+  Actor Loss: 0.2171, Critic Loss: 34.8220
+  Entropy: 6.8296, KL: 4338.0763
+
+[Epoch 284/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 284] Rollout Reward: -10.8051, Running Avg: -12.3856
+  Actor Loss: 0.2318, Critic Loss: 36.9500
+  Entropy: 6.8341, KL: 4246.7687
+
+[Epoch 285/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 285] Rollout Reward: -12.6053, Running Avg: -12.4061
+  Actor Loss: 0.2207, Critic Loss: 40.6926
+  Entropy: 6.8386, KL: 4667.4952
+
+[Epoch 286/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 286] Rollout Reward: -13.6312, Running Avg: -12.4299
+  Actor Loss: 0.2172, Critic Loss: 34.4125
+  Entropy: 6.8431, KL: 5397.9778
+
+[Epoch 287/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 287] Rollout Reward: -14.7912, Running Avg: -12.4432
+  Actor Loss: 0.2223, Critic Loss: 30.7244
+  Entropy: 6.8477, KL: 4621.9791
+
+[Epoch 288/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 288] Rollout Reward: -13.4954, Running Avg: -12.4322
+  Actor Loss: 0.2149, Critic Loss: 38.7150
+  Entropy: 6.8523, KL: 4998.2676
+
+[Epoch 289/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 289] Rollout Reward: -13.7660, Running Avg: -12.4383
+  Actor Loss: 0.2126, Critic Loss: 35.0096
+  Entropy: 6.8569, KL: 4182.5042
+
+[Epoch 290/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 290] Rollout Reward: -12.2535, Running Avg: -12.4354
+  Actor Loss: 0.2127, Critic Loss: 33.2760
+  Entropy: 6.8615, KL: 5010.7983
+
+[Epoch 291/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 291] Rollout Reward: -14.5145, Running Avg: -12.4304
+  Actor Loss: 0.2224, Critic Loss: 25.1437
+  Entropy: 6.8661, KL: 3841.0711
+
+[Epoch 292/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 292] Rollout Reward: -11.3459, Running Avg: -12.4243
+  Actor Loss: 0.2146, Critic Loss: 42.9721
+  Entropy: 6.8707, KL: 4397.7262
+
+[Epoch 293/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 293] Rollout Reward: -11.0638, Running Avg: -12.4144
+  Actor Loss: 0.2212, Critic Loss: 45.0632
+  Entropy: 6.8754, KL: 4684.7279
+
+[Epoch 294/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 294] Rollout Reward: -11.7558, Running Avg: -12.3867
+  Actor Loss: 0.2091, Critic Loss: 46.7188
+  Entropy: 6.8800, KL: 4992.9747
+
+[Epoch 295/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 295] Rollout Reward: -11.3825, Running Avg: -12.3666
+  Actor Loss: 0.2184, Critic Loss: 29.2214
+  Entropy: 6.8846, KL: 4789.3811
+
+[Epoch 296/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 296] Rollout Reward: -11.4071, Running Avg: -12.3472
+  Actor Loss: 0.2143, Critic Loss: 46.7989
+  Entropy: 6.8892, KL: 4241.4626
+
+[Epoch 297/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 297] Rollout Reward: -13.3046, Running Avg: -12.3478
+  Actor Loss: 0.2136, Critic Loss: 33.0489
+  Entropy: 6.8938, KL: 4519.6938
+
+[Epoch 298/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 298] Rollout Reward: -12.1623, Running Avg: -12.3799
+  Actor Loss: 0.2149, Critic Loss: 34.9015
+  Entropy: 6.8985, KL: 4501.5214
+
+[Epoch 299/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 299] Rollout Reward: -13.4911, Running Avg: -12.3822
+  Actor Loss: 0.2184, Critic Loss: 41.1886
+  Entropy: 6.9031, KL: 4979.6370
+
+[Epoch 300/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 300] Rollout Reward: -12.4240, Running Avg: -12.3974
+  Actor Loss: 0.2074, Critic Loss: 48.0932
+  Entropy: 6.9077, KL: 4785.7839
+
+[Epoch 301/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 301] Rollout Reward: -11.7789, Running Avg: -12.4045
+  Actor Loss: 0.2104, Critic Loss: 45.9875
+  Entropy: 6.9123, KL: 4663.6495
+
+[Epoch 302/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 302] Rollout Reward: -14.6131, Running Avg: -12.4112
+  Actor Loss: 0.2162, Critic Loss: 35.9108
+  Entropy: 6.9170, KL: 4562.5370
+
+[Epoch 303/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 303] Rollout Reward: -11.6375, Running Avg: -12.3994
+  Actor Loss: 0.2091, Critic Loss: 42.4184
+  Entropy: 6.9216, KL: 4703.2000
+
+[Epoch 304/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 304] Rollout Reward: -13.0988, Running Avg: -12.4045
+  Actor Loss: 0.2133, Critic Loss: 36.6225
+  Entropy: 6.9262, KL: 4832.2043
+
+[Epoch 305/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 305] Rollout Reward: -11.7520, Running Avg: -12.4016
+  Actor Loss: 0.2130, Critic Loss: 47.3914
+  Entropy: 6.9309, KL: 5380.0178
+
+[Epoch 306/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 306] Rollout Reward: -12.5494, Running Avg: -12.4093
+  Actor Loss: 0.2117, Critic Loss: 31.0839
+  Entropy: 6.9355, KL: 5006.1995
+
+[Epoch 307/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 307] Rollout Reward: -11.5353, Running Avg: -12.3714
+  Actor Loss: 0.2160, Critic Loss: 40.2138
+  Entropy: 6.9401, KL: 4676.3590
+
+[Epoch 308/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 308] Rollout Reward: -14.6329, Running Avg: -12.3967
+  Actor Loss: 0.2146, Critic Loss: 30.5618
+  Entropy: 6.9447, KL: 3958.6995
+
+[Epoch 309/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 309] Rollout Reward: -10.5095, Running Avg: -12.3846
+  Actor Loss: 0.2263, Critic Loss: 44.2577
+  Entropy: 6.9494, KL: 4670.2543
+
+[Epoch 310/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 310] Rollout Reward: -14.2046, Running Avg: -12.4007
+  Actor Loss: 0.2098, Critic Loss: 44.6883
+  Entropy: 6.9540, KL: 5172.4866
+
+[Epoch 311/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 311] Rollout Reward: -15.0416, Running Avg: -12.4457
+  Actor Loss: 0.2169, Critic Loss: 27.7352
+  Entropy: 6.9587, KL: 4399.5223
+
+[Epoch 312/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 312] Rollout Reward: -10.4609, Running Avg: -12.4129
+  Actor Loss: 0.2118, Critic Loss: 49.3570
+  Entropy: 6.9633, KL: 4858.9757
+
+[Epoch 313/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 313] Rollout Reward: -14.3014, Running Avg: -12.4189
+  Actor Loss: 0.2133, Critic Loss: 31.2737
+  Entropy: 6.9679, KL: 4461.4515
+
+[Epoch 314/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 314] Rollout Reward: -13.5453, Running Avg: -12.4798
+  Actor Loss: 0.2140, Critic Loss: 33.5065
+  Entropy: 6.9726, KL: 4903.5658
+
+[Epoch 315/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 315] Rollout Reward: -12.0794, Running Avg: -12.4881
+  Actor Loss: 0.2126, Critic Loss: 46.2343
+  Entropy: 6.9772, KL: 5002.5710
+
+[Epoch 316/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 316] Rollout Reward: -11.7497, Running Avg: -12.4980
+  Actor Loss: 0.2065, Critic Loss: 41.4451
+  Entropy: 6.9818, KL: 4273.4476
+
+[Epoch 317/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 317] Rollout Reward: -13.9417, Running Avg: -12.5245
+  Actor Loss: 0.2069, Critic Loss: 42.4104
+  Entropy: 6.9865, KL: 4389.2032
+
+[Epoch 318/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 318] Rollout Reward: -12.3867, Running Avg: -12.5158
+  Actor Loss: 0.2154, Critic Loss: 38.7997
+  Entropy: 6.9911, KL: 4819.3326
+
+[Epoch 319/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 319] Rollout Reward: -13.2059, Running Avg: -12.5412
+  Actor Loss: 0.2031, Critic Loss: 37.9395
+  Entropy: 6.9958, KL: 4328.5006
+
+[Epoch 320/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 320] Rollout Reward: -12.3773, Running Avg: -12.5537
+  Actor Loss: 0.2018, Critic Loss: 43.7357
+  Entropy: 7.0004, KL: 4587.5852
+
+[Epoch 321/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 321] Rollout Reward: -13.7415, Running Avg: -12.5531
+  Actor Loss: 0.2170, Critic Loss: 29.7432
+  Entropy: 7.0050, KL: 4590.8741
+
+[Epoch 322/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 322] Rollout Reward: -12.4472, Running Avg: -12.5507
+  Actor Loss: 0.2141, Critic Loss: 36.5496
+  Entropy: 7.0097, KL: 4347.3251
+
+[Epoch 323/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 323] Rollout Reward: -13.4255, Running Avg: -12.5696
+  Actor Loss: 0.2236, Critic Loss: 25.8123
+  Entropy: 7.0143, KL: 4280.0114
+
+[Epoch 324/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 324] Rollout Reward: -12.1130, Running Avg: -12.5590
+  Actor Loss: 0.2124, Critic Loss: 43.3874
+  Entropy: 7.0190, KL: 3875.0380
+
+[Epoch 325/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 325] Rollout Reward: -13.1828, Running Avg: -12.5442
+  Actor Loss: 0.2311, Critic Loss: 32.1674
+  Entropy: 7.0236, KL: 4104.9344
+
+[Epoch 326/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 326] Rollout Reward: -11.1026, Running Avg: -12.5428
+  Actor Loss: 0.2158, Critic Loss: 41.8617
+  Entropy: 7.0283, KL: 3662.5640
+
+[Epoch 327/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 327] Rollout Reward: -10.4274, Running Avg: -12.5356
+  Actor Loss: 0.2093, Critic Loss: 55.3323
+  Entropy: 7.0329, KL: 4353.5472
+
+[Epoch 328/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 328] Rollout Reward: -12.5242, Running Avg: -12.5234
+  Actor Loss: 0.2093, Critic Loss: 35.3517
+  Entropy: 7.0376, KL: 4364.7109
+
+[Epoch 329/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 329] Rollout Reward: -11.2041, Running Avg: -12.5411
+  Actor Loss: 0.2083, Critic Loss: 38.4371
+  Entropy: 7.0422, KL: 5073.2672
+
+[Epoch 330/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 330] Rollout Reward: -14.0752, Running Avg: -12.5486
+  Actor Loss: 0.2082, Critic Loss: 35.2888
+  Entropy: 7.0469, KL: 4083.8760
+
+[Epoch 331/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 331] Rollout Reward: -12.7212, Running Avg: -12.5346
+  Actor Loss: 0.2070, Critic Loss: 35.7035
+  Entropy: 7.0515, KL: 4375.8024
+
+[Epoch 332/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 332] Rollout Reward: -9.4703, Running Avg: -12.4899
+  Actor Loss: 0.2137, Critic Loss: 57.3411
+  Entropy: 7.0562, KL: 4739.7112
+
+[Epoch 333/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 333] Rollout Reward: -11.2808, Running Avg: -12.4753
+  Actor Loss: 0.2090, Critic Loss: 43.0976
+  Entropy: 7.0608, KL: 4261.4276
+
+[Epoch 334/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 334] Rollout Reward: -11.5505, Running Avg: -12.4732
+  Actor Loss: 0.2124, Critic Loss: 42.8468
+  Entropy: 7.0655, KL: 4432.2291
+
+[Epoch 335/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 335] Rollout Reward: -12.2567, Running Avg: -12.4728
+  Actor Loss: 0.2038, Critic Loss: 46.1001
+  Entropy: 7.0701, KL: 3731.7650
+
+[Epoch 336/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 336] Rollout Reward: -10.3955, Running Avg: -12.4428
+  Actor Loss: 0.2126, Critic Loss: 44.0191
+  Entropy: 7.0748, KL: 3616.2091
+
+[Epoch 337/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 337] Rollout Reward: -12.6264, Running Avg: -12.4420
+  Actor Loss: 0.2210, Critic Loss: 31.2845
+  Entropy: 7.0794, KL: 4600.7421
+
+[Epoch 338/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 338] Rollout Reward: -10.4243, Running Avg: -12.4275
+  Actor Loss: 0.2133, Critic Loss: 55.8695
+  Entropy: 7.0841, KL: 4603.6769
+
+[Epoch 339/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 339] Rollout Reward: -8.5653, Running Avg: -12.3817
+  Actor Loss: 0.2205, Critic Loss: 53.9331
+  Entropy: 7.0887, KL: 4193.7903
+
+[Epoch 340/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 340] Rollout Reward: -10.5905, Running Avg: -12.3717
+  Actor Loss: 0.2071, Critic Loss: 47.1013
+  Entropy: 7.0934, KL: 3698.7169
+
+[Epoch 341/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 341] Rollout Reward: -11.8999, Running Avg: -12.3732
+  Actor Loss: 0.2173, Critic Loss: 38.3113
+  Entropy: 7.0980, KL: 4083.5199
+
+[Epoch 342/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 342] Rollout Reward: -13.5588, Running Avg: -12.3812
+  Actor Loss: 0.2165, Critic Loss: 30.4186
+  Entropy: 7.1027, KL: 4004.2314
+
+[Epoch 343/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 343] Rollout Reward: -13.8152, Running Avg: -12.3984
+  Actor Loss: 0.2211, Critic Loss: 27.7370
+  Entropy: 7.1074, KL: 4753.2394
+
+[Epoch 344/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 344] Rollout Reward: -13.2957, Running Avg: -12.4086
+  Actor Loss: 0.2217, Critic Loss: 37.0617
+  Entropy: 7.1120, KL: 4783.8878
+
+[Epoch 345/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 345] Rollout Reward: -13.4484, Running Avg: -12.4437
+  Actor Loss: 0.2142, Critic Loss: 28.0795
+  Entropy: 7.1167, KL: 4395.1113
+
+[Epoch 346/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 346] Rollout Reward: -14.0676, Running Avg: -12.4645
+  Actor Loss: 0.2176, Critic Loss: 29.5284
+  Entropy: 7.1213, KL: 4047.3995
+
+[Epoch 347/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 347] Rollout Reward: -11.5868, Running Avg: -12.4616
+  Actor Loss: 0.2178, Critic Loss: 46.0799
+  Entropy: 7.1260, KL: 3506.1812
+
+[Epoch 348/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 348] Rollout Reward: -12.4970, Running Avg: -12.4637
+  Actor Loss: 0.2260, Critic Loss: 36.8306
+  Entropy: 7.1307, KL: 4774.7594
+
+[Epoch 349/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 349] Rollout Reward: -13.4513, Running Avg: -12.4872
+  Actor Loss: 0.2308, Critic Loss: 28.9915
+  Entropy: 7.1353, KL: 4172.9138
+
+[Epoch 350/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 350] Rollout Reward: -11.1857, Running Avg: -12.4853
+  Actor Loss: 0.2014, Critic Loss: 52.8911
+  Entropy: 7.1400, KL: 4105.7460
+
+[Epoch 351/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 351] Rollout Reward: -13.6361, Running Avg: -12.4965
+  Actor Loss: 0.2122, Critic Loss: 32.7147
+  Entropy: 7.1447, KL: 3854.1829
+
+[Epoch 352/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 352] Rollout Reward: -11.8432, Running Avg: -12.5023
+  Actor Loss: 0.2136, Critic Loss: 38.5959
+  Entropy: 7.1493, KL: 4296.2125
+
+[Epoch 353/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 353] Rollout Reward: -10.4679, Running Avg: -12.4752
+  Actor Loss: 0.2141, Critic Loss: 40.2606
+  Entropy: 7.1540, KL: 4251.9381
+
+[Epoch 354/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 354] Rollout Reward: -12.2832, Running Avg: -12.4918
+  Actor Loss: 0.2096, Critic Loss: 33.5162
+  Entropy: 7.1586, KL: 3929.4697
+
+[Epoch 355/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 355] Rollout Reward: -12.9496, Running Avg: -12.4874
+  Actor Loss: 0.2078, Critic Loss: 34.6292
+  Entropy: 7.1633, KL: 3864.2076
+
+[Epoch 356/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 356] Rollout Reward: -14.8439, Running Avg: -12.5009
+  Actor Loss: 0.2193, Critic Loss: 27.9365
+  Entropy: 7.1680, KL: 4033.0250
+
+[Epoch 357/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 357] Rollout Reward: -11.7444, Running Avg: -12.4937
+  Actor Loss: 0.2179, Critic Loss: 51.5142
+  Entropy: 7.1726, KL: 3763.4313
+
+[Epoch 358/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 358] Rollout Reward: -11.8823, Running Avg: -12.5099
+  Actor Loss: 0.2245, Critic Loss: 30.8651
+  Entropy: 7.1773, KL: 3962.2273
+
+[Epoch 359/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 359] Rollout Reward: -13.3382, Running Avg: -12.5068
+  Actor Loss: 0.2024, Critic Loss: 39.4166
+  Entropy: 7.1820, KL: 3938.5570
+
+[Epoch 360/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 360] Rollout Reward: -13.8841, Running Avg: -12.5341
+  Actor Loss: 0.2068, Critic Loss: 38.1164
+  Entropy: 7.1867, KL: 4057.2501
+
+[Epoch 361/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 361] Rollout Reward: -13.6920, Running Avg: -12.5389
+  Actor Loss: 0.2199, Critic Loss: 34.1640
+  Entropy: 7.1913, KL: 4506.2550
+
+[Epoch 362/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 362] Rollout Reward: -14.6938, Running Avg: -12.5481
+  Actor Loss: 0.2170, Critic Loss: 35.0101
+  Entropy: 7.1960, KL: 4663.0563
+
+[Epoch 363/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 363] Rollout Reward: -13.5680, Running Avg: -12.5377
+  Actor Loss: 0.2139, Critic Loss: 30.0736
+  Entropy: 7.2007, KL: 4030.6499
+
+[Epoch 364/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 364] Rollout Reward: -11.1970, Running Avg: -12.5492
+  Actor Loss: 0.2104, Critic Loss: 41.5947
+  Entropy: 7.2053, KL: 3847.8030
+
+[Epoch 365/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 365] Rollout Reward: -12.7476, Running Avg: -12.5570
+  Actor Loss: 0.2205, Critic Loss: 26.8182
+  Entropy: 7.2100, KL: 4028.5984
+
+[Epoch 366/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 366] Rollout Reward: -10.1881, Running Avg: -12.5210
+  Actor Loss: 0.2179, Critic Loss: 53.5820
+  Entropy: 7.2147, KL: 4002.0724
+
+[Epoch 367/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 367] Rollout Reward: -11.7103, Running Avg: -12.5174
+  Actor Loss: 0.2140, Critic Loss: 45.9023
+  Entropy: 7.2194, KL: 3953.7176
+
+[Epoch 368/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 368] Rollout Reward: -11.7038, Running Avg: -12.4954
+  Actor Loss: 0.2100, Critic Loss: 34.3035
+  Entropy: 7.2240, KL: 3955.7814
+
+[Epoch 369/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 369] Rollout Reward: -15.4583, Running Avg: -12.4968
+  Actor Loss: 0.2216, Critic Loss: 26.3336
+  Entropy: 7.2287, KL: 4489.0798
+
+[Epoch 370/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 370] Rollout Reward: -12.5447, Running Avg: -12.5170
+  Actor Loss: 0.2176, Critic Loss: 44.3037
+  Entropy: 7.2334, KL: 4175.4965
+
+[Epoch 371/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 371] Rollout Reward: -12.7998, Running Avg: -12.5053
+  Actor Loss: 0.2173, Critic Loss: 34.0519
+  Entropy: 7.2381, KL: 4099.1124
+
+[Epoch 372/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 372] Rollout Reward: -12.2998, Running Avg: -12.5056
+  Actor Loss: 0.1999, Critic Loss: 36.9498
+  Entropy: 7.2427, KL: 4556.2308
+
+[Epoch 373/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 373] Rollout Reward: -13.7361, Running Avg: -12.5171
+  Actor Loss: 0.2062, Critic Loss: 38.9426
+  Entropy: 7.2474, KL: 3897.5455
+
+[Epoch 374/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 374] Rollout Reward: -12.7613, Running Avg: -12.5149
+  Actor Loss: 0.2087, Critic Loss: 45.7638
+  Entropy: 7.2521, KL: 4192.3042
+
+[Epoch 375/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 375] Rollout Reward: -11.2210, Running Avg: -12.4944
+  Actor Loss: 0.2149, Critic Loss: 42.8941
+  Entropy: 7.2568, KL: 3550.3349
+
+[Epoch 376/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 376] Rollout Reward: -11.0933, Running Avg: -12.4872
+  Actor Loss: 0.2067, Critic Loss: 47.8247
+  Entropy: 7.2614, KL: 4508.9082
+
+[Epoch 377/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 377] Rollout Reward: -10.4788, Running Avg: -12.4617
+  Actor Loss: 0.2098, Critic Loss: 51.3525
+  Entropy: 7.2661, KL: 3895.2609
+
+[Epoch 378/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 378] Rollout Reward: -13.0049, Running Avg: -12.4728
+  Actor Loss: 0.2048, Critic Loss: 46.1079
+  Entropy: 7.2708, KL: 3395.9023
+
+[Epoch 379/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 379] Rollout Reward: -10.4482, Running Avg: -12.4773
+  Actor Loss: 0.2100, Critic Loss: 37.1429
+  Entropy: 7.2755, KL: 4069.2682
+
+[Epoch 380/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 380] Rollout Reward: -10.8538, Running Avg: -12.4431
+  Actor Loss: 0.2218, Critic Loss: 35.3757
+  Entropy: 7.2802, KL: 4149.2363
+
+[Epoch 381/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 381] Rollout Reward: -12.0838, Running Avg: -12.4384
+  Actor Loss: 0.2099, Critic Loss: 43.9692
+  Entropy: 7.2848, KL: 3791.6694
+
+[Epoch 382/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 382] Rollout Reward: -11.0491, Running Avg: -12.4186
+  Actor Loss: 0.2067, Critic Loss: 46.4489
+  Entropy: 7.2895, KL: 3920.7399
+
+[Epoch 383/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 383] Rollout Reward: -10.2456, Running Avg: -12.3898
+  Actor Loss: 0.2188, Critic Loss: 39.2233
+  Entropy: 7.2942, KL: 3742.7310
+
+[Epoch 384/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 384] Rollout Reward: -14.6702, Running Avg: -12.4285
+  Actor Loss: 0.2076, Critic Loss: 38.1489
+  Entropy: 7.2989, KL: 3949.0617
+
+[Epoch 385/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 385] Rollout Reward: -14.0845, Running Avg: -12.4433
+  Actor Loss: 0.2167, Critic Loss: 34.5430
+  Entropy: 7.3036, KL: 4471.9922
+
+[Epoch 386/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 386] Rollout Reward: -12.0000, Running Avg: -12.4270
+  Actor Loss: 0.2151, Critic Loss: 40.4868
+  Entropy: 7.3083, KL: 4146.6797
+
+[Epoch 387/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 387] Rollout Reward: -10.9668, Running Avg: -12.3887
+  Actor Loss: 0.2077, Critic Loss: 44.0060
+  Entropy: 7.3129, KL: 3978.5840
+
+[Epoch 388/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 388] Rollout Reward: -12.3305, Running Avg: -12.3771
+  Actor Loss: 0.2073, Critic Loss: 37.1644
+  Entropy: 7.3176, KL: 4381.9263
+
+[Epoch 389/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 389] Rollout Reward: -13.5684, Running Avg: -12.3751
+  Actor Loss: 0.2145, Critic Loss: 34.8212
+  Entropy: 7.3223, KL: 3781.2672
+
+[Epoch 390/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 390] Rollout Reward: -11.0961, Running Avg: -12.3635
+  Actor Loss: 0.2091, Critic Loss: 42.1040
+  Entropy: 7.3270, KL: 3758.0422
+
+[Epoch 391/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 391] Rollout Reward: -11.9029, Running Avg: -12.3374
+  Actor Loss: 0.2084, Critic Loss: 43.0956
+  Entropy: 7.3317, KL: 3519.4933
+
+[Epoch 392/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 392] Rollout Reward: -11.4166, Running Avg: -12.3381
+  Actor Loss: 0.2106, Critic Loss: 41.1725
+  Entropy: 7.3364, KL: 4204.2611
+
+[Epoch 393/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 393] Rollout Reward: -10.5904, Running Avg: -12.3334
+  Actor Loss: 0.2080, Critic Loss: 51.4002
+  Entropy: 7.3411, KL: 3235.6915
+
+[Epoch 394/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 394] Rollout Reward: -11.9749, Running Avg: -12.3356
+  Actor Loss: 0.2064, Critic Loss: 51.3236
+  Entropy: 7.3457, KL: 3274.1757
+
+[Epoch 395/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 395] Rollout Reward: -13.1912, Running Avg: -12.3537
+  Actor Loss: 0.2179, Critic Loss: 29.3882
+  Entropy: 7.3504, KL: 4906.4022
+
+[Epoch 396/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 396] Rollout Reward: -12.7054, Running Avg: -12.3667
+  Actor Loss: 0.2060, Critic Loss: 34.6750
+  Entropy: 7.3551, KL: 3405.6307
+
+[Epoch 397/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 397] Rollout Reward: -12.1607, Running Avg: -12.3552
+  Actor Loss: 0.2027, Critic Loss: 43.5289
+  Entropy: 7.3598, KL: 3781.7034
+
+[Epoch 398/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 398] Rollout Reward: -13.2946, Running Avg: -12.3665
+  Actor Loss: 0.2070, Critic Loss: 34.9563
+  Entropy: 7.3645, KL: 3530.1476
+
+[Epoch 399/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 399] Rollout Reward: -11.8887, Running Avg: -12.3505
+  Actor Loss: 0.2116, Critic Loss: 43.4337
+  Entropy: 7.3692, KL: 3763.7060
+
+[Epoch 400/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 400] Rollout Reward: -12.9549, Running Avg: -12.3558
+  Actor Loss: 0.2169, Critic Loss: 31.7426
+  Entropy: 7.3739, KL: 3654.4662
+
+[Epoch 401/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 401] Rollout Reward: -11.5013, Running Avg: -12.3530
+  Actor Loss: 0.2024, Critic Loss: 43.3628
+  Entropy: 7.3786, KL: 4061.2253
+
+[Epoch 402/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 402] Rollout Reward: -9.9167, Running Avg: -12.3061
+  Actor Loss: 0.2104, Critic Loss: 51.3725
+  Entropy: 7.3833, KL: 3459.7128
+
+[Epoch 403/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 403] Rollout Reward: -13.1977, Running Avg: -12.3217
+  Actor Loss: 0.1993, Critic Loss: 39.1902
+  Entropy: 7.3880, KL: 4084.0998
+
+[Epoch 404/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 404] Rollout Reward: -14.7930, Running Avg: -12.3386
+  Actor Loss: 0.2396, Critic Loss: 21.9511
+  Entropy: 7.3927, KL: 3620.4193
+
+[Epoch 405/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 405] Rollout Reward: -10.7788, Running Avg: -12.3289
+  Actor Loss: 0.2060, Critic Loss: 46.0075
+  Entropy: 7.3973, KL: 3553.0089
+
+[Epoch 406/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 406] Rollout Reward: -14.7564, Running Avg: -12.3510
+  Actor Loss: 0.2106, Critic Loss: 23.0084
+  Entropy: 7.4020, KL: 3916.0704
+
+[Epoch 407/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 407] Rollout Reward: -12.1117, Running Avg: -12.3567
+  Actor Loss: 0.2047, Critic Loss: 37.7581
+  Entropy: 7.4067, KL: 3394.5910
+
+[Epoch 408/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 408] Rollout Reward: -11.2864, Running Avg: -12.3233
+  Actor Loss: 0.2072, Critic Loss: 41.3930
+  Entropy: 7.4114, KL: 3520.2119
+
+[Epoch 409/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 409] Rollout Reward: -12.6641, Running Avg: -12.3448
+  Actor Loss: 0.2012, Critic Loss: 44.5756
+  Entropy: 7.4161, KL: 3141.8901
+
+[Epoch 410/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 410] Rollout Reward: -12.4091, Running Avg: -12.3269
+  Actor Loss: 0.2026, Critic Loss: 38.2493
+  Entropy: 7.4208, KL: 3698.9780
+
+[Epoch 411/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 411] Rollout Reward: -11.7458, Running Avg: -12.2939
+  Actor Loss: 0.2042, Critic Loss: 45.5729
+  Entropy: 7.4255, KL: 3744.8502
+
+[Epoch 412/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 412] Rollout Reward: -14.4964, Running Avg: -12.3343
+  Actor Loss: 0.2136, Critic Loss: 29.0928
+  Entropy: 7.4302, KL: 3189.7598
+
+[Epoch 413/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 413] Rollout Reward: -11.2758, Running Avg: -12.3040
+  Actor Loss: 0.2124, Critic Loss: 48.2721
+  Entropy: 7.4349, KL: 3150.9861
+
+[Epoch 414/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 414] Rollout Reward: -12.9343, Running Avg: -12.2979
+  Actor Loss: 0.2025, Critic Loss: 47.6284
+  Entropy: 7.4396, KL: 3742.7908
+
+[Epoch 415/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 415] Rollout Reward: -13.1314, Running Avg: -12.3084
+  Actor Loss: 0.2108, Critic Loss: 30.9444
+  Entropy: 7.4443, KL: 2975.7658
+
+[Epoch 416/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 416] Rollout Reward: -10.4640, Running Avg: -12.2955
+  Actor Loss: 0.2192, Critic Loss: 61.2608
+  Entropy: 7.4490, KL: 3170.9847
+
+[Epoch 417/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 417] Rollout Reward: -13.1504, Running Avg: -12.2876
+  Actor Loss: 0.1984, Critic Loss: 37.2997
+  Entropy: 7.4537, KL: 3880.6476
+
+[Epoch 418/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 418] Rollout Reward: -13.8716, Running Avg: -12.3025
+  Actor Loss: 0.2104, Critic Loss: 35.5704
+  Entropy: 7.4584, KL: 3768.3276
+
+[Epoch 419/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 419] Rollout Reward: -14.4869, Running Avg: -12.3153
+  Actor Loss: 0.2181, Critic Loss: 35.4150
+  Entropy: 7.4631, KL: 3293.3747
+
+[Epoch 420/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 420] Rollout Reward: -12.3586, Running Avg: -12.3151
+  Actor Loss: 0.2090, Critic Loss: 42.2136
+  Entropy: 7.4678, KL: 3366.6848
+
+[Epoch 421/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 421] Rollout Reward: -14.4160, Running Avg: -12.3219
+  Actor Loss: 0.2019, Critic Loss: 36.9347
+  Entropy: 7.4725, KL: 3380.8337
+
+[Epoch 422/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 422] Rollout Reward: -10.7640, Running Avg: -12.3050
+  Actor Loss: 0.2159, Critic Loss: 44.2535
+  Entropy: 7.4772, KL: 3221.7995
+
+[Epoch 423/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 423] Rollout Reward: -13.2113, Running Avg: -12.3029
+  Actor Loss: 0.2010, Critic Loss: 37.4797
+  Entropy: 7.4819, KL: 3351.4511
+
+[Epoch 424/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 424] Rollout Reward: -12.5463, Running Avg: -12.3072
+  Actor Loss: 0.2041, Critic Loss: 41.1947
+  Entropy: 7.4866, KL: 3583.2257
+
+[Epoch 425/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 425] Rollout Reward: -12.6432, Running Avg: -12.3018
+  Actor Loss: 0.2146, Critic Loss: 43.7495
+  Entropy: 7.4913, KL: 3828.4280
+
+[Epoch 426/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 426] Rollout Reward: -11.2382, Running Avg: -12.3032
+  Actor Loss: 0.2100, Critic Loss: 44.4612
+  Entropy: 7.4960, KL: 3639.8651
+
+[Epoch 427/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 427] Rollout Reward: -10.9760, Running Avg: -12.3087
+  Actor Loss: 0.2247, Critic Loss: 31.1958
+  Entropy: 7.5007, KL: 3571.7645
+
+[Epoch 428/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 428] Rollout Reward: -15.7215, Running Avg: -12.3406
+  Actor Loss: 0.1972, Critic Loss: 30.6804
+  Entropy: 7.5054, KL: 3491.9033
+
+[Epoch 429/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 429] Rollout Reward: -12.7280, Running Avg: -12.3559
+  Actor Loss: 0.2048, Critic Loss: 40.6063
+  Entropy: 7.5101, KL: 3604.9406
+
+[Epoch 430/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 430] Rollout Reward: -10.6501, Running Avg: -12.3216
+  Actor Loss: 0.2173, Critic Loss: 43.0821
+  Entropy: 7.5148, KL: 3343.4058
+
+[Epoch 431/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 431] Rollout Reward: -11.7963, Running Avg: -12.3124
+  Actor Loss: 0.1989, Critic Loss: 53.4079
+  Entropy: 7.5195, KL: 3126.6204
+
+[Epoch 432/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 432] Rollout Reward: -12.2007, Running Avg: -12.3397
+  Actor Loss: 0.2058, Critic Loss: 39.1901
+  Entropy: 7.5242, KL: 3768.5283
+
+[Epoch 433/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 433] Rollout Reward: -13.6749, Running Avg: -12.3636
+  Actor Loss: 0.2133, Critic Loss: 30.7259
+  Entropy: 7.5289, KL: 3744.8784
+
+[Epoch 434/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 434] Rollout Reward: -13.3016, Running Avg: -12.3811
+  Actor Loss: 0.2045, Critic Loss: 43.0006
+  Entropy: 7.5337, KL: 3138.5660
+
+[Epoch 435/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 435] Rollout Reward: -13.7943, Running Avg: -12.3965
+  Actor Loss: 0.2104, Critic Loss: 31.4553
+  Entropy: 7.5384, KL: 3783.1616
+
+[Epoch 436/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 436] Rollout Reward: -13.3585, Running Avg: -12.4261
+  Actor Loss: 0.2058, Critic Loss: 38.0372
+  Entropy: 7.5431, KL: 3508.1008
+
+[Epoch 437/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 437] Rollout Reward: -11.2750, Running Avg: -12.4126
+  Actor Loss: 0.2121, Critic Loss: 37.4286
+  Entropy: 7.5478, KL: 2952.3474
+
+[Epoch 438/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 438] Rollout Reward: -8.9145, Running Avg: -12.3975
+  Actor Loss: 0.2040, Critic Loss: 47.4436
+  Entropy: 7.5525, KL: 3511.6877
+
+[Epoch 439/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 439] Rollout Reward: -11.1558, Running Avg: -12.4234
+  Actor Loss: 0.2046, Critic Loss: 50.5381
+  Entropy: 7.5572, KL: 3570.0339
+
+[Epoch 440/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 440] Rollout Reward: -10.7329, Running Avg: -12.4249
+  Actor Loss: 0.2076, Critic Loss: 45.7184
+  Entropy: 7.5619, KL: 3040.0472
+
+[Epoch 441/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 441] Rollout Reward: -10.7921, Running Avg: -12.4138
+  Actor Loss: 0.2129, Critic Loss: 45.6503
+  Entropy: 7.5666, KL: 2838.0628
+
+[Epoch 442/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 442] Rollout Reward: -11.3358, Running Avg: -12.3915
+  Actor Loss: 0.2097, Critic Loss: 42.0093
+  Entropy: 7.5713, KL: 3643.7142
+
+[Epoch 443/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 443] Rollout Reward: -10.6724, Running Avg: -12.3601
+  Actor Loss: 0.2063, Critic Loss: 43.6905
+  Entropy: 7.5760, KL: 3232.1867
+
+[Epoch 444/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 444] Rollout Reward: -13.8047, Running Avg: -12.3652
+  Actor Loss: 0.2034, Critic Loss: 29.7124
+  Entropy: 7.5807, KL: 2996.6134
+
+[Epoch 445/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 445] Rollout Reward: -7.0703, Running Avg: -12.3014
+  Actor Loss: 0.2224, Critic Loss: 68.8897
+  Entropy: 7.5855, KL: 3138.5782
+
+[Epoch 446/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 446] Rollout Reward: -13.8553, Running Avg: -12.2993
+  Actor Loss: 0.2073, Critic Loss: 39.3574
+  Entropy: 7.5902, KL: 3900.4387
+
+[Epoch 447/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 447] Rollout Reward: -15.8588, Running Avg: -12.3420
+  Actor Loss: 0.2134, Critic Loss: 28.6591
+  Entropy: 7.5949, KL: 3562.6594
+
+[Epoch 448/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 448] Rollout Reward: -10.3315, Running Avg: -12.3204
+  Actor Loss: 0.2232, Critic Loss: 44.0106
+  Entropy: 7.5996, KL: 3832.2136
+
+[Epoch 449/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 449] Rollout Reward: -12.0083, Running Avg: -12.3059
+  Actor Loss: 0.2067, Critic Loss: 40.8852
+  Entropy: 7.6043, KL: 3247.5529
+
+[Epoch 450/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 450] Rollout Reward: -11.9397, Running Avg: -12.3135
+  Actor Loss: 0.2126, Critic Loss: 39.2214
+  Entropy: 7.6090, KL: 3148.2742
+
+[Epoch 451/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 451] Rollout Reward: -11.3339, Running Avg: -12.2905
+  Actor Loss: 0.2016, Critic Loss: 35.3421
+  Entropy: 7.6137, KL: 3339.5157
+
+[Epoch 452/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 452] Rollout Reward: -13.2385, Running Avg: -12.3044
+  Actor Loss: 0.2122, Critic Loss: 34.1523
+  Entropy: 7.6184, KL: 3530.6620
+
+[Epoch 453/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 453] Rollout Reward: -10.9496, Running Avg: -12.3092
+  Actor Loss: 0.2003, Critic Loss: 46.7007
+  Entropy: 7.6232, KL: 3086.2696
+
+[Epoch 454/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 454] Rollout Reward: -13.1899, Running Avg: -12.3183
+  Actor Loss: 0.2205, Critic Loss: 31.9911
+  Entropy: 7.6279, KL: 3250.5471
+
+[Epoch 455/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 455] Rollout Reward: -12.6416, Running Avg: -12.3152
+  Actor Loss: 0.2029, Critic Loss: 39.6718
+  Entropy: 7.6326, KL: 3189.7291
+
+[Epoch 456/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 456] Rollout Reward: -10.7638, Running Avg: -12.2744
+  Actor Loss: 0.2011, Critic Loss: 33.2402
+  Entropy: 7.6373, KL: 3253.2510
+
+[Epoch 457/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 457] Rollout Reward: -15.8314, Running Avg: -12.3153
+  Actor Loss: 0.2309, Critic Loss: 21.2278
+  Entropy: 7.6420, KL: 3120.3575
+
+[Epoch 458/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 458] Rollout Reward: -10.6689, Running Avg: -12.3031
+  Actor Loss: 0.2085, Critic Loss: 44.7377
+  Entropy: 7.6467, KL: 3707.8691
+
+[Epoch 459/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 459] Rollout Reward: -12.1175, Running Avg: -12.2909
+  Actor Loss: 0.1928, Critic Loss: 43.6362
+  Entropy: 7.6514, KL: 2896.1630
+
+[Epoch 460/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 460] Rollout Reward: -12.3978, Running Avg: -12.2761
+  Actor Loss: 0.2019, Critic Loss: 37.4969
+  Entropy: 7.6562, KL: 3517.3705
+
+[Epoch 461/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 461] Rollout Reward: -12.8430, Running Avg: -12.2676
+  Actor Loss: 0.1970, Critic Loss: 40.5217
+  Entropy: 7.6609, KL: 3435.0851
+
+[Epoch 462/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 462] Rollout Reward: -10.8789, Running Avg: -12.2294
+  Actor Loss: 0.2041, Critic Loss: 53.4584
+  Entropy: 7.6656, KL: 3104.9083
+
+[Epoch 463/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 463] Rollout Reward: -12.6982, Running Avg: -12.2207
+  Actor Loss: 0.2099, Critic Loss: 32.9732
+  Entropy: 7.6703, KL: 3104.3234
+
+[Epoch 464/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 464] Rollout Reward: -14.4974, Running Avg: -12.2537
+  Actor Loss: 0.2088, Critic Loss: 31.2073
+  Entropy: 7.6750, KL: 3843.8410
+
+[Epoch 465/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 465] Rollout Reward: -13.0399, Running Avg: -12.2567
+  Actor Loss: 0.2078, Critic Loss: 35.3799
+  Entropy: 7.6798, KL: 3123.4887
+
+[Epoch 466/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 466] Rollout Reward: -11.2606, Running Avg: -12.2674
+  Actor Loss: 0.2196, Critic Loss: 43.4489
+  Entropy: 7.6845, KL: 3414.9317
+
+[Epoch 467/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 467] Rollout Reward: -12.9951, Running Avg: -12.2802
+  Actor Loss: 0.2200, Critic Loss: 28.6471
+  Entropy: 7.6892, KL: 3498.2767
+
+[Epoch 468/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 468] Rollout Reward: -9.7211, Running Avg: -12.2604
+  Actor Loss: 0.2095, Critic Loss: 48.6895
+  Entropy: 7.6939, KL: 3490.1030
+
+[Epoch 469/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 469] Rollout Reward: -11.9312, Running Avg: -12.2251
+  Actor Loss: 0.1935, Critic Loss: 48.1271
+  Entropy: 7.6986, KL: 2656.5522
+
+[Epoch 470/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 470] Rollout Reward: -12.3624, Running Avg: -12.2233
+  Actor Loss: 0.2008, Critic Loss: 38.1330
+  Entropy: 7.7034, KL: 3070.0936
+
+[Epoch 471/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 471] Rollout Reward: -13.4077, Running Avg: -12.2294
+  Actor Loss: 0.2060, Critic Loss: 31.1574
+  Entropy: 7.7081, KL: 3756.7030
+
+[Epoch 472/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 472] Rollout Reward: -11.4214, Running Avg: -12.2206
+  Actor Loss: 0.2074, Critic Loss: 51.1497
+  Entropy: 7.7128, KL: 2955.1467
+
+[Epoch 473/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 473] Rollout Reward: -11.5485, Running Avg: -12.1987
+  Actor Loss: 0.2073, Critic Loss: 38.4734
+  Entropy: 7.7175, KL: 2683.2542
+
+[Epoch 474/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 474] Rollout Reward: -8.5280, Running Avg: -12.1564
+  Actor Loss: 0.2029, Critic Loss: 51.7954
+  Entropy: 7.7222, KL: 3612.9617
+
+[Epoch 475/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 475] Rollout Reward: -12.1349, Running Avg: -12.1655
+  Actor Loss: 0.2058, Critic Loss: 36.8167
+  Entropy: 7.7270, KL: 3349.9337
+
+[Epoch 476/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 476] Rollout Reward: -13.4504, Running Avg: -12.1891
+  Actor Loss: 0.2086, Critic Loss: 28.5096
+  Entropy: 7.7317, KL: 3152.2647
+
+[Epoch 477/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 477] Rollout Reward: -12.6028, Running Avg: -12.2104
+  Actor Loss: 0.2048, Critic Loss: 35.7211
+  Entropy: 7.7364, KL: 3691.1848
+
+[Epoch 478/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 478] Rollout Reward: -12.9389, Running Avg: -12.2097
+  Actor Loss: 0.2153, Critic Loss: 37.9343
+  Entropy: 7.7411, KL: 2674.8376
+
+[Epoch 479/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 479] Rollout Reward: -13.0121, Running Avg: -12.2353
+  Actor Loss: 0.2101, Critic Loss: 32.0962
+  Entropy: 7.7458, KL: 3478.4395
+
+[Epoch 480/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 480] Rollout Reward: -14.1667, Running Avg: -12.2685
+  Actor Loss: 0.2193, Critic Loss: 27.0716
+  Entropy: 7.7506, KL: 2702.7488
+
+[Epoch 481/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 481] Rollout Reward: -10.8737, Running Avg: -12.2564
+  Actor Loss: 0.2039, Critic Loss: 54.2152
+  Entropy: 7.7553, KL: 3289.3488
+
+[Epoch 482/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 482] Rollout Reward: -13.4931, Running Avg: -12.2808
+  Actor Loss: 0.2043, Critic Loss: 36.0228
+  Entropy: 7.7600, KL: 3386.0403
+
+[Epoch 483/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 483] Rollout Reward: -12.8795, Running Avg: -12.3071
+  Actor Loss: 0.2093, Critic Loss: 35.6640
+  Entropy: 7.7647, KL: 2834.5428
+
+[Epoch 484/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 484] Rollout Reward: -12.5694, Running Avg: -12.2861
+  Actor Loss: 0.2071, Critic Loss: 39.6689
+  Entropy: 7.7695, KL: 2769.6072
+
+[Epoch 485/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 485] Rollout Reward: -11.9521, Running Avg: -12.2648
+  Actor Loss: 0.2070, Critic Loss: 45.3339
+  Entropy: 7.7742, KL: 3166.1864
+
+[Epoch 486/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 486] Rollout Reward: -11.4762, Running Avg: -12.2596
+  Actor Loss: 0.1962, Critic Loss: 40.6626
+  Entropy: 7.7789, KL: 3001.0280
+
+[Epoch 487/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 487] Rollout Reward: -9.4073, Running Avg: -12.2440
+  Actor Loss: 0.2058, Critic Loss: 44.1814
+  Entropy: 7.7836, KL: 3315.3745
+
+[Epoch 488/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 488] Rollout Reward: -13.3485, Running Avg: -12.2542
+  Actor Loss: 0.2057, Critic Loss: 40.4020
+  Entropy: 7.7884, KL: 3246.7418
+
+[Epoch 489/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 489] Rollout Reward: -9.9708, Running Avg: -12.2182
+  Actor Loss: 0.2005, Critic Loss: 47.1075
+  Entropy: 7.7931, KL: 3352.0140
+
+[Epoch 490/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 490] Rollout Reward: -10.7513, Running Avg: -12.2147
+  Actor Loss: 0.1952, Critic Loss: 41.7707
+  Entropy: 7.7978, KL: 3010.2941
+
+[Epoch 491/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 491] Rollout Reward: -12.9110, Running Avg: -12.2248
+  Actor Loss: 0.2054, Critic Loss: 31.8806
+  Entropy: 7.8026, KL: 2655.8416
+
+[Epoch 492/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 492] Rollout Reward: -14.0790, Running Avg: -12.2514
+  Actor Loss: 0.2066, Critic Loss: 32.2288
+  Entropy: 7.8073, KL: 2634.8557
+
+[Epoch 493/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 493] Rollout Reward: -12.0488, Running Avg: -12.2660
+  Actor Loss: 0.2127, Critic Loss: 37.6370
+  Entropy: 7.8120, KL: 2922.8056
+
+[Epoch 494/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 494] Rollout Reward: -9.1725, Running Avg: -12.2380
+  Actor Loss: 0.2054, Critic Loss: 54.0085
+  Entropy: 7.8167, KL: 2993.3961
+
+[Epoch 495/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 495] Rollout Reward: -9.6844, Running Avg: -12.2029
+  Actor Loss: 0.2044, Critic Loss: 54.1122
+  Entropy: 7.8215, KL: 3191.3994
+
+[Epoch 496/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 496] Rollout Reward: -11.7514, Running Avg: -12.1934
+  Actor Loss: 0.1868, Critic Loss: 50.8339
+  Entropy: 7.8262, KL: 3197.1393
+
+[Epoch 497/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 497] Rollout Reward: -13.5558, Running Avg: -12.2073
+  Actor Loss: 0.2046, Critic Loss: 34.9021
+  Entropy: 7.8309, KL: 3298.9622
+
+[Epoch 498/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 498] Rollout Reward: -12.6668, Running Avg: -12.2011
+  Actor Loss: 0.1980, Critic Loss: 30.7094
+  Entropy: 7.8357, KL: 2940.1055
+
+[Epoch 499/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 499] Rollout Reward: -13.7284, Running Avg: -12.2195
+  Actor Loss: 0.1904, Critic Loss: 31.0110
+  Entropy: 7.8404, KL: 3009.4771
+
+[Epoch 500/500]
+  Early stopping at PPO epoch 1 due to large KL
+[Epoch 500] Rollout Reward: -14.3850, Running Avg: -12.2338
+  Actor Loss: 0.2111, Critic Loss: 30.9288
+  Entropy: 7.8451, KL: 3322.1584
+
+Training completed!

@@ -11,6 +11,12 @@ def compute_iou(box1: np.ndarray, box2: np.ndarray) -> float:
     """
     Compute IoU between two boxes in [x, y, w, h] format.
     """
+    # Handle torch tensors
+    if hasattr(box1, 'cpu'):
+        box1 = box1.cpu().numpy()
+    if hasattr(box2, 'cpu'):
+        box2 = box2.cpu().numpy()
+    
     x1, y1, w1, h1 = box1
     x2, y2, w2, h2 = box2
 

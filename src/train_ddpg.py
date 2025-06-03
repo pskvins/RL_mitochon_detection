@@ -6,13 +6,13 @@ from tqdm import tqdm
 import torch
 from torch.utils.data import DataLoader
 
-from src.ddpg_model.agent import DDPGAgent
-from src.ddpg_model.replay_buffer import ReplayBuffer
-from src.env.utils import compute_iou, ResNet18FeatureExtractor
+from ddpg_model.agent import DDPGAgent
+from ddpg_model.replay_buffer import ReplayBuffer
+from env.utils import compute_iou, ResNet18FeatureExtractor
 
-from src.env.box_env import BoxRefinementEnv
-from src.data.coarse_boxes_loader import CoarseBoxesDataset
-from src.data.generate_coarse_boxes import generate_coarse_boxes
+from env.box_env import BoxRefinementEnv
+from data.coarse_boxes_loader import CoarseBoxesDataset
+from data.generate_coarse_boxes import generate_coarse_boxes
 
 import argparse
 import yaml

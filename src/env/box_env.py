@@ -56,18 +56,18 @@ class BoxRefinementEnv:
         self.cur_box[1] += dy
 
         # Apply scale
-        scale = np.clip(1.0 + dscale, 0.75, 1.25) #prevent bbox collapse or explosion     
+        scale = np.clip(1.0 + dscale, 0.75, 1.25)  # 이건 numpy scalar이므로 OK
         self.cur_box[2] *= scale
         self.cur_box[3] *= scale
 
         #clip box to image bound
         img_w, img_h = self.image.size
         x, y, w, h = self.cur_box
-        w = min(w, img_w)
-        h = min(h, img_h)
-        x = np.clip(x, w / 2, img_w - w / 2)
-        y = np.clip(y, h / 2, img_h - h / 2)
-        self.cur_box = torch.tensor([x, y, w, h], dtype=torch.float32, device=self.device)  # ✅
+        w = torch.min(w, torch.tensor(img_w, device=self.device))
+        h = torch.min(h, torch.tensor(img_h, device=self.device))
+        x = torch.clamp(x, w / 2, img_w - w / 2)
+        y = torch.clamp(y, h / 2, img_h - h / 2)
+        self.cur_box = torch.stack([x, y, w, h])
 
         # Done condition
         self.step_count += 1
@@ -114,6 +114,10 @@ class BoxRefinementEnv:
         Args:
             box: current bbox 
         """
+        # Handle torch tensor
+        if hasattr(box, 'cpu'):
+            box = box.cpu().numpy()
+            
         x, y, w, h = box
         x0 = max(0, int(x - w / 2))
         y0 = max(0, int(y - h / 2))

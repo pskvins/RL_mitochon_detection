@@ -1,0 +1,221 @@
+Coarse boxes not found. Running YOLO inference:
+[Epoch 1/100]
+[Epoch 1] Avg Reward per box: -0.3794
+[Epoch 2/100]
+[Epoch 2] Avg Reward per box: -0.3317
+[Epoch 3/100]
+[Epoch 3] Avg Reward per box: -0.3983
+[Epoch 4/100]
+[Epoch 4] Avg Reward per box: -0.2809
+[Epoch 5/100]
+[Epoch 5] Avg Reward per box: -0.4036
+[Epoch 5] Model checkpoint saved.
+[Epoch 6/100]
+[Epoch 6] Avg Reward per box: -0.3107
+[Epoch 7/100]
+[Epoch 7] Avg Reward per box: -0.5209
+[Epoch 8/100]
+[Epoch 8] Avg Reward per box: -0.3633
+[Epoch 9/100]
+[Epoch 9] Avg Reward per box: -0.3710
+[Epoch 10/100]
+[Epoch 10] Avg Reward per box: -0.3239
+[Epoch 10] Model checkpoint saved.
+[Epoch 11/100]
+[Epoch 11] Avg Reward per box: -0.2837
+[Epoch 12/100]
+[Epoch 12] Avg Reward per box: -0.4031
+[Epoch 13/100]
+[Epoch 13] Avg Reward per box: -0.5296
+[Epoch 14/100]
+[Epoch 14] Avg Reward per box: -0.3713
+[Epoch 15/100]
+[Epoch 15] Avg Reward per box: -0.3622
+[Epoch 15] Model checkpoint saved.
+[Epoch 16/100]
+[Epoch 16] Avg Reward per box: -0.4636
+[Epoch 17/100]
+[Epoch 17] Avg Reward per box: -0.3268
+[Epoch 18/100]
+[Epoch 18] Avg Reward per box: -0.3439
+[Epoch 19/100]
+[Epoch 19] Avg Reward per box: -0.4593
+[Epoch 20/100]
+[Epoch 20] Avg Reward per box: -0.2965
+[Epoch 20] Model checkpoint saved.
+[Epoch 21/100]
+[Epoch 21] Avg Reward per box: -0.3871
+[Epoch 22/100]
+[Epoch 22] Avg Reward per box: -0.4022
+[Epoch 23/100]
+[Epoch 23] Avg Reward per box: -0.4194
+[Epoch 24/100]
+[Epoch 24] Avg Reward per box: -0.4117
+[Epoch 25/100]
+[Epoch 25] Avg Reward per box: -0.4281
+[Epoch 25] Model checkpoint saved.
+[Epoch 26/100]
+[Epoch 26] Avg Reward per box: -0.3578
+[Epoch 27/100]
+[Epoch 27] Avg Reward per box: -0.5485
+[Epoch 28/100]
+[Epoch 28] Avg Reward per box: -0.3856
+[Epoch 29/100]
+[Epoch 29] Avg Reward per box: -0.3904
+[Epoch 30/100]
+[Epoch 30] Avg Reward per box: -0.3636
+[Epoch 30] Model checkpoint saved.
+[Epoch 31/100]
+[Epoch 31] Avg Reward per box: -0.3578
+[Epoch 32/100]
+[Epoch 32] Avg Reward per box: -0.3406
+[Epoch 33/100]
+[Epoch 33] Avg Reward per box: -0.3283
+[Epoch 34/100]
+[Epoch 34] Avg Reward per box: -0.4008
+[Epoch 35/100]
+[Epoch 35] Avg Reward per box: -0.4104
+[Epoch 35] Model checkpoint saved.
+[Epoch 36/100]
+[Epoch 36] Avg Reward per box: -0.3860
+[Epoch 37/100]
+[Epoch 37] Avg Reward per box: -0.3828
+[Epoch 38/100]
+[Epoch 38] Avg Reward per box: -0.2612
+[Epoch 39/100]
+[Epoch 39] Avg Reward per box: -0.3333
+[Epoch 40/100]
+[Epoch 40] Avg Reward per box: -0.4781
+[Epoch 40] Model checkpoint saved.
+[Epoch 41/100]
+[Epoch 41] Avg Reward per box: -0.3405
+[Epoch 42/100]
+[Epoch 42] Avg Reward per box: -0.3997
+[Epoch 43/100]
+[Epoch 43] Avg Reward per box: -0.3919
+[Epoch 44/100]
+[Epoch 44] Avg Reward per box: -0.4268
+[Epoch 45/100]
+[Epoch 45] Avg Reward per box: -0.3580
+[Epoch 45] Model checkpoint saved.
+[Epoch 46/100]
+[Epoch 46] Avg Reward per box: -0.3234
+[Epoch 47/100]
+[Epoch 47] Avg Reward per box: -0.4629
+[Epoch 48/100]
+[Epoch 48] Avg Reward per box: -0.3181
+[Epoch 49/100]
+[Epoch 49] Avg Reward per box: -0.3816
+[Epoch 50/100]
+[Epoch 50] Avg Reward per box: -0.2877
+[Epoch 50] Model checkpoint saved.
+[Epoch 51/100]
+[Epoch 51] Avg Reward per box: -0.4535
+[Epoch 52/100]
+[Epoch 52] Avg Reward per box: -0.3358
+[Epoch 53/100]
+[Epoch 53] Avg Reward per box: -0.2521
+[Epoch 54/100]
+[Epoch 54] Avg Reward per box: -0.4178
+[Epoch 55/100]
+[Epoch 55] Avg Reward per box: -0.3528
+[Epoch 55] Model checkpoint saved.
+[Epoch 56/100]
+[Epoch 56] Avg Reward per box: -0.3785
+[Epoch 57/100]
+[Epoch 57] Avg Reward per box: -0.2618
+[Epoch 58/100]
+[Epoch 58] Avg Reward per box: -0.3057
+[Epoch 59/100]
+[Epoch 59] Avg Reward per box: -0.3854
+[Epoch 60/100]
+[Epoch 60] Avg Reward per box: -0.4953
+[Epoch 60] Model checkpoint saved.
+[Epoch 61/100]
+[Epoch 61] Avg Reward per box: -0.3944
+[Epoch 62/100]
+[Epoch 62] Avg Reward per box: -0.4470
+[Epoch 63/100]
+[Epoch 63] Avg Reward per box: -0.3357
+[Epoch 64/100]
+[Epoch 64] Avg Reward per box: -0.3591
+[Epoch 65/100]
+[Epoch 65] Avg Reward per box: -0.3073
+[Epoch 65] Model checkpoint saved.
+[Epoch 66/100]
+[Epoch 66] Avg Reward per box: -0.4901
+[Epoch 67/100]
+[Epoch 67] Avg Reward per box: -0.5593
+[Epoch 68/100]
+[Epoch 68] Avg Reward per box: -0.4552
+[Epoch 69/100]
+[Epoch 69] Avg Reward per box: -0.5194
+[Epoch 70/100]
+[Epoch 70] Avg Reward per box: -0.5582
+[Epoch 70] Model checkpoint saved.
+[Epoch 71/100]
+[Epoch 71] Avg Reward per box: -0.4063
+[Epoch 72/100]
+[Epoch 72] Avg Reward per box: -0.3849
+[Epoch 73/100]
+[Epoch 73] Avg Reward per box: -0.3240
+[Epoch 74/100]
+[Epoch 74] Avg Reward per box: -0.3009
+[Epoch 75/100]
+[Epoch 75] Avg Reward per box: -0.3722
+[Epoch 75] Model checkpoint saved.
+[Epoch 76/100]
+[Epoch 76] Avg Reward per box: -0.3363
+[Epoch 77/100]
+[Epoch 77] Avg Reward per box: -0.3685
+[Epoch 78/100]
+[Epoch 78] Avg Reward per box: -0.4879
+[Epoch 79/100]
+[Epoch 79] Avg Reward per box: -0.3342
+[Epoch 80/100]
+[Epoch 80] Avg Reward per box: -0.2955
+[Epoch 80] Model checkpoint saved.
+[Epoch 81/100]
+[Epoch 81] Avg Reward per box: -0.4255
+[Epoch 82/100]
+[Epoch 82] Avg Reward per box: -0.3003
+[Epoch 83/100]
+[Epoch 83] Avg Reward per box: -0.4198
+[Epoch 84/100]
+[Epoch 84] Avg Reward per box: -0.3710
+[Epoch 85/100]
+[Epoch 85] Avg Reward per box: -0.4592
+[Epoch 85] Model checkpoint saved.
+[Epoch 86/100]
+[Epoch 86] Avg Reward per box: -0.2613
+[Epoch 87/100]
+[Epoch 87] Avg Reward per box: -0.2822
+[Epoch 88/100]
+[Epoch 88] Avg Reward per box: -0.3627
+[Epoch 89/100]
+[Epoch 89] Avg Reward per box: -0.4187
+[Epoch 90/100]
+[Epoch 90] Avg Reward per box: -0.3434
+[Epoch 90] Model checkpoint saved.
+[Epoch 91/100]
+[Epoch 91] Avg Reward per box: -0.4494
+[Epoch 92/100]
+[Epoch 92] Avg Reward per box: -0.4738
+[Epoch 93/100]
+[Epoch 93] Avg Reward per box: -0.3514
+[Epoch 94/100]
+[Epoch 94] Avg Reward per box: -0.4875
+[Epoch 95/100]
+[Epoch 95] Avg Reward per box: -0.4298
+[Epoch 95] Model checkpoint saved.
+[Epoch 96/100]
+[Epoch 96] Avg Reward per box: -0.3755
+[Epoch 97/100]
+[Epoch 97] Avg Reward per box: -0.4613
+[Epoch 98/100]
+[Epoch 98] Avg Reward per box: -0.3537
+[Epoch 99/100]
+[Epoch 99] Avg Reward per box: -0.4912
+[Epoch 100/100]
+[Epoch 100] Avg Reward per box: -0.3834
+[Epoch 100] Model checkpoint saved.

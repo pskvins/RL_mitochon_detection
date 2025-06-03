@@ -1,0 +1,49 @@
+# config_ppo.yaml - PPO specific configuration
+# paths 
+paths:
+  image_dir: datasets/train/images
+  label_dir: datasets/train/labels
+  coarse_dir: datasets/train/coarse_boxes_yolo
+  model_path: yolo_runs/train/finetune_exp1/weights/best.pt
+
+# agent
+agent:
+  actor_lr: 3.e-4  # Slightly higher for PPO
+  critic_lr: 3.e-4  # Same as actor for PPO
+  gamma: 0.99
+  tau: 0.005  # Not used in PPO but kept for compatibility
+  
+  # PPO specific hyperparameters
+  gae_lambda: 0.95  # GAE lambda for advantage estimation
+  clip_epsilon: 0.2  # PPO clip parameter
+  value_coef: 0.5  # Value loss coefficient
+  entropy_coef: 0.01  # Entropy bonus
+  ppo_epochs: 10  # Number of PPO update epochs
+  max_grad_norm: 0.5  # Gradient clipping
+
+# training loop
+train:
+  epochs: 500  # More epochs as PPO is on-policy
+  steps_per_episode: 10
+  batch_size: 64  # Mini-batch size for PPO updates
+  replay_start: 1000  # Not used in PPO
+  noise_std: 0.1  # Not used in PPO (stochastic policy)
+  noise_decay: 0.99  # Not used in PPO
+  conf_threshold: 0.3
+  
+  # PPO specific
+  rollout_length: 256  # Steps to collect before update
+  n_rollout_boxes: 16  # Boxes to process per rollout
+  update_frequency: 1  # Update every N rollouts
+
+# save results
+save:
+  checkpoint_dir: ppo_runs/ppo_exp1/weights
+  save_interval: 10  # Save every N epochs
+  save_best_only: true
+
+# save log
+log:
+  use_tensorboard: true
+  log_dir: ppo_runs/ppo_exp1/logs
+  log_interval: 5  # Log every N epochs
