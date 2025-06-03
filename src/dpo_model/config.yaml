@@ -1,0 +1,26 @@
+#paths
+ref_update_freq: 200
+beta: 0.1
+paths:
+  image_dir: datasets/train/images
+  label_dir: datasets/train/labels
+  coarse_dir: datasets/train/coarse_boxes_yolo
+  model_path: yolo_runs/train/finetune_exp1/weights/best.pt #path to finetuned weight of YOLO
+  learning_rate : 1e-4
+
+# training loop
+train:
+  epochs: 8
+  conf_threshold: 0.3
+
+#save results
+save:
+  checkpoint_dir: dpo_runs/weights
+  save_interval: 5  # Save weights every N epochs
+  save_best_only: false
+
+#save log
+log:
+  use_tensorboard: true
+  log_dir: dpo_runs/logs
+  log_interval: 5  # Save logs every N epochs
