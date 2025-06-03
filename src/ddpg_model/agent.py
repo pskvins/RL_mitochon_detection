@@ -8,7 +8,7 @@ from .replay_buffer import ReplayBuffer
 class DDPGAgent:
     def __init__(self, state_dim, action_dim,
         device = "cpu", actor_lr: float = 1e-4,
-        critic_lr: float = 1e-3, gamma: float = 0.99, tau: float = 0.005):
+        critic_lr: float = 1e-3, gamma: float = 0.99, tau: float = 0.01):
 
         """
         Args: 

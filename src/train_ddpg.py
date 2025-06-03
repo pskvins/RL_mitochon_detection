@@ -8,7 +8,7 @@ from torch.utils.data import DataLoader
 
 from src.ddpg_model.agent import DDPGAgent
 from src.ddpg_model.replay_buffer import ReplayBuffer
-from src.env.utils import compute_iou, ResNet18FeatureExtractor
+from src.env.utils import compute_iou, YOLOv8FeatureExtractor
 
 from src.env.box_env import BoxRefinementEnv
 from src.data.coarse_boxes_loader import CoarseBoxesDataset
@@ -34,7 +34,7 @@ coarse_dir = path_cfg["coarse_dir"]
 model_path = path_cfg["model_path"]
 
 #agent
-state_dim = 4 + 512  # box(4) + CNN(512)
+state_dim = 4 + 195  # box(4) + YOLO(195)
 action_dim = 4       # dx, dy, dscale, p_term
 agent_cfg = cfg['agent']
 actor_lr = agent_cfg["actor_lr"]
@@ -50,7 +50,7 @@ steps_per_episode = train_cfg['steps_per_episode']
 batch_size = train_cfg['batch_size']
 replay_start = train_cfg['replay_start']
 noise_std = train_cfg['noise_std']
-noise_decay = train_cfg['noise_decay']
+# noise_decay = train_cfg['noise_decay']
 conf_threshold = train_cfg['conf_threshold'] #thershold for filtering coarse boxes
 
 
@@ -95,7 +95,7 @@ if not os.path.exists(coarse_dir) or len(os.listdir(coarse_dir)) == 0:
 # Dataset and modules
 # -----------------------
 dataset = CoarseBoxesDataset(image_dir, label_dir, coarse_dir)
-feature_extractor = ResNet18FeatureExtractor(device=device)
+feature_extractor = YOLOv8FeatureExtractor(model_path=model_path, device=device)
 replay_buffer = ReplayBuffer(state_dim, action_dim)
 agent = DDPGAgent(state_dim, action_dim, device=device)
 dataloader = DataLoader(dataset, batch_size=batch_size, 
@@ -111,7 +111,8 @@ os.makedirs("checkpoints", exist_ok=True)
 for epoch in range(epochs):
     print(f"[Epoch {epoch+1}/{epochs}]")
     episode_rewards = []
-    noise_std = max(0.01, noise_decay*noise_std) #noise decay
+    # noise_std = max(0.01, noise_decay*noise_std) #noise decay
+    noise_std = max(0.01, noise_std)
     
     for img, gt_boxes, coarse_boxes in tqdm(dataloader):
         for box in coarse_boxes:
