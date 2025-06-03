@@ -2,43 +2,43 @@ import torch
 import torch.nn as nn
 
 class Actor(nn.Module):
-    def __init__(self, state_dim=516, max_shift=2.0, max_scale=0.2):
+    def __init__(self, state_dim=516, max_shift=0.5, max_scale=0.2):
         super().__init__()
-
         self.max_shift = max_shift
         self.max_scale = max_scale
+        self.state_dim = state_dim
 
-        self.conv = nn.Sequential(
-            nn.Conv2d(in_channels=state_dim, out_channels=128, kernel_size=1),
+        self.action_head = nn.Sequential(
+            nn.Conv2d(state_dim, 128, kernel_size=1),
             nn.ReLU(),
-            nn.Conv2d(128, 64, kernel_size=1),
-            nn.ReLU()
+            nn.Conv2d(128, 256, kernel_size=1),
+            nn.ReLU(),
+            nn.AdaptiveAvgPool2d((1, 1)),  # spatial 차원 줄이기
+            nn.Flatten(),
+            nn.Linear(256, 3)
         )
 
-        self.mlp = nn.Sequential(
-            nn.Linear(64, 128),
+        self.term_head = nn.Sequential(
+            nn.Conv2d(state_dim, 128, kernel_size=1),
             nn.ReLU(),
+            nn.Conv2d(128, 256, kernel_size=1),
+            nn.ReLU(),
+            nn.AdaptiveAvgPool2d((1, 1)),
+            nn.Flatten(),
+            nn.Linear(256, 1)
         )
 
-        self.action_head = nn.Linear(128, 3)  # dx, dy, dscale
-        self.term_head = nn.Linear(128, 1)
-        nn.init.constant_(self.term_head.bias, -2.0)
+        nn.init.constant_(self.term_head[-1].bias, -2.0)
 
     def forward(self, state):
         """
         Args:
-            state: Tensor [B, 516] = [x, y, w, h, feat512]
+            state: Tensor [B, C=state_dim, H, W]
         Returns:
-            action: Tensor [B, 4] = [dx, dy, dscale, p_term]
+            Tensor [B, 4] = dx, dy, dscale, p_term
         """
-        B = state.shape[0]
-        x = state.view(B, 516, 1, 1)  # [B, 516, 1, 1]
-        x = self.conv(x).view(B, -1)  # [B, 64]
-        x = self.mlp(x)
-
-        move = torch.tanh(self.action_head(x))  # [B, 3]
+        move = torch.tanh(self.action_head(state))
         shift = move[:, :2] * self.max_shift
         scale = move[:, 2:3] * self.max_scale
-        p_term = torch.sigmoid(self.term_head(x))
-
-        return torch.cat([shift, scale, p_term], dim=1)  # [B, 4]
+        p_term = torch.sigmoid(self.term_head(state))
+        return torch.cat([shift, scale, p_term], dim=1)

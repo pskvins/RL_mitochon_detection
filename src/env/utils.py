@@ -4,7 +4,7 @@ import torch
 import torch.nn as nn
 import torchvision.transforms as T
 import torchvision.models as models
-from torchvision.models import mobilenet_v2
+from ultralytics import YOLO
 
 
 def compute_iou(box1: np.ndarray, box2: np.ndarray) -> float:
@@ -69,6 +69,75 @@ class ResNet18FeatureExtractor:
             x = self.transform(img).unsqueeze(0).to(self.device)  # [1, 3, 64, 64]
             feat = self.model(x)  # [1, 512, 1, 1]
             return feat.view(-1)  # [512], torch.Tensor
+
+
+class YOLOv8FeatureExtractor:
+    def __init__(self, model_path: str, device: str = "cpu"):
+        self.device = device
+        self.model = YOLO(model_path)
+        self.model.to(device).eval()
+        self.detect_module = None
+        self.captured_features_list = []
+
+        for module in self.model.model.model:
+            if module.__class__.__name__ == 'Detect':
+                self.detect_module = module
+                break
+
+        if self.detect_module is None:
+            raise ValueError("Could not find a Detect layer in the YOLOv8 model.")
+
+        def hook_fn_capture(module, input_tuple, output_tuple):
+            if input_tuple and isinstance(input_tuple[0], list):
+                current_features = [f.detach().clone().cpu() for f in input_tuple[0]]
+
+                self.captured_features_list.clear()
+                self.captured_features_list.append(current_features)
+            # The hook should not return any value that alters the normal flow
+            # unless that's the specific intention (e.g., modifying the output).
+
+        self.hook_handle = self.detect_module.register_forward_hook(hook_fn_capture)
+
+        self.transform = T.Compose([
+            T.Resize((64, 64)),
+            T.ToTensor(),
+        ])
+
+    def __call__(self, img: Image.Image) -> np.ndarray:
+        with torch.no_grad():
+            x = self.transform(img).unsqueeze(0).to(self.device)
+
+            _ = self.model.predict(x, verbose=False) 
+
+            if not self.captured_features_list or not self.captured_features_list[0]:
+                print("[YOLOv8FeatureExtractor] WARNING: No features were captured by the hook.")
+                return np.array([])
+
+            feature_maps_from_hook = self.captured_features_list[0]
+
+            averaged_features = []
+            for fm in feature_maps_from_hook:
+                if fm.ndim == 4 and fm.shape[0] == 1:
+                    avg_fm = torch.mean(fm, dim=[-2, -1])
+                    averaged_features.append(avg_fm)
+                else:
+                    print(f"[YOLOv8FeatureExtractor] WARNING: Unexpected feature map shape: {fm.shape}. Skipping this map.")
+
+            if not averaged_features:
+                 print("[YOLOv8FeatureExtractor] WARNING: No valid feature maps to average after processing.")
+                 return np.array([])
+
+            concatenated_features = torch.cat(averaged_features, dim=1)
+
+            final_feature_vector = concatenated_features.squeeze(0).cpu().numpy()
+
+            return final_feature_vector
+
+    def __del__(self):
+        if hasattr(self, 'hook_handle') and self.hook_handle:
+            self.hook_handle.remove()
+
+
 
 #get gif which present the path bbox being refined
 import imageio

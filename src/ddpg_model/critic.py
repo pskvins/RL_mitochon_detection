@@ -39,9 +39,9 @@ class Critic(nn.Module):
         Returns:
             q_value: Tensor of shape [B, 1]
         """
-        x = torch.cat([state, action], dim=1)  # [B, 520]
+        x = torch.cat([state, action], dim=1)  # [B, state_dim + action_dim]
         B = x.size(0)
-        x = x.view(B, self.input_dim, 1, 1)     # [B, 520, 1, 1]
+        x = x.view(B, self.input_dim, 1, 1)     # [B, s_dim + a_dim, 1, 1]
         x = self.conv(x).view(B, -1)            # [B, 64]
         q = self.mlp(x)                         # [B, 1]
         return q

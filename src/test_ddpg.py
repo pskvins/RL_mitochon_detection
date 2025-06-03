@@ -10,7 +10,7 @@ from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay, precision_
 from sklearn.metrics import precision_score, recall_score, f1_score
 
 from src.ddpg_model.agent import DDPGAgent
-from src.env.utils import compute_iou, ResNet18FeatureExtractor
+from src.env.utils import compute_iou, YOLOv8FeatureExtractor
 from src.env.box_env import BoxRefinementEnv
 from src.data.coarse_boxes_loader import CoarseBoxesDataset
 from src.data.generate_coarse_boxes import generate_coarse_boxes
@@ -44,7 +44,7 @@ max_step = agent_cfg['max_step']
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 agent = DDPGAgent(state_dim, action_dim, device)
 agent.load(pt_path)
-feature_extractor = ResNet18FeatureExtractor(device=device)
+feature_extractor = YOLOv8FeatureExtractor(model_path=yolo_path,device=device)
 
 #save
 save_cfg = cfg['save']
@@ -72,7 +72,6 @@ dataset = CoarseBoxesDataset(
 )
 
 
-
 def compute_metrics(refined_boxes, gt_boxes, iou_threshold=0.5):
     """
     Funciton to compute metrics
@@ -87,6 +86,7 @@ def compute_metrics(refined_boxes, gt_boxes, iou_threshold=0.5):
         for i, g in enumerate(gt_boxes):
             if i in matched_gt:
                 continue
+
             iou = compute_iou(r_box, g)
             if iou > best_iou:
                 best_iou = iou
@@ -113,8 +113,6 @@ def compute_metrics(refined_boxes, gt_boxes, iou_threshold=0.5):
 
 
 
-
-
 os.makedirs(save_path, exist_ok=True)
 metrics_list = []
 all_preds_total, all_gts_total, all_scores_total = [], [], []
@@ -138,18 +136,24 @@ with torch.no_grad():
                 gt_boxes=gt_boxes,
                 initial_box=box,
                 feature_extractor=feature_extractor,
-                iou_fn=lambda a, b: 0.0 #dummy reward function
+                iou_fn=lambda a, b: 0.0  # dummy reward function
             )
             state = env.reset()
-            for _ in range(max_step):
-                state_tensor = state.unsqueeze(0)
+            if not isinstance(state, torch.Tensor):
+                state = torch.tensor(state, dtype=torch.float32, device=device)
+            for t in range(max_step):
+                state_tensor = state.unsqueeze(0) if state.ndim == 1 else state
+                if not isinstance(state_tensor, torch.Tensor):
+                    state_tensor = torch.tensor(state_tensor, dtype=torch.float32, device=device)
                 action = agent.select_action(state_tensor, noise_std=0.0)
-                action_np = action.squeeze(0).cpu().numpy()
-                next_state, _, done, _ = env.step(action_np)
+                action_np = action.squeeze(0).detach().cpu().numpy()
+                next_state, _, done, _ = env.step(t+1, action_np)
+                if not isinstance(next_state, torch.Tensor):
+                    next_state = torch.tensor(next_state, dtype=torch.float32, device=device)
                 state = next_state
                 if done:
                     break
-            refined_boxes.append(env.cur_box.copy())
+            refined_boxes.append(env.cur_box.detach().cpu().numpy().copy())
 
 
         precision, recall, f1, ap_50, preds, gts, scores = compute_metrics(refined_boxes, gt_boxes)
@@ -159,6 +163,7 @@ with torch.no_grad():
         all_scores_total.extend(scores)
 
         if save_figs:
+            os.mkdir(os.path.join(save_path,"figs"))
             vis_img = img.copy()
             draw = ImageDraw.Draw(vis_img)
             for box in coarse_boxes:
@@ -171,7 +176,7 @@ with torch.no_grad():
                 x, y, w, h = box
                 draw.rectangle([x-w/2, y-h/2, x+w/2, y+h/2], outline="green", width=2)
 
-            vis_img.save(os.path.join(save_path, f"/figs/refined_{i}.png"))
+            vis_img.save(os.path.join(save_path, f"figs/refined_{i}.png"))
 
 metrics_np = np.array(metrics_list)
 avg_precision = np.mean(metrics_np[:, 0])

@@ -13,7 +13,7 @@ def predict(img, weight="ddpg_epoch_10pt", save_img=True, save_gif=False, save_d
 
     # 모델 불러오기
     yolo = YOLO("yolo_runs/train/finetune_exp1/weights/best.pt")
-    agent = DDPGAgent(516, 4, device)
+    agent = DDPGAgent(199, 4, device)
     agent.load(weight, map_location=device)
     feature_extractor = ResNet18FeatureExtractor(device=device)
 
