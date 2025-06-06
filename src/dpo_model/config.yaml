@@ -1,6 +1,6 @@
 #paths
-ref_update_freq: 200
-beta: 0.1
+ref_update_freq: 1015
+beta: 1
 paths:
   image_dir: datasets/train/images
   label_dir: datasets/train/labels

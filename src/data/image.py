@@ -31,6 +31,10 @@ def xywh_to_xyxy(box):
     y2 = yc + h / 2
     return torch.stack([x1, y1, x2, y2])
 
+def l1_score(pred, target):
+    pred = xywh_to_xyxy(pred)  # Convert to [x1, y1, x2, y2]
+    target = xywh_to_xyxy(target)  # Convert to [x1, y1, x2, y2]
+    return -F.l1_loss(pred, target, reduction="none").sum(dim=-1)
 
 def giou(box1, box2):
     box1 = xywh_to_xyxy(box1)  # Convert to [x1, y1, x2, y2]
@@ -64,13 +68,27 @@ def dpo_loss_fn(policy_pred_boxes, ref_pred_boxes, chosen_targets, rejected_targ
         score_policy_rejected = -giou(policy_pred_boxes, rejected_targets)
         score_ref_chosen = -giou(ref_pred_boxes, chosen_targets)
         score_ref_rejected = -giou(ref_pred_boxes, rejected_targets)
+    elif box_loss_type == 'l1':
+        score_policy_chosen = l1_score(policy_pred_boxes, chosen_targets)
+        score_policy_rejected = l1_score(policy_pred_boxes, rejected_targets)
+        score_ref_chosen = l1_score(ref_pred_boxes, chosen_targets)
+        score_ref_rejected = l1_score(ref_pred_boxes, rejected_targets)
+
     else:
         raise ValueError(f"Unsupported box loss type: {box_loss_type}")
-
+    #print("policy_pred_boxes:", policy_pred_boxes)
+    #print("ref_pred_boxes:", ref_pred_boxes)
+    #print("chosen_targets:", chosen_targets)
+    #print("rejected_targets:", rejected_targets)
+    #print("GIoU(policy, chosen):", score_policy_chosen)
+    #print("GIoU(policy, rejected):", score_policy_rejected)
+    epsilon=0.1
+    score_policy_chosen += epsilon * torch.randn_like(score_policy_chosen)
+    score_policy_rejected += epsilon * torch.randn_like(score_policy_rejected)
     pi_logratios = score_policy_chosen - score_policy_rejected  # How much policy prefers chosen over rejected
     ref_logratios = score_ref_chosen - score_ref_rejected # How much reference prefers chosen over rejected
-    logits = beta * (pi_logratios - ref_logratios)
-
+    #logits = beta * (pi_logratios - ref_logratios)
+    logits = beta*pi_logratios
     if torch.isnan(logits).any():
         print("NaN detected in DPO logits. Clamping may be needed or check scores.")
         print("score_policy_chosen:", score_policy_chosen)
@@ -99,14 +117,19 @@ class FeatureExtractor(nn.Module):
         self.avgpool = nn.AdaptiveAvgPool2d((1, 1))  # For pooling the patch features to a fixed size
         
         self.fc = nn.Sequential(
-            nn.Linear(self.feature_dim + 4, self.feature_dim//2),
+            nn.Linear(self.feature_dim + 256, self.feature_dim//2),
             nn.ReLU(),
             nn.Linear(self.feature_dim//2, self.feature_dim//4),
             nn.ReLU(),
             nn.Linear(self.feature_dim//4, self.output_dim)
         )
         self.fc.to(device)
-
+        self.input_proj = nn.Sequential(
+            nn.Linear(4, 128),
+            nn.ReLU(),
+            nn.Linear(128, 256)
+        )
+        self.input_proj.to(device)
 
     def __call__(self, img : Image.Image, input_box : np.ndarray) -> torch.Tensor:
         cropped = self.crop_box_from_image(img, input_box)
@@ -123,6 +146,7 @@ class FeatureExtractor(nn.Module):
         # input_box 형태 바꿔야함. (crop 했을 때에 위치.?)
         input_edited = self.change_box(input_box, img.size)
         input_edited = input_edited.unsqueeze(0)
+        input_edited = self.input_proj(input_edited)
         combined_feat = torch.cat((x, input_edited), dim=1)
 
         deltas = self.fc(combined_feat)

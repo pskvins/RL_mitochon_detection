@@ -125,7 +125,8 @@ for epoch in range(epochs):
                 ref_pred_boxes, 
                 gt_box, 
                 input_box,
-                beta=beta
+                beta=beta,
+                box_loss_type='l1'
             )
 
             if torch.isnan(loss):
@@ -151,6 +152,6 @@ for epoch in range(epochs):
     writer.add_scalar("Loss/DPO", avg_loss, epoch + 1)
     # Save model checkpoint
     torch.save(policy_model.state_dict(), f"dpo_refiner_epoch_{epoch+1}.pth")
-    print(f"Epoch {epoch}/{epochs}, Loss: {loss.item():.4f}")
+    print(f"Epoch {epoch+1}/{epochs}, Loss: {loss.item():.4f}")
 
 
