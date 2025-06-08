@@ -52,6 +52,10 @@ class BoxRefinementEnv:
         self.cur_box[2] *= scale
         self.cur_box[3] *= scale
 
+        # if delete > 0.5:
+        #     self.cur_box = np.array([0, 0, 0, 0], dtype=np.float32)
+        #     return self._get_state(), 0, True, {}
+
         # Compute reward
         best_gt = max(self.gt_boxes, key=lambda gt: self.iou_fn(self.cur_box, gt))
         iou = self.iou_fn(self.cur_box, best_gt)
@@ -77,7 +81,7 @@ class BoxRefinementEnv:
         Args:
             box: current bbox 
         """
-        x, y, w, h = box
+        x, y, w, h, conf = box
         x0 = int(x - w / 2)
         y0 = int(y - h / 2)
         x1 = int(x + w / 2)

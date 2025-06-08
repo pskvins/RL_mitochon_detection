@@ -1,6 +1,7 @@
 import torch
 from torch import Tensor
 import torch.nn as nn
+from ..env.utils import SwiGLU
 
 class Critic(nn.Module):
     def __init__(self, state_dim: int, action_dim: int = 4):
@@ -18,9 +19,13 @@ class Critic(nn.Module):
 
         self.net = nn.Sequential(
             nn.Linear(input_dim, 256),
-            nn.ReLU(),
+            nn.BatchNorm1d(256),
+            # nn.ReLU(),
+            SwiGLU(256),
             nn.Linear(256, 256),
-            nn.ReLU(),
+            nn.BatchNorm1d(256),
+            # nn.ReLU(),
+            SwiGLU(256),
             nn.Linear(256, 1)  # Q-value output
         )
 

@@ -34,8 +34,11 @@ coarse_dir = path_cfg["coarse_dir"]
 model_path = path_cfg["model_path"]
 
 #agent
-state_dim = 4 + 195  # box(4) + YOLO(195)
-action_dim = 4       # dx, dy, dscale, p_term
+if "best" in model_path:
+    state_dim = 4 + 1 + 195  # box(4) + confidence(1) + YOLO(195)
+else:
+    state_dim = 4 + 1 + 432  # box(4) + confidence(1) + YOLO(195)
+action_dim = 4          # dx, dy, dscale, p_term
 agent_cfg = cfg['agent']
 actor_lr = agent_cfg["actor_lr"]
 critic_lr = agent_cfg["critic_lr"]
@@ -120,7 +123,10 @@ for epoch in range(epochs):
             gt_boxes = np.array([
                         [x * img_w, y * img_h, w * img_w, h * img_h]
                         for x, y, w, h in gt_boxes], dtype=np.float32) #rescale
-            box = np.asarray(box, dtype=np.float32).reshape(4,)
+            box = np.asarray(box, dtype=np.float32).reshape(5,)
+            if box[-1] > 0.7: # Skip if confidence is high
+                continue
+
             env = BoxRefinementEnv(
                 image=img,
                 gt_boxes=gt_boxes,

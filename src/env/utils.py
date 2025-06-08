@@ -6,13 +6,13 @@ import torchvision.transforms as T
 import torchvision.models as models
 from torchvision.models import mobilenet_v2
 from ultralytics import YOLO
-
+import torch.nn.functional as F
 
 def compute_iou(box1: np.ndarray, box2: np.ndarray) -> float:
     """
     Compute IoU between two boxes in [x, y, w, h] format.
     """
-    x1, y1, w1, h1 = box1
+    x1, y1, w1, h1, _ = box1
     x2, y2, w2, h2 = box2
 
     try:
@@ -153,3 +153,20 @@ def make_gif(patch_seq, save_path, duration=200):
     
     frames = [p.convert("RGB") if not isinstance(p, Image.Image) else p for p in patch_seq]
     imageio.mimsave(save_path, frames, format="GIF", duration=duration / 1000.0)
+
+class SwiGLU(nn.Module):
+    def __init__(
+        self,
+        in_features,
+        hidden_features=None,
+        bias=True
+    ):
+        super().__init__()
+        hidden_features = hidden_features or in_features
+        self.w12 = nn.Linear(in_features, 2 * hidden_features, bias=bias)
+
+    def forward(self, x):
+        x12 = self.w12(x)
+        x1, x2 = x12.chunk(2, dim=-1)
+        hidden = F.silu(x1) * x2
+        return hidden

@@ -1,5 +1,6 @@
 import torch
 import torch.nn as nn
+from ..env.utils import SwiGLU
 
 class Actor(nn.Module):
     """
@@ -16,9 +17,13 @@ class Actor(nn.Module):
 
         self.net = nn.Sequential(
             nn.Linear(state_dim, 256),
-            nn.ReLU(),
+            nn.BatchNorm1d(256),
+            # nn.ReLU(),
+            SwiGLU(256),
             nn.Linear(256, 256),
-            nn.ReLU(),
+            nn.BatchNorm1d(256),
+            # nn.ReLU(),
+            SwiGLU(256),
         )
 
         self.shift_head = nn.Linear(256, 2)   #predict dx, dy 
