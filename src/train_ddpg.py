@@ -110,6 +110,7 @@ dataloader = DataLoader(dataset, batch_size=batch_size,
 # -----------------------
 # Training Loop
 # -----------------------
+best_reward = -float('inf')
 os.makedirs("checkpoints", exist_ok=True)
 for epoch in range(epochs):
     print(f"[Epoch {epoch+1}/{epochs}]")
