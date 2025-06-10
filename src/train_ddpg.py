@@ -38,7 +38,7 @@ if "best" in model_path:
     state_dim = 4 + 1 + 195  # box(4) + confidence(1) + YOLO(195)
 else:
     state_dim = 4 + 1 + 432  # box(4) + confidence(1) + YOLO(195)
-action_dim = 4          # dx, dy, dscale, p_term
+action_dim = 5          # dx, dy, dscale, p_term
 agent_cfg = cfg['agent']
 actor_lr = agent_cfg["actor_lr"]
 critic_lr = agent_cfg["critic_lr"]
@@ -119,7 +119,14 @@ for epoch in range(epochs):
     noise_std = max(0.01, noise_std)
     
     for img, gt_boxes, coarse_boxes in tqdm(dataloader):
-        for box in coarse_boxes:
+        env = BoxRefinementEnv(
+            image=img,
+            gt_boxes=gt_boxes,
+            initial_boxes=coarse_boxes,
+            feature_extractor=feature_extractor,
+            iou_fn=compute_iou
+        )
+        for idx, box in enumerate(coarse_boxes):
             img_w, img_h = img.size
             image_array = np.array([img_w, img_h, img_w, img_h], dtype=np.float32)
             # gt_boxes = np.array([
@@ -128,18 +135,18 @@ for epoch in range(epochs):
             gt_boxes_cp = gt_boxes.copy()
             gt_boxes_cp *= image_array
             box = np.asarray(box, dtype=np.float32).reshape(5,)
-            # if box[-1] < 0.9: # Skip if confidence is high
+            # if box[-1] > 0.5: # Skip if confidence is high
             #     continue
 
-            env = BoxRefinementEnv(
-                image=img,
-                gt_boxes=gt_boxes_cp,
-                initial_box=box,
-                feature_extractor=feature_extractor,
-                iou_fn=compute_iou
-            )
+            # env = BoxRefinementEnv(
+            #     image=img,
+            #     gt_boxes=gt_boxes_cp,
+            #     initial_box=box,
+            #     feature_extractor=feature_extractor,
+            #     iou_fn=compute_iou
+            # )
 
-            state = env.reset()
+            state = env.reset(idx)
             total_reward = 0
 
             for _ in range(steps_per_episode):
@@ -174,7 +181,7 @@ for epoch in range(epochs):
 
     # Save model
     if save_best_only:
-        if avg_reward > best_reward:
+        if avg_reward > best_reward and epoch > 0:
             best_reward = avg_reward
             agent.save(os.path.join(checkpoint_dir, "ddpg_best.pt"))
             print(f"[Epoch {epoch+1}] Best model saved with reward {best_reward:.4f}")

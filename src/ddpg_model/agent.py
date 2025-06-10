@@ -7,7 +7,7 @@ from .replay_buffer import ReplayBuffer
 
 class DDPGAgent:
     def __init__(self, state_dim, action_dim,
-        device = "cpu", actor_lr: float = 1e-6,
+        device = "cpu", weights = None, actor_lr: float = 1e-6,
         critic_lr: float = 1e-4, gamma: float = 0.99, tau: float = 0.01):
 
         """
@@ -28,6 +28,14 @@ class DDPGAgent:
 
         # Define Actor & Critic
         self.actor = Actor(state_dim).to(device)
+
+        if weights is not None:
+            weight = torch.load(weights, map_location=device)
+            self.actor.load_state_dict(weight['actor'])
+            self.actor.eval()
+            # Remove weight
+            del weight
+
         self.actor_target = Actor(state_dim).to(device)
         self.actor_target.load_state_dict(self.actor.state_dict())
 
