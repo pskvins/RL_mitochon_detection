@@ -8,7 +8,7 @@ from torchvision.models import mobilenet_v2
 from ultralytics import YOLO
 import torch.nn.functional as F
 
-def compute_iou(box1: np.ndarray, box2: np.ndarray) -> float:
+def compute_iou(box1: np.ndarray, box2: np.ndarray, return_area: bool = False) -> float:
     """
     Compute IoU between two boxes in [x, y, w, h] format.
     """
@@ -35,12 +35,18 @@ def compute_iou(box1: np.ndarray, box2: np.ndarray) -> float:
         union_area = area1 + area2 - inter_area
 
         iou = inter_area / union_area
-        if not np.isfinite(iou):
+        if not np.isfinite(iou) or np.isnan(iou) or np.isinf(iou):
+            if return_area:
+                return 0.0, 0.0, area1, area2
             return 0.0
+        if return_area:
+            return iou, inter_area, area1, area2
         return iou
     
     except Exception as e:
         print(f"[compute_iou] Exception: {e}")
+        if return_area:
+            return 0.0, 0.0, 0.0, 0.0
         return 0.0
 
 

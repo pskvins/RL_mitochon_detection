@@ -63,7 +63,7 @@ device = "cuda" if torch.cuda.is_available() else "cpu"
 save_cfg = cfg["save"]
 save_interval = save_cfg['save_interval']
 checkpoint_dir = save_cfg["checkpoint_dir"]
-save_best_only = save_cfg.get("save_best_only", False)
+save_best_only = save_cfg.get("save_best_only", True)
 
 #save logs
 log_cfg = cfg["log"]
@@ -120,16 +120,19 @@ for epoch in range(epochs):
     for img, gt_boxes, coarse_boxes in tqdm(dataloader):
         for box in coarse_boxes:
             img_w, img_h = img.size
-            gt_boxes = np.array([
-                        [x * img_w, y * img_h, w * img_w, h * img_h]
-                        for x, y, w, h in gt_boxes], dtype=np.float32) #rescale
+            image_array = np.array([img_w, img_h, img_w, img_h], dtype=np.float32)
+            # gt_boxes = np.array([
+            #             [x * img_w, y * img_h, w * img_w, h * img_h]
+            #             for x, y, w, h in gt_boxes], dtype=np.float32) #rescale
+            gt_boxes_cp = gt_boxes.copy()
+            gt_boxes_cp *= image_array
             box = np.asarray(box, dtype=np.float32).reshape(5,)
-            if box[-1] > 0.7: # Skip if confidence is high
-                continue
+            # if box[-1] < 0.9: # Skip if confidence is high
+            #     continue
 
             env = BoxRefinementEnv(
                 image=img,
-                gt_boxes=gt_boxes,
+                gt_boxes=gt_boxes_cp,
                 initial_box=box,
                 feature_extractor=feature_extractor,
                 iou_fn=compute_iou
