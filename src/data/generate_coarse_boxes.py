@@ -29,6 +29,8 @@ def generate_coarse_boxes(
         else:
             boxes = det.boxes.xywh.cpu().numpy()
             scores = det.boxes.conf.cpu().numpy()
+            # Concat boxes and scores
+            boxes = np.concatenate([boxes, scores[:, np.newaxis]], axis=1)
             keep = scores >= conf_threshold
             boxes = boxes[keep].astype(np.float32)
 

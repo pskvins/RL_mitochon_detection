@@ -79,6 +79,7 @@ class YOLOv8FeatureExtractor:
         self.detect_module = None
         self.captured_features_list = []
 
+        # Find the Detect layer
         for module in self.model.model.model:
             if module.__class__.__name__ == 'Detect':
                 self.detect_module = module
@@ -89,49 +90,52 @@ class YOLOv8FeatureExtractor:
 
         def hook_fn_capture(module, input_tuple, output_tuple):
             if input_tuple and isinstance(input_tuple[0], list):
+                # Store all feature maps from different scales
                 current_features = [f.detach().clone().cpu() for f in input_tuple[0]]
-                
                 self.captured_features_list.clear()
                 self.captured_features_list.append(current_features)
-            # The hook should not return any value that alters the normal flow
-            # unless that's the specific intention (e.g., modifying the output).
 
         self.hook_handle = self.detect_module.register_forward_hook(hook_fn_capture)
 
         self.transform = T.Compose([
-            T.Resize((64, 64)),
+            T.Resize((640, 640)),  # YOLOv8 default input size
             T.ToTensor(),
         ])
     
     def __call__(self, img: Image.Image) -> np.ndarray:
         with torch.no_grad():
+            # Preprocess image to YOLOv8's expected input size
             x = self.transform(img).unsqueeze(0).to(self.device)
-
-            _ = self.model.predict(x, verbose=False) 
+            
+            # Run prediction to trigger the hook
+            _ = self.model.predict(x, verbose=False)
 
             if not self.captured_features_list or not self.captured_features_list[0]:
                 print("[YOLOv8FeatureExtractor] WARNING: No features were captured by the hook.")
                 return np.array([])
 
-            feature_maps_from_hook = self.captured_features_list[0]
-
-            averaged_features = []
-            for fm in feature_maps_from_hook:
-                if fm.ndim == 4 and fm.shape[0] == 1:
-                    avg_fm = torch.mean(fm, dim=[-2, -1])
-                    averaged_features.append(avg_fm)
-                else:
-                    print(f"[YOLOv8FeatureExtractor] WARNING: Unexpected feature map shape: {fm.shape}. Skipping this map.")
+            # Get all feature maps from different scales
+            feature_maps = self.captured_features_list[0]
             
-            if not averaged_features:
-                 print("[YOLOv8FeatureExtractor] WARNING: No valid feature maps to average after processing.")
-                 return np.array([])
-
-            concatenated_features = torch.cat(averaged_features, dim=1)
-
-            final_feature_vector = concatenated_features.squeeze(0).cpu().numpy()
+            # Process each feature map
+            processed_features = []
+            for fm in feature_maps:
+                if fm.ndim == 4:  # [1, C, H, W]
+                    # Global average pooling
+                    avg_pool = torch.mean(fm, dim=[-2, -1])  # [1, C]
+                    processed_features.append(avg_pool)
             
-            return final_feature_vector
+            if not processed_features:
+                print("[YOLOv8FeatureExtractor] WARNING: No valid feature maps to process.")
+                return np.array([])
+
+            # Concatenate features from all scales
+            concatenated = torch.cat(processed_features, dim=1)  # [1, sum(C)]
+            
+            # Remove batch dimension and convert to numpy
+            final_features = concatenated.squeeze(0).cpu().numpy()
+            
+            return final_features
 
     def __del__(self):
         if hasattr(self, 'hook_handle') and self.hook_handle:

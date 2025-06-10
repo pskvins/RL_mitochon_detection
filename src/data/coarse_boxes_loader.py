@@ -34,7 +34,7 @@ class CoarseBoxesDataset(Dataset):
     def __getitem__(self, idx):
         img = Image.open(self.image_paths[idx]).convert("RGB")
         gt_boxes = self._load_groundtruth(self.label_paths[idx])  # [N, 4]
-        coarse_boxes = np.load(self.coarse_paths[idx])            # [M, 4]
+        coarse_boxes = np.load(self.coarse_paths[idx])            # [M, 5]
 
         return img, gt_boxes, coarse_boxes
 
