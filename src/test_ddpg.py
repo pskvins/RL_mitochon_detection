@@ -10,7 +10,7 @@ from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay, precision_
 from sklearn.metrics import precision_score, recall_score, f1_score
 
 from src.ddpg_model.agent import DDPGAgent
-from src.env.utils import compute_iou, ResNet18FeatureExtractor
+from src.env.utils import compute_iou, YOLOv8FeatureExtractor
 from src.env.box_env import BoxRefinementEnv
 from src.data.coarse_boxes_loader import CoarseBoxesDataset
 from src.data.generate_coarse_boxes import generate_coarse_boxes
@@ -33,23 +33,22 @@ image_dir = path_cfg["image_dir"]
 label_dir = path_cfg["label_dir"]
 coarse_dir = path_cfg["coarse_dir"]
 yolo_path = path_cfg["yolo_path"]
-pt_path = path_cfg['pt_path']
+ddpg_path = path_cfg['ddpg_path']
 
 #agent
 agent_cfg = cfg["agent"]
 state_dim = agent_cfg["state_dim"]
 action_dim = agent_cfg["action_dim"]
-max_step = agent_cfg['max_step']
+max_step = 10
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-agent = DDPGAgent(state_dim, action_dim, device)
-agent.load(pt_path)
-feature_extractor = ResNet18FeatureExtractor(device=device)
+agent = DDPGAgent(state_dim, action_dim, device, weights=ddpg_path)
+feature_extractor = YOLOv8FeatureExtractor(model_path=yolo_path, device=device)
 
 #save
 save_cfg = cfg['save']
 save_path = save_cfg['save_path']
-save_figs = save_cfg["save_figs"]
+save_figs = True
 
 
 
@@ -122,91 +121,99 @@ with torch.no_grad():
     for i in tqdm(range(len(dataset))):
         img, gt_boxes, coarse_boxes = dataset[i]
         img_w, img_h = img.size
+        image_array = np.array([img_w, img_h, img_w, img_h], dtype=np.float32)
 
+        gt_boxes_cp = gt_boxes.copy()
         if np.max(gt_boxes) <= 1.0:
-            gt_boxes = np.array([
-                [x * img_w, y * img_h, w * img_w, h * img_h]
-                for x, y, w, h in gt_boxes
-            ], dtype=np.float32)
+            gt_boxes_cp *= image_array
 
         refined_boxes = []
 
-        for box in coarse_boxes:
-            box = np.asarray(box, dtype=np.float32).reshape(4,)
-            env = BoxRefinementEnv(
-                image=img,
-                gt_boxes=gt_boxes,
-                initial_box=box,
-                feature_extractor=feature_extractor,
-                iou_fn=lambda a, b: 0.0 #dummy reward function
-            )
-            state = env.reset()
-            for _ in range(max_step):
-                state_tensor = torch.FloatTensor(state).unsqueeze(0).to(device)
-                action = agent.select_action(state_tensor, noise_std=0.0)
-                action_np = action.squeeze(0).cpu().numpy()
-                next_state, _, done, _ = env.step(action_np)
-                state = next_state
-                if done:
-                    break
+        env = BoxRefinementEnv(
+            image=img,
+            gt_boxes=gt_boxes_cp,
+            initial_boxes=coarse_boxes,
+            feature_extractor=feature_extractor,
+            iou_fn=lambda a, b: 0.0 #dummy reward function
+        )
+
+        for idx, box in enumerate(coarse_boxes):
+            # box = np.asarray(box, dtype=np.float32).reshape(5,)
+            # env = BoxRefinementEnv(
+            #     image=img,
+            #     gt_boxes=gt_boxes_cp,
+            #     initial_box=box,
+            #     feature_extractor=feature_extractor,
+            #     iou_fn=lambda a, b: 0.0 #dummy reward function
+            # )
+            state = env.reset(idx)
+            if ("thre" in args.config and box[-1] >= 0.9) or "thre" not in args.config:
+                for _ in range(max_step):
+                    state_tensor = torch.FloatTensor(state).unsqueeze(0).to(device)
+                    action = agent.select_action(state_tensor, noise_std=0.0)
+                    action_np = action.squeeze(0).cpu().numpy()
+                    next_state, _, done, _ = env.step(action_np)
+                    state = next_state
+                    if done:
+                        break
             refined_boxes.append(env.cur_box.copy())
 
-
-        precision, recall, f1, ap_50, preds, gts, scores = compute_metrics(refined_boxes, gt_boxes)
-        metrics_list.append((precision, recall, f1, ap_50))
-        all_preds_total.extend(preds)
-        all_gts_total.extend(gts)
-        all_scores_total.extend(scores)
+        # Save refined boxes
+        np.save(os.path.join(save_path, dataset.image_paths[i].split("/")[-1].split(".jpg")[0] + ".npy"), np.array(refined_boxes))
 
         if save_figs:
             vis_img = img.copy()
             draw = ImageDraw.Draw(vis_img)
             for box in coarse_boxes:
-                x, y, w, h = box
+                x, y, w, h, _ = box
                 draw.rectangle([x-w/2, y-h/2, x+w/2, y+h/2], outline="blue", width=2)
             for box in refined_boxes:
-                x, y, w, h = box
+                x, y, w, h, _ = box
                 draw.rectangle([x-w/2, y-h/2, x+w/2, y+h/2], outline="red", width=2)
             for box in gt_boxes:
                 x, y, w, h = box
+                x *= img_w
+                y *= img_h
+                w *= img_w
+                h *= img_h
                 draw.rectangle([x-w/2, y-h/2, x+w/2, y+h/2], outline="green", width=2)
 
-            vis_img.save(os.path.join(save_path, f"/figs/refined_{i}.png"))
+            vis_img.save(os.path.join(save_path, "figs", dataset.image_paths[i].split("/")[-1].split(".jpg")[0] + ".png"))
 
-metrics_np = np.array(metrics_list)
-avg_precision = np.mean(metrics_np[:, 0])
-avg_recall = np.mean(metrics_np[:, 1])
-avg_f1 = np.mean(metrics_np[:, 2])
-avg_ap50 = np.mean(metrics_np[:, 3])
+# metrics_np = np.array(metrics_list)
+# avg_precision = np.mean(metrics_np[:, 0])
+# avg_recall = np.mean(metrics_np[:, 1])
+# avg_f1 = np.mean(metrics_np[:, 2])
+# avg_ap50 = np.mean(metrics_np[:, 3])
 
-ap_full = average_precision_score(all_gts_total, all_scores_total)
-prec_curve, recall_curve, _ = precision_recall_curve(all_gts_total, all_scores_total)
+# ap_full = average_precision_score(all_gts_total, all_scores_total)
+# prec_curve, recall_curve, _ = precision_recall_curve(all_gts_total, all_scores_total)
 
-with open(os.path.join(save_path, "metrics.txt"), "w") as f:
-    f.write(f"Precision: {avg_precision:.4f}\n")
-    f.write(f"Recall: {avg_recall:.4f}\n")
-    f.write(f"F1 Score: {avg_f1:.4f}\n")
-    f.write(f"AP@0.5: {avg_ap50:.4f}\n")
-    f.write(f"AP (avg precision full): {ap_full:.4f}\n")
+# with open(os.path.join(save_path, "metrics.txt"), "w") as f:
+#     f.write(f"Precision: {avg_precision:.4f}\n")
+#     f.write(f"Recall: {avg_recall:.4f}\n")
+#     f.write(f"F1 Score: {avg_f1:.4f}\n")
+#     f.write(f"AP@0.5: {avg_ap50:.4f}\n")
+#     f.write(f"AP (avg precision full): {ap_full:.4f}\n")
 
-# Confusion Matrix
-cm = confusion_matrix(all_gts_total, all_preds_total, labels=[1, 0])
-disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=["Positive (GT)", "Negative"])
-disp.plot(cmap='Blues', values_format='d')
-plt.title("Confusion Matrix")
-plt.savefig(os.path.join(save_path, "confusion_matrix.png"))
-plt.close()
+# # Confusion Matrix
+# cm = confusion_matrix(all_gts_total, all_preds_total, labels=[1, 0])
+# disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=["Positive (GT)", "Negative"])
+# disp.plot(cmap='Blues', values_format='d')
+# plt.title("Confusion Matrix")
+# plt.savefig(os.path.join(save_path, "confusion_matrix.png"))
+# plt.close()
 
-# PR Curve
-plt.figure()
-plt.plot(recall_curve, prec_curve, label=f"AP={ap_full:.4f}")
-plt.xlabel("Recall")
-plt.ylabel("Precision")
-plt.title("Precision-Recall Curve")
-plt.legend()
-plt.grid()
-plt.savefig(os.path.join(save_path, "pr_curve.png"))
-plt.close()
+# # PR Curve
+# plt.figure()
+# plt.plot(recall_curve, prec_curve, label=f"AP={ap_full:.4f}")
+# plt.xlabel("Recall")
+# plt.ylabel("Precision")
+# plt.title("Precision-Recall Curve")
+# plt.legend()
+# plt.grid()
+# plt.savefig(os.path.join(save_path, "pr_curve.png"))
+# plt.close()
 
-print(f"Test result saved at:{save_path}")
+# print(f"Test result saved at:{save_path}")
 

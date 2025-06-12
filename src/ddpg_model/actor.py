@@ -1,5 +1,6 @@
 import torch
 import torch.nn as nn
+from ..env.utils import SwiGLU
 
 class Actor(nn.Module):
     """
@@ -16,14 +17,19 @@ class Actor(nn.Module):
 
         self.net = nn.Sequential(
             nn.Linear(state_dim, 256),
-            nn.ReLU(),
+            nn.BatchNorm1d(256),
+            # nn.ReLU(),
+            SwiGLU(256),
             nn.Linear(256, 256),
-            nn.ReLU(),
+            nn.BatchNorm1d(256),
+            # nn.ReLU(),
+            SwiGLU(256),
         )
 
         self.shift_head = nn.Linear(256, 2)   #predict dx, dy 
-        self.scale_head = nn.Linear(256, 1)  #predict scale change 
+        self.scale_head = nn.Linear(256, 2)  #predict scale change 
         self.term_head = nn.Linear(256, 1)   #predict termination probability
+        # self.delete_head = nn.Linear(256, 1)   #predict termination probability
 
         self.max_shift = max_shift
         self.max_scale = max_scale
@@ -49,6 +55,7 @@ class Actor(nn.Module):
 
         #sigmoid for clipping the nn output to [0,1]
         p_term = torch.sigmoid(self.term_head(x)) 
+        # delete = torch.sigmoid(self.delete_head(x))
 
         action = torch.cat([shift, scale, p_term], dim=1)  # shape: [B, 4]
         return action 

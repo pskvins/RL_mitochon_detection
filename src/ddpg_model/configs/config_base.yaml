@@ -2,8 +2,8 @@
 paths:
   image_dir: datasets/train/images
   label_dir: datasets/train/labels
-  coarse_dir: datasets/train/coarse_boxes_yolo
-  model_path: runs/train/finetune_exp1/weights/best.pt #path to finetuned weight of YOLO
+  coarse_dir: datasets/train/coarse_boxes_yolo_base
+  model_path: yolov8n.pt #path to finetuned weight of YOLO
 
 #agent
 agent:
@@ -16,7 +16,7 @@ agent:
 # training loop
 train:
   epochs: 100
-  steps_per_episode: 10
+  steps_per_episode: 5
   batch_size: 64
   replay_start: 500
   noise_std: 0.1
@@ -24,12 +24,12 @@ train:
 
 #save results
 save:
-  checkpoint_dir: ddpg_runs/ddpg_exp2/weights
+  checkpoint_dir: ddpg_runs/ddpg_base/weights
   save_interval: 5  # Save weights every N epochs
-  save_best_only: true
+  save_best_only: true 
 
 #save log
 log:
   use_tensorboard: true
-  log_dir: ddpg_runs/ddpg_exp2/logs
+  log_dir: ddpg_runs/ddpg_base/logs
   log_interval: 5  # Save logs every N epochs
