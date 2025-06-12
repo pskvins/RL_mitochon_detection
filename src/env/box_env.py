@@ -54,71 +54,21 @@ class BoxRefinementEnv:
         return self._get_state()
 
     def step(self, action: np.ndarray) -> Tuple[np.ndarray, float, bool, dict]:
-        dlx, dly, drx, dry, p_term = action
-        # delete = action[0]
+        dx, dy, dscale, dscale_y, p_term = action
 
-        # # Original iou
-        # best_gt = max(self.gt_boxes, key=lambda gt: self.iou_fn(self.cur_box, gt))
-        # original_iou = self.iou_fn(self.cur_box, best_gt)
+        # Apply shift
+        self.cur_box[0] += dx
+        self.cur_box[1] += dy
 
-        # # Apply shift
-        # self.cur_box[0] += dx
-        # self.cur_box[1] += dy
-
-        # # Apply scale
-        # scale = max(1.0 + dscale, 0.1)  # prevent collapse
-        # self.cur_box[2] *= scale
-        # self.cur_box[3] *= scale
-
-        # Shift
-        x, y, w, h, conf = self.cur_box
-        xl = x - w/2
-        xr = x + w/2
-        yl = y - h/2
-        yr = y + h/2
-        xl += dlx
-        yl += dly
-        xr += drx
-        yr += dry
-        if xr < xl:
-            # Swap xl and xr
-            xl, xr = xr, xl
-        if yr < yl:
-            # Swap yl and yr
-            yl, yr = yr, yl
-        xl = max(0, xl)
-        yl = max(0, yl)
-        xr = min(self.image.width, xr)
-        yr = min(self.image.height, yr)
-        x = (xl + xr) / 2
-        y = (yl + yr) / 2
-        w = xr - xl
-        h = yr - yl
-        self.cur_box = np.array([x, y, w, h, conf], dtype=np.float32)
-
-        # if delete > 0.5:
-        #     self.cur_box = np.array([0, 0, 0, 0], dtype=np.float32)
-        #     return self._get_state(), 0, True, {}
-
-        # Compute f1 score with gt boxes
-        self.pred_area[:, :] = False
-        for idx, pred in enumerate(self.initial_boxes):
-            if idx == self.idx:
-                pred_cp = self.cur_box.copy()
-            else:
-                pred_cp = pred.copy()
-            x_tmp, y_tmp, w_tmp, h_tmp, _ = pred_cp
-            x0 = int(x_tmp - w_tmp/2)
-            y0 = int(y_tmp - h_tmp/2)
-            x1 = int(x_tmp + w_tmp/2)
-            y1 = int(y_tmp + h_tmp/2)
-            self.pred_area[y0:y1, x0:x1] = True
-        # Compute IoU
-        iou = np.sum(self.pred_area & self.gt_area) / (np.sum(self.pred_area) + np.sum(self.gt_area) - np.sum(self.pred_area & self.gt_area))
-        reward = 1 + iou
+        # Apply scale
+        scale = max(1.0 + dscale, 0.1)  # prevent collapse
+        scale_y = max(1.0 + dscale_y, 0.1)
+        self.cur_box[2] *= scale
+        self.cur_box[3] *= scale_y
                 
-        # best_gt = max(self.gt_boxes, key=lambda gt: self.iou_fn(self.cur_box, gt))
-        # iou = self.iou_fn(self.cur_box, best_gt)
+        best_gt = max(self.gt_boxes, key=lambda gt: self.iou_fn(self.cur_box, gt))
+        iou = self.iou_fn(self.cur_box, best_gt)
+        reward = iou - 0.5
 
         # Done condition
         self.step_count += 1

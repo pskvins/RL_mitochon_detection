@@ -172,7 +172,7 @@ for epoch in range(epochs):
     print(f"[Epoch {epoch+1}] Avg Reward per box: {avg_reward:.4f}")
         
     # TensorBoard logging
-    if writer and (epoch + 1) % log_cfg["log_interval"] == 0:
+    if writer and epoch % log_cfg["log_interval"] == 0:
         writer.add_scalar("Reward/Avg", avg_reward, epoch + 1)
         if 'actor_loss' in locals():
             writer.add_scalar("Loss/Actor", actor_loss, epoch + 1)

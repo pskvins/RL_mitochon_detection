@@ -26,9 +26,10 @@ class Actor(nn.Module):
             SwiGLU(256),
         )
 
-        self.shift_head = nn.Linear(256, 4)   #predict dx, dy 
-        # self.scale_head = nn.Linear(256, 1)  #predict scale change 
+        self.shift_head = nn.Linear(256, 2)   #predict dx, dy 
+        self.scale_head = nn.Linear(256, 2)  #predict scale change 
         self.term_head = nn.Linear(256, 1)   #predict termination probability
+        # self.delete_head = nn.Linear(256, 1)   #predict termination probability
 
         self.max_shift = max_shift
         self.max_scale = max_scale
@@ -50,10 +51,11 @@ class Actor(nn.Module):
         #tanh for clipping each neural net output to [-1,1]
         #then rescale to each range
         shift = torch.tanh(self.shift_head(x)) * self.max_shift       # [-max_shift, max_shift]
-        # scale = torch.tanh(self.scale_head(x)) * self.max_scale     # [-max_scale, max_scale]
+        scale = torch.tanh(self.scale_head(x)) * self.max_scale     # [-max_scale, max_scale]
 
         #sigmoid for clipping the nn output to [0,1]
         p_term = torch.sigmoid(self.term_head(x)) 
+        # delete = torch.sigmoid(self.delete_head(x))
 
-        action = torch.cat([shift, p_term], dim=1)  # shape: [B, 4]
+        action = torch.cat([shift, scale, p_term], dim=1)  # shape: [B, 4]
         return action 

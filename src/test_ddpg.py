@@ -170,8 +170,12 @@ with torch.no_grad():
             for box in refined_boxes:
                 x, y, w, h, _ = box
                 draw.rectangle([x-w/2, y-h/2, x+w/2, y+h/2], outline="red", width=2)
-            for box in gt_boxes_cp:
+            for box in gt_boxes:
                 x, y, w, h = box
+                x *= img_w
+                y *= img_h
+                w *= img_w
+                h *= img_h
                 draw.rectangle([x-w/2, y-h/2, x+w/2, y+h/2], outline="green", width=2)
 
             vis_img.save(os.path.join(save_path, "figs", dataset.image_paths[i].split("/")[-1].split(".jpg")[0] + ".png"))
